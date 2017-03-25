@@ -18,6 +18,7 @@ module.exports = {
         "class-methods-use-this": 0,
         "import/prefer-default-export": 0,
         "react/prop-types": 1,
+        "arrow-body-style": 0,
     },
     "plugins": [
       "react"

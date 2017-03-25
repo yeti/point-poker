@@ -1,10 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
 /* Coolors Exported Palette - coolors.co/ebe9e9-f3f8f2-3581b8-fcb07e-dee2d6 */
-/* HSL */
 /* RGB */
-@import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
   background-color: #3581b8;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Baloo Bhaina', cursive; }
 
 .Tiles {
   display: -ms-flexbox;
@@ -13,9 +12,30 @@ body {
   flex-wrap: wrap;
   width: 100%; }
   .Tiles__item {
+    font-size: 2rem;
     margin: 2rem;
-    background: #fcb07e;
-    padding: 2rem;
-    border-radius: 0.5rem; }
+    background: #3581b8;
+    color: #fcb07e;
+    border: 0.2rem solid #fcb07e;
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    transition: all 0.1s ease-in; }
     .Tiles__item--active {
-      background: #dee2d6; }
+      background: #fcb07e;
+      color: #3581b8;
+      border: 0.2rem solid #fcb07e;
+      box-shadow: 0 0 0.5em #fcb07e; }
+    .Tiles__item__value {
+      padding-top: 0.5rem;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }

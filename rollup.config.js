@@ -42,7 +42,14 @@ const plugins = [
       preferBuiltins: false  // Default: true
 
     }),
-  commonjs({ include: 'node_modules/**' }),
+  commonjs({
+    include: 'node_modules/**',
+    namedExports: {
+      'node_modules/react/react.js': ['Component', 'Children', 'createElement', 'PropTypes'],
+      'node_modules/react-dom/index.js': ['render'],
+      'node_modules/react-router/es/index.js': ['hashHistory'],
+    },
+  }),
   eslint(),
   buble(),
   replace({

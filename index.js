@@ -8,32 +8,41 @@ var port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/home.html');
-});
+const sendPage = (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+};
 
-app.get('/:id', (req, res) => {
-  console.dir(`=== ${req.params.id} ===`);
+const log = (room, user, msg) => {
+  console.dir(`${user}(${room}): ${msg}`);
+}
 
-  let roomId = req.params.id;
+const defaultRoute = (req, res) => {
+  let room = req.params.room;
+  let user = req.params.user;
 
-  let nsp = io.of(`/${roomId}`);
-  nsp.on('connection', function(socket){
-    console.log('someone connected');
+  let namespace = io.of(`/${room}`);
 
-    socket.on('chat message', function(msg){
-      console.log(`message: ${msg}`);
-      nsp.emit('chat message', msg);
+  namespace.on('connection', (socket) => {
+    log(room, user, 'Connected');
+
+    socket.on('cast vote', (vote) => {
+      namespace.emit('cast vote', vote);
+      console.dir(vote)
+      log(room, user, `${vote.user} voted ${vote.value}`);
     });
 
-    socket.on('disconnect', function(msg){
-      console.log('disconnecting mang')
+    socket.on('disconnect', () => {
+      log(room, user, 'Disconnected');
     });
 
   });
 
-  res.sendFile(__dirname + '/public/index.html');
-});
+  sendPage(req, res);
+};
+
+app.get('/', sendPage);
+app.get('/:room/', sendPage);
+app.get('/:room/:user', defaultRoute);
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

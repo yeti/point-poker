@@ -6,7 +6,9 @@ const Tile = ({ value, onClick, isCurrent }) => (
     className={`Tiles__item ${isCurrent ? 'Tiles__item--active' : ''}`}
     onClick={onClick}
   >
-    {value}
+    <span className={'Tiles__item__value'}>
+      {value}
+    </span>
   </div>
 );
 

@@ -9,27 +9,27 @@ export default class Tiles extends React.Component {
     super(props);
 
     this.state = {
-      tiles: [0.5, 1, 2, 3, 5, 8],
-      current: null,
+      tiles: ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '?'],
+      vote: null,
     };
   }
 
-  onClick(tile) {
-    let current;
+  onClick(value) {
+    let vote;
 
-    if (tile === this.state.current) {
-      current = null;
+    if (value === this.state.vote) {
+      vote = null;
     } else {
-      current = tile;
+      vote = value;
     }
 
     this.setState({
-      current,
+      vote,
     });
 
-    this.props.socket.emit('chat message', {
-      userName: this.props.userName,
-      current,
+    this.props.socket.emit('cast vote', {
+      user: this.props.userName,
+      value: vote,
     });
   }
 
@@ -41,7 +41,7 @@ export default class Tiles extends React.Component {
             <Tile
               value={ tile }
               onClick={() => { this.onClick(tile); } }
-              isCurrent={tile === this.state.current}
+              isCurrent={tile === this.state.vote}
             />
           ))
         }
