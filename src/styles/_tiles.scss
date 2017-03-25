@@ -1,0 +1,16 @@
+.Tiles {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &__item {
+    margin: 2rem;
+    background: $color4;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+    &--active {
+      background: $color5;
+    }
+  }
+}

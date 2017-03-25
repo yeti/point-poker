@@ -1,0 +1,21 @@
+/* Coolors Exported Palette - coolors.co/ebe9e9-f3f8f2-3581b8-fcb07e-dee2d6 */
+/* HSL */
+/* RGB */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
+  background-color: #3581b8;
+  font-family: 'Roboto', sans-serif; }
+
+.Tiles {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%; }
+  .Tiles__item {
+    margin: 2rem;
+    background: #fcb07e;
+    padding: 2rem;
+    border-radius: 0.5rem; }
+    .Tiles__item--active {
+      background: #dee2d6; }
