@@ -1,12 +1,21 @@
 import React from 'react';
 import _ from 'lodash';
 
-const Votes = ({ votes }) => {
+const Votes = ({ votes, isRevealed }) => {
   return (
-    <div>
-      {_.map(_.keys(votes), key => (
-        <div>
-          {`${key && key !== '' ? key : 'anonymous'}: ${votes[key]}`}
+    <div className="Votes">
+      {_.map(votes, voter => (
+        <div className={`Votes__voter ${_.get(voter, 'vote') ? 'Votes__voter--ready' : 'Votes__voter--not-ready'}`}>
+          <div className={'Votes__voter__content'}>
+            <div className={'Votes__voter__content__name'}>
+              {_.get(voter, 'user')}
+            </div>
+            {isRevealed &&
+              <div className={'Votes__voter__content__vote'}>
+                {_.get(voter, 'vote')}
+              </div>
+            }
+          </div>
         </div>
       ))}
     </div>

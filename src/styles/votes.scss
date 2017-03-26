@@ -1,0 +1,37 @@
+.Votes {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &__voter {
+    font-size: 2rem;
+    margin: 2rem;
+    background: $voter-bg-color;
+    color: $voter-text-color;
+    border: 0.2rem solid $voter-border-color;
+    border-radius: 0.5rem;
+    width: $voter-width;
+    height: $voter-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all $voter-transition-duration ease-in;
+
+    &--ready {
+      background: $voter-active-bg-color;
+      color: $voter-active-text-color;
+      border: 0.2rem solid $voter-active-border-color;
+      box-shadow: 0 0 0.5em $voter-active-shadow-color;
+    }
+
+    &--not-ready {
+
+    }
+
+    &__content {
+      user-select: none;
+      text-align: center;
+    }
+  }
+}

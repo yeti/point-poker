@@ -10,3 +10,16 @@ $tile-active-bg-color: $color-text;
 $tile-active-shadow-color: $color-text;
 $tile-active-border-color: $color-text;
 $tile-active-text-color: $color-bg;
+
+$voter-width: 10rem;
+$voter-height: $voter-width;
+
+$voter-transition-duration: 0.1s;
+$voter-bg-color: $color-bg;
+$voter-text-color: $color2;
+$voter-border-color: $color2;
+
+$voter-active-bg-color: $color2;
+$voter-active-shadow-color: $color2;
+$voter-active-border-color: $color2;
+$voter-active-text-color: $color-bg;

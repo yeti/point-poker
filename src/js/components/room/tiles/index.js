@@ -27,10 +27,7 @@ export default class Tiles extends React.Component {
       vote,
     });
 
-    this.props.socket.emit('cast vote', {
-      user: this.props.userName,
-      value: vote,
-    });
+    this.props.socket.emit('cast vote', vote);
   }
 
   render() {

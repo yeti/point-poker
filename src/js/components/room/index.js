@@ -17,7 +17,21 @@ export default class Room extends React.Component {
     this.state = {
       value: '',
       votes: {},
+      connected: false,
+      disconnected: false,
     };
+
+    this.socket.on('connect', () => {
+      this.setState({
+        connected: true,
+      });
+    });
+
+    this.socket.on('disconnect', () => {
+      this.setState({
+        disconnected: true,
+      });
+    });
 
     this.socket.on('update', (data) => {
       console.dir(data);
@@ -61,6 +75,7 @@ export default class Room extends React.Component {
           />
           <Votes
             votes={this.state.votes}
+            isRevealed={false}
           />
         </div>
       </div>
