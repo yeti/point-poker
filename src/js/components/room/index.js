@@ -19,19 +19,11 @@ export default class Room extends React.Component {
       votes: {},
     };
 
-    this.socket.on('cast vote', (vote) => {
-      console.dir(vote);
-      const votes = this.state.votes;
-
-      const user = vote.user;
-      const value = vote.value;
-      console.dir('``````');
-      console.dir(vote);
-
-      votes[user] = value;
+    this.socket.on('update', (data) => {
+      console.dir(data);
 
       this.setState({
-        votes,
+        votes: data,
       });
     });
   }
