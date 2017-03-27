@@ -27,19 +27,21 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="Auth">
-        <label>{'Username'}</label>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={(e) => { this.handleNameChange(e); } }
-        />
-        {this.hasValidName() &&
-          <a
-            href={`/${this.getRoomId()}/${this.state.name}`}
-          >
-            Go
-          </a>
-        }
+        <form method="get" action={`/${this.getRoomId()}/${this.state.name}`}>
+          <label>{'Username'}</label>
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={(e) => { this.handleNameChange(e); } }
+          />
+          {this.hasValidName() &&
+            <button type="submit"
+              href={`/${this.getRoomId()}/${this.state.name}`}
+            >
+              Go
+            </button>
+          }
+        </form>
       </div>
     );
   }

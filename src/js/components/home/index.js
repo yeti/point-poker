@@ -43,17 +43,17 @@ export default class Home extends React.Component {
         <div className="Home__section Home__section--join">
           <div className="Home__section__input-group">
             <div className="Home__section__input">
-              <label>{'Room'}</label>
-              <input
-                type="text"
-                value={this.state.room}
-                onChange={(e) => { this.handleRoomChange(e); } }
-              />
-              <a
-                href={`/${this.state.room.toUpperCase()}`}
-              >
-                {'Join'}
-              </a>
+              <form method="get" action={`/${this.state.room.toUpperCase()}`}>
+                <label>{'Room'}</label>
+                <input
+                  type="text"
+                  value={this.state.room}
+                  onChange={(e) => { this.handleRoomChange(e); } }
+                />
+                <button type="submit">
+                  {'Join'}
+                </button>
+              </form>
             </div>
             {false &&
               <div className="Home__section__btn">
