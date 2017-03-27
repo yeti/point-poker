@@ -4,9 +4,7 @@
   "description": "Point poker using sockets",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js",
-    "dev": "npm run watch",
-    "predev": "npm start",
+    "dev": "nodemon index.js",
     "build": "npm run build:js",
     "build:js": "rollup --config rollup.config.js --environment NODE_ENV:production",
     "watch": "npm run watch:js",

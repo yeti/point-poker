@@ -12,7 +12,7 @@ const Votes = ({ votes, isRevealed }) => {
             </div>
             {isRevealed &&
               <div className={'Votes__voter__content__vote'}>
-                {_.get(voter, 'vote')}
+                {_.get(voter, 'vote') || '(No Vote)'}
               </div>
             }
           </div>

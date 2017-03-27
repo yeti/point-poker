@@ -12,6 +12,12 @@ export default class Tiles extends React.Component {
       tiles: ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '?'],
       vote: null,
     };
+
+    this.props.socket.on('reset', (isRevealed) => {
+      this.setState({
+        vote: null,
+      });
+    });
   }
 
   onClick(value) {

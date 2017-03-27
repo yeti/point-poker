@@ -11,17 +11,16 @@ export default class Room extends React.Component {
 
     console.dir(`Room ${this.getRoomId()}`);
 
-    this.socket = io(`/${this.getRoomId()}`);
-
-    console.dir(this.socket);
-
     this.state = {
       value: '',
       votes: {},
       isAdmin: false,
       connected: false,
       disconnected: false,
+      isRevealed: false,
     };
+
+    this.socket = io(`/${this.getRoomId()}`);
 
     this.socket.on('connect', () => {
       this.setState({
@@ -50,8 +49,20 @@ export default class Room extends React.Component {
       });
     });
 
-    this.socket.on('boot', (data) => {
+    this.socket.on('boot', () => {
       this.socket.disconnect();
+    });
+
+    this.socket.on('reveal', (isRevealed) => {
+      this.setState({
+        isRevealed,
+      });
+    });
+
+    this.socket.on('reset', (isRevealed) => {
+      this.setState({
+        isRevealed: false,
+      });
     });
   }
 
@@ -61,6 +72,14 @@ export default class Room extends React.Component {
 
   getUsername() {
     return this.props.params.user;
+  }
+
+  onClickReveal() {
+    this.socket.emit('reveal', !this.state.isRevealed);
+  }
+
+  onClickNext() {
+    this.socket.emit('reset', true);
   }
 
   render() {
@@ -81,8 +100,24 @@ export default class Room extends React.Component {
               />
               <Votes
                 votes={this.state.votes}
-                isRevealed={false}
+                isRevealed={this.state.isRevealed}
               />
+              {this.state.isAdmin &&
+                <div>
+                  <a
+                    className="btn"
+                    onClick={() => { this.onClickReveal(); } }
+                  >
+                    Reveal
+                  </a>
+                  <a
+                    className="btn"
+                    onClick={() => { this.onClickNext(); } }
+                  >
+                    Next
+                  </a>
+                </div>
+              }
             </div>
           </div>
         }
