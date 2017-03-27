@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
 /* Coolors Exported Palette - coolors.co/ebe9e9-f3f8f2-3581b8-fcb07e-dee2d6 */
 /* RGB */
+html, body, main {
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
 body {
   background-color: #3581b8;
   font-family: 'Baloo Bhaina', cursive; }
@@ -13,7 +18,7 @@ body {
   width: 100%; }
   .Tiles__item {
     font-size: 2rem;
-    margin: 2rem;
+    margin: 1rem;
     background: #3581b8;
     color: #fcb07e;
     border: 0.2rem solid #fcb07e;
@@ -31,7 +36,8 @@ body {
     .Tiles__item--active {
       background: #fcb07e;
       color: #3581b8;
-      border: 0.2rem solid #fcb07e;
+      border: 0.2rem solid #fcb07e; }
+    .Tiles__item--active, .Tiles__item:hover {
       box-shadow: 0 0 0.5em #fcb07e; }
     .Tiles__item__value {
       padding-top: 0.5rem;
@@ -74,3 +80,41 @@ body {
       -ms-user-select: none;
       user-select: none;
       text-align: center; }
+
+.Home {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  @media all and (orientation: landscape) {
+    .Home {
+      -ms-flex-direction: row;
+      flex-direction: row; } }
+  @media all and (orientation: portrait) {
+    .Home {
+      -ms-flex-direction: column;
+      flex-direction: column; } }
+  .Home__section, .Home__section-separator {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+.btn {
+  text-decoration: none;
+  background: #3581b8;
+  color: #fcb07e;
+  border: 0.2rem solid #fcb07e;
+  border-radius: 0.5rem;
+  padding: 0.5rem 3rem;
+  transition: all 0.1s; }
+  .btn:hover {
+    background: #fcb07e;
+    color: #3581b8;
+    border: 0.2rem solid #fcb07e;
+    box-shadow: 0 0 0.5em #fcb07e; }

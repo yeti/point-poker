@@ -1,0 +1,17 @@
+.btn {
+  text-decoration: none;
+  background: $tile-bg-color;
+  color: $tile-text-color;
+  border: 0.2rem solid $tile-border-color;
+  border-radius: 0.5rem;
+  padding: 0.5rem 3rem;
+  transition: all 0.1s;
+
+  &:hover {
+    background: $tile-active-bg-color;
+    color: $tile-active-text-color;
+    border: 0.2rem solid $tile-active-border-color;
+    box-shadow: 0 0 0.5em $tile-active-shadow-color;
+  }
+
+}

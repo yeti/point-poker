@@ -11,7 +11,6 @@ export default class Home extends React.Component {
   }
 
   handleNameChange(event) {
-    console.dir(event);
     this.setState({
       name: event.target.value,
     });

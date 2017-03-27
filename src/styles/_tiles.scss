@@ -5,7 +5,7 @@
 
   &__item {
     font-size: 2rem;
-    margin: 2rem;
+    margin: 1rem;
     background: $tile-bg-color;
     color: $tile-text-color;
     border: 0.2rem solid $tile-border-color;
@@ -22,6 +22,9 @@
       background: $tile-active-bg-color;
       color: $tile-active-text-color;
       border: 0.2rem solid $tile-active-border-color;
+    }
+
+    &--active, &:hover {
       box-shadow: 0 0 0.5em $tile-active-shadow-color;
     }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import io from 'socket.io-client';
-import _ from 'lodash';
 
 import Votes from './votes';
 import Tiles from './tiles';
@@ -14,9 +13,12 @@ export default class Room extends React.Component {
 
     this.socket = io(`/${this.getRoomId()}`);
 
+    console.dir(this.socket);
+
     this.state = {
       value: '',
       votes: {},
+      isAdmin: false,
       connected: false,
       disconnected: false,
     };
@@ -30,6 +32,7 @@ export default class Room extends React.Component {
     this.socket.on('disconnect', () => {
       this.setState({
         disconnected: true,
+        connected: false,
       });
     });
 
@@ -40,15 +43,16 @@ export default class Room extends React.Component {
         votes: data,
       });
     });
-  }
 
-  generateName() {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let name = '';
-    for (let i = 0; i < 4; i += 1) {
-      name += _.sample(alphabet);
-    }
-    return name;
+    this.socket.on('You are admin', (data) => {
+      this.setState({
+        isAdmin: true,
+      });
+    });
+
+    this.socket.on('boot', (data) => {
+      this.socket.disconnect();
+    });
   }
 
   getRoomId() {
@@ -62,22 +66,35 @@ export default class Room extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App__room">
-          {`Room: ${this.getRoomId()}`}
-        </div>
-        <div className="App__name">
-          {`Name: ${this.getUsername()}`}
-        </div>
-        <div className="App__content">
-          <Tiles
-            socket={this.socket}
-            userName={this.getUsername()}
-          />
-          <Votes
-            votes={this.state.votes}
-            isRevealed={false}
-          />
-        </div>
+        {this.state.connected &&
+          <div>
+            <div className="App__room">
+              {`Room: ${this.getRoomId()}`}
+            </div>
+            <div className="App__name">
+              {`Name: ${this.getUsername()}`}
+            </div>
+            <div className="App__content">
+              <Tiles
+                socket={this.socket}
+                userName={this.getUsername()}
+              />
+              <Votes
+                votes={this.state.votes}
+                isRevealed={false}
+              />
+            </div>
+          </div>
+        }
+        {this.state.disconnected &&
+          <div>
+            {'Disconnected '}
+            <a href="">Reconnect</a>
+          </div>
+        }
+        {!this.state.disconnected && !this.state.connected &&
+          <div>{'Connecting'}</div>
+        }
       </div>
     );
   }
