@@ -3,7 +3,8 @@
   "version": "1.1.0",
   "description": "Point poker using sockets",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
     "dev": "npm run watch",
     "predev": "npm start",
     "build": "npm run build:js",
