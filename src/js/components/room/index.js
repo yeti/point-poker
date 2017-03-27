@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 
 import Votes from './votes';
 import Tiles from './tiles';
+import JoinLink from '../joinLink';
 
 export default class Room extends React.Component {
 
@@ -87,11 +88,13 @@ export default class Room extends React.Component {
       <div className="App">
         {this.state.connected &&
           <div>
-            <div className="App__room">
-              {`Room: ${this.getRoomId()}`}
-            </div>
             <div className="App__name">
-              {`Name: ${this.getUsername()}`}
+              {`Welcome ${this.getUsername()}`}
+            </div>
+            <div className="App__room">
+              <JoinLink
+                room={this.getRoomId()}
+              />
             </div>
             <div className="App__content">
               <Tiles

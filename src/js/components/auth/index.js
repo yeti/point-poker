@@ -1,4 +1,5 @@
 import React from 'react';
+import JoinLink from '../joinLink';
 
 export default class Home extends React.Component {
 
@@ -42,6 +43,9 @@ export default class Home extends React.Component {
             </button>
           }
         </form>
+        <JoinLink
+          room={this.getRoomId()}
+        />
       </div>
     );
   }
