@@ -16,10 +16,7 @@ const sendPage = (req, res) => {
 
 app.get('/', sendPage);
 app.get('/:room/', sendPage);
-app.get('/:room/:user', (req, res) => {
-  socket.init(req, res);
-  sendPage(req, res);
-});
+app.get('/:room/:user', sendPage);
 
 http.listen(port, function(){
   console.log('listening on *:' + port);

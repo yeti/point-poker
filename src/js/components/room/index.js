@@ -21,11 +21,14 @@ export default class Room extends React.Component {
       isRevealed: false,
     };
 
-    this.socket = io(`/${this.getRoomId()}`);
+    this.socket = io('/');//io(`/${this.getRoomId()}`);
 
-    this.socket.on('connect', () => {
+    this.socket.on('connect', (client) => {
+      console.dir('connect');
       this.setState({
         connected: true,
+        disconnected: false,
+        client,
       });
     });
 
@@ -37,6 +40,7 @@ export default class Room extends React.Component {
     });
 
     this.socket.on('update', (data) => {
+      console.dir('[[[[[[]]]]]]');
       console.dir(data);
 
       this.setState({
@@ -44,9 +48,9 @@ export default class Room extends React.Component {
       });
     });
 
-    this.socket.on('You are admin', (data) => {
+    this.socket.on('You are admin', (isAdmin) => {
       this.setState({
-        isAdmin: true,
+        isAdmin,
       });
     });
 
@@ -64,7 +68,18 @@ export default class Room extends React.Component {
       this.setState({
         isRevealed: false,
       });
+      console.dir('reset 2')
     });
+
+    this.socket.on('authenticate', (data, callback) => {
+      console.dir(data);
+      console.dir('authenticating');
+      callback({
+        room: this.getRoomId(),
+        user: this.getUsername(),
+      });
+    });
+
   }
 
   getRoomId() {
@@ -98,8 +113,10 @@ export default class Room extends React.Component {
             </div>
             <div className="App__content">
               <Tiles
+                onVote={this.state.onVote}
                 socket={this.socket}
-                userName={this.getUsername()}
+                user={this.getUsername()}
+                room={this.getRoomId()}
               />
               <Votes
                 votes={this.state.votes}

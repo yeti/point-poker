@@ -13,7 +13,8 @@ export default class Tiles extends React.Component {
       vote: null,
     };
 
-    this.props.socket.on('reset', (isRevealed) => {
+    this.props.socket.on('reset', () => {
+      console.dir('resetting');
       this.setState({
         vote: null,
       });
@@ -33,7 +34,7 @@ export default class Tiles extends React.Component {
       vote,
     });
 
-    this.props.socket.emit('cast vote', vote);
+    this.props.socket.emit('vote', vote);
   }
 
   render() {
