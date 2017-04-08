@@ -3,9 +3,11 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-global.io =  require('socket.io')(http);
+const io =  require('socket.io')(http);
 
 const socket = require('./lib/socket');
+socket.init(io);
+
 const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
