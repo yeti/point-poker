@@ -2,13 +2,37 @@
   "name": "point-poker",
   "version": "1.1.0",
   "description": "Point poker using sockets",
+  "engines": {
+      "node": ">=4.0.0"
+  },
+  "watch": {
+    "server": [
+      "lib",
+      "index.js"
+    ],
+    "build:js": {
+      "patterns": ["src"],
+      "extensions": "js",
+      "quiet": false
+    },
+    "build:sass": {
+      "patterns": ["src"],
+      "extensions": "scss",
+      "quiet": false
+    }
+  },
   "scripts": {
+    "prestart": "npm run build",
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "build": "npm run build:js",
-    "build:js": "rollup --config rollup.config.js --environment NODE_ENV:production",
-    "watch": "npm run watch:js",
-    "watch:js": "rollup --config rollup.config.js --watch "
+    "preserver": "npm run lint:server",
+    "server": "node index.js & gulp reload",
+    "dev": "npm-watch",
+    "build": "npm run build:js && npm run build:sass",
+    "prebuild:js": "npm run lint:client",
+    "build:js": "rollup --config rollup.config.js",
+    "build:sass": "gulp sass",
+    "lint:server": "eslint index.js lib/**/*.js -c ./.eslintrc-server.js",
+    "lint:client": "eslint src/**/*.js -c ./.eslintrc-client.js"
   },
   "devDependencies": {
     "eslint": "^3.18.0",
@@ -31,6 +55,7 @@
     "rollup-watch": "3.2.2"
   },
   "dependencies": {
+    "eslint-plugin-node": "^4.2.2",
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "prettyjson": "^1.2.1",

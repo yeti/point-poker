@@ -1,6 +1,6 @@
 const buble = require('rollup-plugin-buble');               // https://buble.surge.sh/guide/
 const commonjs = require('rollup-plugin-commonjs');         // https://github.com/rollup/rollup-plugin-commonjs
-const eslint = require('rollup-plugin-eslint');             // https://github.com/TrySound/rollup-plugin-eslint
+//const eslint = require('rollup-plugin-eslint');             // https://github.com/TrySound/rollup-plugin-eslint
 const nodeResolve = require('rollup-plugin-node-resolve');  // https://github.com/rollup/rollup-plugin-node-resolve
 const uglify = require('rollup-plugin-uglify');             // https://github.com/TrySound/rollup-plugin-uglify
 const replace = require('rollup-plugin-replace');
@@ -50,7 +50,7 @@ const plugins = [
       'node_modules/react-router/es/index.js': ['hashHistory'],
     },
   }),
-  eslint(),
+  //eslint(),
   buble(),
   replace({
     'process.env.NODE_ENV': JSON.stringify( 'production' )

@@ -10,8 +10,6 @@ export default class Room extends React.Component {
   constructor(props) {
     super(props);
 
-    console.dir(`Room ${this.getRoomId()}`);
-
     this.state = {
       value: '',
       votes: {},
@@ -21,10 +19,9 @@ export default class Room extends React.Component {
       isRevealed: false,
     };
 
-    this.socket = io('/');//io(`/${this.getRoomId()}`);
+    this.socket = io('/');
 
     this.socket.on('connect', (client) => {
-      console.dir('connect');
       this.setState({
         connected: true,
         disconnected: false,
@@ -40,9 +37,6 @@ export default class Room extends React.Component {
     });
 
     this.socket.on('update', (data) => {
-      console.dir('[[[[[[]]]]]]');
-      console.dir(data);
-
       this.setState({
         votes: data,
       });
@@ -64,22 +58,18 @@ export default class Room extends React.Component {
       });
     });
 
-    this.socket.on('reset', (isRevealed) => {
+    this.socket.on('reset', () => {
       this.setState({
         isRevealed: false,
       });
-      console.dir('reset 2')
     });
 
     this.socket.on('authenticate', (data, callback) => {
-      console.dir(data);
-      console.dir('authenticating');
       callback({
         room: this.getRoomId(),
         user: this.getUsername(),
       });
     });
-
   }
 
   getRoomId() {
