@@ -90,18 +90,18 @@ export default class Room extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Room App__content__view">
         {this.state.connected &&
           <div>
-            <div className="App__name">
+            <div className="Room__name">
               {`Welcome ${this.getUsername()}`}
             </div>
-            <div className="App__room">
+            <div className="Room__room">
               <JoinLink
                 room={this.getRoomId()}
               />
             </div>
-            <div className="App__content">
+            <div className="Room__content">
               <Tiles
                 onVote={this.state.onVote}
                 socket={this.socket}

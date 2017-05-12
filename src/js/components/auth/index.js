@@ -27,7 +27,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="Auth">
+      <div className="Auth App__content__view">
         <form method="get" action={`/${this.getRoomId()}/${this.state.name}`}>
           <label>{'Username'}</label>
           <input

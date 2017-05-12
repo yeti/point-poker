@@ -1,0 +1,61 @@
+.Home {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  flex-direction: column;
+
+
+  &__jumbotron {
+    width: 100%;
+    margin-top: 5rem;
+    @include center;
+
+    &__copy {
+      font-size: 3rem;
+    }
+
+  }
+
+
+
+  &__sections {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    &__item {
+      width: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    &__separator {
+      font-size: 1rem;
+      padding: 0rem 10vw;
+    }
+  }
+
+
+
+
+
+
+  /*@media all and (orientation:landscape) {
+    flex-direction: row;
+
+  }
+  @media all and (orientation:portrait) {
+
+  }*/
+
+
+
+}

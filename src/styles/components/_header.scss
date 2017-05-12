@@ -1,0 +1,43 @@
+.Header {
+  width: 100vw;
+  height: $header-height;
+  background-color: $color-header-bg;
+  color: $color-header-text;
+  display: flex;
+  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+  position: fixed;
+
+  a {
+    text-decoration: none;
+
+    &:visited, &:hover, &:active {
+      color: $color-header-text;
+    }
+  }
+
+  &__brand {
+    display: flex;
+
+
+    &__name {
+      white-space: nowrap;
+      display: inline-block;
+    }
+  }
+
+  &__links {
+    width: 100%;
+    display: flex;
+
+    &__item{
+      padding: 1rem;
+
+      &--active {
+        background-color: darken($color-header-bg, 10);
+      }
+    }
+
+
+  }
+
+}

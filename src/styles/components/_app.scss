@@ -1,0 +1,9 @@
+.App {
+  &__header {}
+  &__content {
+    padding-top: $header-height;
+  }
+  &__view {
+    animation: fade-in 0.3s ease-out;
+  }
+}

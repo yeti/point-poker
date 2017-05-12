@@ -1,9 +1,17 @@
-@import 'fonts';
-@import 'colors';
-@import 'variables';
+@import 'shared/mixins';
+@import 'shared/fonts';
+@import 'shared/colors';
+@import 'shared/variables';
+@import 'shared/animations';
+
 
 @import 'core';
-@import 'tiles';
-@import 'votes';
-@import 'home';
 @import 'btn';
+
+@import 'components/app';
+@import 'components/room';
+@import 'components/tiles';
+@import 'components/header';
+@import 'components/votes';
+@import 'components/home';
+@import 'components/auth';
