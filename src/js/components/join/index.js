@@ -3,25 +3,25 @@ import JoinLink from '../joinLink';
 import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
 import { browserHistory } from 'react-router';
 
-export default class Auth extends React.Component {
+export default class Join extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      name: window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || '',
+      code: '',
     };
 
     window.browserHistory = browserHistory;
   }
 
   componentDidMount(){
-    this.nameInput.focus();
+    this.codeInput.focus();
   }
 
-  handleNameChange(event) {
+  handleCodeChange(event) {
     this.setState({
-      name: event.target.value,
+      code: event.target.value && event.target.value.toUpperCase(),
     });
   }
 
@@ -29,16 +29,16 @@ export default class Auth extends React.Component {
     return this.props.params.room;
   }
 
-  hasValidName() {
-    return this.state.name !== '';
+  hasValidCode() {
+    return this.state.code !== '';
   }
 
-  get placeholderName() {
-    return 'James Bond';
+  get placeholderCode() {
+    return 'ABCD';
   }
 
   navigate() {
-    browserHistory.push(`${this.state.name}/`);
+    browserHistory.push(`${this.state.code}/`);
   }
 
   render() {
@@ -52,18 +52,18 @@ export default class Auth extends React.Component {
           >
             <label
               className="Auth__form__label"
-              for="name"
+              for="code"
             >
-              {'What\'s your name?'}
+              {'What\'s your code?'}
             </label>
             <input
               className="Auth__form__input"
-              id="name"
+              id="code"
               type="text"
-              placeholder={this.placeholderName}
-              value={this.state.name}
-              onChange={(e) => { this.handleNameChange(e); }}
-              ref={(input) => { this.nameInput = input; }}
+              placeholder={this.placeholderCode}
+              value={this.state.code}
+              onChange={(e) => { this.handleCodeChange(e); }}
+              ref={(input) => { this.codeInput = input; }}
               maxLength="10"
               autoComplete="off"
             />
@@ -78,7 +78,7 @@ export default class Auth extends React.Component {
               <button
                 className="Auth__form__btn Auth__form__btn--enter"
                 onClick={() => {this.navigate();}}
-                disabled={!this.hasValidName()}
+                disabled={!this.hasValidCode()}
               >
                 {'Enter'}
                 <span className="icon-right-open" />

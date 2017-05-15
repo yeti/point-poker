@@ -14,7 +14,17 @@ $color3: rgba(35, 31, 32, 1);
 $color4: rgba(35, 31, 32, 1);
 $color5: rgba(255, 255, 255, 1);
 
-$color-bg: $color5;
-$color-text: $color1;
-$color-header-bg: $color1;
-$color-header-text: $color5;
+
+$color-white: white;
+$color-default: #95a5a6;
+$color-primary: #2c3e50;
+$color-success: #18bc9c;
+$color-info: #3498db;
+$color-warning: #f39c12;
+$color-danger: #e74c3c;
+
+$color-bg: $color-white;
+$color-text: $color-primary;
+
+$color-header-bg: $color-text;
+$color-header-text: $color-bg;

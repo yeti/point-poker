@@ -2,11 +2,14 @@ html, body, main {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-size: 12px;
 }
 
 body {
   background-color: $color-bg;
-  font-family: 'Mallory Bold';
+  color: $color-text;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  //font-family: 'Mallory Bold';
   //font-family: 'Roboto', sans-serif;
   //font-family: 'Baloo Bhaina', cursive;
 }

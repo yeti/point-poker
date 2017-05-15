@@ -68,11 +68,14 @@
     "prettyjson": "^1.2.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.5.2",
+    "react-copy-to-clipboard": "^5.0.0",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.0",
     "react-router-dom": "^4.0.0",
     "react-router-transition": "0.0.6",
+    "react-tooltip": "^3.3.0",
     "socket.io": "^1.7.3",
-    "socket.io-client": "^1.7.3"
+    "socket.io-client": "^1.7.3",
+    "starwars-names": "^1.6.0"
   }
 }

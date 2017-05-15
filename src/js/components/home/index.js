@@ -27,9 +27,8 @@ export default class Home extends React.Component {
     });
   }
 
-  doof() {
-    console.dir('doofin');
-    browserHistory.push(`/${this.generateRoomCode().toUpperCase()}`);
+  navigateToRoom(roomCode = this.generateRoomCode().toUpperCase()) {
+    browserHistory.push(`/join/${roomCode}`);
   }
 
   render() {
@@ -41,41 +40,51 @@ export default class Home extends React.Component {
           </div>
         </div>
         <div className="Home__sections">
-          <div className="Home__sections__item Home__sections__item--create">
+          <div className="Home__sections__item Home__sections__item--join">
             <a
-              className="Home__section__btn btn"
-              onClick={() => {this.doof();}}
+              className="Home__sections__item__btn"
+              onClick={() => {this.navigateToRoom('');}}
             >
-              {'Create'}
+              {'Join Session'}
+              <span className="icon-login" />
             </a>
           </div>
-          <div className="Home__sections__separator">
-            {'or'}
-          </div>
-          <div className="Home__sections__item Home__sections__item--join">
-            <div className="Home__section__input-group">
-              <div className="Home__section__input">
-                <form method="get" action={`/${this.state.room.toUpperCase()}`}>
-                  <label>{'Room'}</label>
-                  <input
-                    type="text"
-                    value={this.state.room}
-                    onChange={(e) => { this.handleRoomChange(e); } }
-                  />
-                  <button type="submit">
-                    {'Join'}
-                  </button>
-                </form>
-              </div>
-              {false &&
-                <div className="Home__section__btn">
-                  {'Join'}
-                </div>
-              }
-            </div>
+          <div className="Home__sections__item Home__sections__item--create">
+            <a
+              className="Home__sections__item__btn"
+              onClick={() => {this.navigateToRoom();}}
+            >
+              {'Create Session'}
+              <span className="icon-plus" />
+            </a>
           </div>
         </div>
       </div>
     );
   }
 }
+
+/*
+
+<div className="Home__section__input-group">
+  <div className="Home__section__input">
+    <form method="get" action={`/${this.state.room.toUpperCase()}`}>
+      <label>{'Room'}</label>
+      <input
+        type="text"
+        value={this.state.room}
+        onChange={(e) => { this.handleRoomChange(e); } }
+      />
+      <button type="submit">
+        {'Join Existing Session'}
+      </button>
+    </form>
+  </div>
+  {false &&
+    <div className="Home__section__btn">
+      {'Join'}
+    </div>
+  }
+</div>
+
+*/

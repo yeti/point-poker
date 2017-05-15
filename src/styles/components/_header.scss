@@ -10,7 +10,7 @@
   a {
     text-decoration: none;
 
-    &:visited, &:hover, &:active {
+    &:visited, &:hover, &:active, &:-webkit-any-link {
       color: $color-header-text;
     }
   }
@@ -31,8 +31,13 @@
 
     &__item{
       padding: 1rem;
+      transition: background-color 0.15s ease-in-out;
 
-      &--active {
+      &:hover {
+        background-color: darken($color-header-bg, 5);
+      }
+
+      &--active, &--active:hover  {
         background-color: darken($color-header-bg, 10);
       }
     }

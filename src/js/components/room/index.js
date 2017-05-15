@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 import Votes from './votes';
 import Tiles from './tiles';
 import JoinLink from '../joinLink';
+import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
 
 export default class Room extends React.Component {
 
@@ -70,6 +71,16 @@ export default class Room extends React.Component {
         user: this.getUsername(),
       });
     });
+
+    this.saveUsername();
+  }
+
+  componentWillUnmount() {
+    this.socket.disconnect();
+  }
+
+  saveUsername() {
+    window.localStorage.setItem(LOCAL_STORAGE_KEYS.USERNAME, this.getUsername());
   }
 
   getRoomId() {
