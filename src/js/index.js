@@ -12,6 +12,9 @@ import Contact from './components/contact';
 import Room from './components/room';
 import Join from './components/join';
 
+// Import service worker
+import Worker from './serviceWorker';
+
 // Define the root element.
 const root = document.querySelector('main');
 
@@ -29,3 +32,7 @@ ReactDOM.render(
       </Route>
     </Router>
   ), root);
+
+// Init the service worker
+const serviceWorker = new Worker();
+serviceWorker.register();
