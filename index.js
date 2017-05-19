@@ -1,6 +1,8 @@
 'use strict';
 
+
 const express = require('express');
+const secure = require('express-force-https');
 
 const app = express();
 
@@ -8,15 +10,26 @@ const http = require('http').Server(app);
 const io =  require('socket.io')(http);
 const socket = require('./lib/socket');
 
+
 socket.init(io);
 
 const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
+app.use(secure);
 
 const sendPage = (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 };
+
+// Because we are wildcarding the home page, the manifest has to be specified. There's gotta be a better way :/
+app.get('/manifest.json', (req, res) => {
+  res.sendFile(__dirname + '/manifest.json');
+});
+
+app.get('/serviceWorker.js', (req, res) => {
+  res.sendFile(__dirname + '/serviceWorker.js');
+});
 
 app.get('/*', sendPage);
 /*

@@ -10,7 +10,7 @@ gulp.task('watch-sass', ['sass'], function() {
 
 gulp.task('browser-sync', () => {
     bs.init({
-        proxy: "localhost:3000",
+        proxy: 'localhost:3000',
     });
 });
 
@@ -18,7 +18,11 @@ gulp.task('sass', function() {
   return gulp.src('./src/styles/main.scss')
     .pipe(sass())
     .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
+        browsers: [
+          'last 2 versions',
+          'not ie <= 10',
+          'not ie_mob <= 10' // Avoid old flexbox https://developers.google.com/web/tools/lighthouse/audits/old-flexbox
+        ],
         cascade: false
     }))
     .pipe(rename('main.min.css'))
@@ -26,7 +30,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('reload', ['browser-sync'], () => {
-  gulp.watch(["public/**/*.*"]).on('change', bs.reload);
+  gulp.watch(['public/**/*.*']).on('change', bs.reload);
 });
 
 gulp.task('default', ['sass']);
