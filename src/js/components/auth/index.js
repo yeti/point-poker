@@ -1,7 +1,7 @@
 import React from 'react';
 import JoinLink from '../joinLink';
 import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link} from 'react-router';
 
 export default class Auth extends React.Component {
 
@@ -45,10 +45,8 @@ export default class Auth extends React.Component {
     return (
       <div className="Auth App__content__view">
         <div >
-          <form
+          <div
             className="Auth__form"
-            method="get"
-            onSubmit={() => {this.navigate()}}
           >
             <label
               className="Auth__form__label"
@@ -66,6 +64,9 @@ export default class Auth extends React.Component {
               ref={(input) => { this.nameInput = input; }}
               maxLength="10"
               autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
             />
             <span className="Auth__form__actions">
               <a
@@ -75,16 +76,12 @@ export default class Auth extends React.Component {
                 <span className="icon-left-open icon-on-left" />
                 {'Back'}
               </a>
-              <button
-                className="Auth__form__btn Auth__form__btn--enter"
-                onClick={() => {this.navigate();}}
-                disabled={!this.hasValidName()}
-              >
+              <Link to={`/join/${this.getRoomId()}/${this.state.name}`} className="Auth__form__btn Auth__form__btn--enter" disabled={!this.hasValidName()}>
                 {'Enter'}
                 <span className="icon-right-open" />
-              </button>
+              </Link>
             </span>
-          </form>
+          </div>
         </div>
       </div>
     );

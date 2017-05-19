@@ -1,7 +1,7 @@
 import React from 'react';
 import JoinLink from '../joinLink';
 import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 
 export default class Join extends React.Component {
 
@@ -38,17 +38,15 @@ export default class Join extends React.Component {
   }
 
   navigate() {
-    browserHistory.push(`${this.state.code}/`);
+    browserHistory.push(`${this.state.code}/?`);
   }
 
   render() {
     return (
       <div className="Auth App__content__view">
         <div >
-          <form
+          <div
             className="Auth__form"
-            method="get"
-            onSubmit={() => {this.navigate()}}
           >
             <label
               className="Auth__form__label"
@@ -75,16 +73,12 @@ export default class Join extends React.Component {
                 <span className="icon-left-open icon-on-left" />
                 {'Back'}
               </a>
-              <button
-                className="Auth__form__btn Auth__form__btn--enter"
-                onClick={() => {this.navigate();}}
-                disabled={!this.hasValidCode()}
-              >
+              <Link to={`/join/${this.state.code}`} className="Auth__form__btn Auth__form__btn--enter" disabled={!this.hasValidCode()}>
                 {'Enter'}
                 <span className="icon-right-open" />
-              </button>
+              </Link>
             </span>
-          </form>
+          </div>
         </div>
       </div>
     );
