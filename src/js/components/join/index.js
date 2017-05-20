@@ -38,15 +38,28 @@ export default class Join extends React.Component {
   }
 
   navigate() {
-    browserHistory.push(`${this.state.code}/?`);
+    browserHistory.push(`/join/${this.state.code}/?`);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.navigate();
   }
 
   render() {
     return (
       <div className="Auth App__content__view">
         <div >
-          <div
+          <form
             className="Auth__form"
+            onSubmit={(e) => { this.onSubmit(e); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                this.onSubmit(e);
+              }
+            }}
           >
             <label
               className="Auth__form__label"
@@ -70,15 +83,16 @@ export default class Join extends React.Component {
                 className="Auth__form__btn Auth__form__btn--back"
                 onClick={browserHistory.goBack}
               >
-                <span className="icon-left-open icon-on-left" />
                 {'Back'}
               </a>
-              <Link to={`/join/${this.state.code}`} className="Auth__form__btn Auth__form__btn--enter" disabled={!this.hasValidCode()}>
-                {'Enter'}
-                <span className="icon-right-open" />
-              </Link>
+              <input
+                type="submit"
+                className="Auth__form__btn Auth__form__btn--enter"
+                disabled={!this.hasValidCode()}
+                value={'Join'}
+              />
             </span>
-          </div>
+          </form>
         </div>
       </div>
     );

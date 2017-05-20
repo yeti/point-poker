@@ -17,10 +17,18 @@
 
   &__brand {
     display: flex;
+    align-items: center;
+    //justify-content: space-around;
+    width: 10rem;
 
+    &__logo {
+      margin: 0rem 0.75rem;
+    }
 
     &__name {
-      white-space: nowrap;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+      // white-space: nowrap;
       display: inline-block;
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import Brand from '../brand';
 import { browserHistory } from 'react-router';
 
 export default class Home extends React.Component {

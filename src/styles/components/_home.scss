@@ -10,9 +10,10 @@
 
 
   &__jumbotron {
-    //width: 100%;
     margin-top: 0rem;
-    @include center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &__copy {
       font-size: 3rem;
