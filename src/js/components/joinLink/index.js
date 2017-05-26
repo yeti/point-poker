@@ -34,7 +34,7 @@ export default class JoinLink extends React.Component {
   }
 
   get joinLink() {
-    return `join/${this.host}/${this.roomId}`;
+    return `${this.host}/join/${this.roomId}`;
   }
 
   render() {

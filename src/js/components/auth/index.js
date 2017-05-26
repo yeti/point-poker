@@ -2,6 +2,7 @@ import React from 'react';
 import JoinLink from '../joinLink';
 import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
 import { browserHistory, Link} from 'react-router';
+import _ from 'lodash';
 
 export default class Auth extends React.Component {
 
@@ -34,19 +35,36 @@ export default class Auth extends React.Component {
   }
 
   get placeholderName() {
-    return 'James Bond';
+    const names = [
+      'James Bond',
+      'Luke Skywalker',
+    ];
+    return _.sample(names);
   }
 
   navigate() {
-    browserHistory.push(`${this.state.name}/`);
+    browserHistory.push(`/join/${this.getRoomId()}/${this.state.name}`);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.navigate();
   }
 
   render() {
     return (
       <div className="Auth App__content__view">
         <div >
-          <div
+          <form
             className="Auth__form"
+            onSubmit={(e) => { this.onSubmit(e); }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                this.onSubmit(e);
+              }
+            }}
           >
             <label
               className="Auth__form__label"
@@ -76,12 +94,17 @@ export default class Auth extends React.Component {
                 <span className="icon-left-open icon-on-left" />
                 {'Back'}
               </a>
-              <Link to={`/join/${this.getRoomId()}/${this.state.name}`} className="Auth__form__btn Auth__form__btn--enter" disabled={!this.hasValidName()}>
+              <button
+                type="submit"
+                className="Auth__form__btn Auth__form__btn--enter"
+                disabled={!this.hasValidName()}
+
+              >
                 {'Enter'}
-                <span className="icon-right-open" />
-              </Link>
+                <span className="icon-right-open icon-on-right" />
+              </button>
             </span>
-          </div>
+          </form>
         </div>
       </div>
     );

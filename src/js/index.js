@@ -29,6 +29,7 @@ ReactDOM.render(
         <Route path="/join" component={Join}/>
         <Route path="/join/:room" component={Auth}/>
         <Route path="/join/:room/:user" component={Room}/>
+        <Route path="/*" component={Home}/>
       </Route>
     </Router>
   ), root);

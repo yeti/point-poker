@@ -65,7 +65,7 @@ export default class Join extends React.Component {
               className="Auth__form__label"
               for="code"
             >
-              {'What\'s your code?'}
+              {'Which session?'}
             </label>
             <input
               className="Auth__form__input"
@@ -83,14 +83,17 @@ export default class Join extends React.Component {
                 className="Auth__form__btn Auth__form__btn--back"
                 onClick={browserHistory.goBack}
               >
+                <span className="icon-left-open icon-on-left" />
                 {'Back'}
               </a>
-              <input
+              <button
                 type="submit"
                 className="Auth__form__btn Auth__form__btn--enter"
                 disabled={!this.hasValidCode()}
-                value={'Join'}
-              />
+              >
+                {'Join'}
+                <span className="icon-right-open icon-on-right" />
+              </button>
             </span>
           </form>
         </div>
