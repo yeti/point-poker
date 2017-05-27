@@ -9,7 +9,7 @@ export default class Tiles extends React.Component {
     super(props);
 
     this.state = {
-      tiles: ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '?'],
+      tiles: ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '?', '☕'],
       vote: null,
     };
 

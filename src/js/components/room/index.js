@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 
 import Votes from './votes';
 import Tiles from './tiles';
+import Participants from './participants';
 import JoinLink from '../joinLink';
+import FloatingButton from './floatingButton';
 import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
 
 export default class Room extends React.Component {
@@ -13,7 +15,7 @@ export default class Room extends React.Component {
 
     this.state = {
       value: '',
-      votes: {},
+      votes: null,
       isAdmin: false,
       connected: false,
       disconnected: false,
@@ -103,26 +105,26 @@ export default class Room extends React.Component {
     return (
       <div className="Room App__content__view">
         {this.state.connected &&
-          <div>
-            <div className="Room__name">
-              {`Welcome ${this.getUsername()}`}
+          <div className="Room__content">
+            <div className="Room__session">
+              {`Session ${this.getRoomId()}`}
+              {false &&
+                <JoinLink
+                  room={this.getRoomId()}
+                />
+              }
             </div>
-            <div className="Room__room">
-              <JoinLink
-                room={this.getRoomId()}
-              />
-            </div>
-            <div className="Room__content">
-              <Tiles
-                onVote={this.state.onVote}
-                socket={this.socket}
-                user={this.getUsername()}
-                room={this.getRoomId()}
-              />
-              <Votes
-                votes={this.state.votes}
-                isRevealed={this.state.isRevealed}
-              />
+            <div className="Room__participants">
+              {this.state.votes &&
+                <Participants
+                  onVote={this.state.onVote}
+                  socket={this.socket}
+                  user={this.getUsername()}
+                  room={this.getRoomId()}
+                  votes={this.state.votes}
+                  isRevealed={this.state.isRevealed}
+                />
+              }
               {this.state.isAdmin &&
                 <div>
                   <a
@@ -140,6 +142,7 @@ export default class Room extends React.Component {
                 </div>
               }
             </div>
+            <FloatingButton />
           </div>
         }
         {this.state.disconnected &&

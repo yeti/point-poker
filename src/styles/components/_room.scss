@@ -1,12 +1,24 @@
-.App {
-  display: inline;
+.Room {
+  display: flex;
+  justify-content: center;
   width: 100%;
 
-  &__room {
+  &__content {
+    width: 30rem;
 
+    @include media("<tablet") {
+      margin: 1rem;
+      width: 100%;
+    }
   }
 
-  &__username {
-
+  &__session {
+    margin-top: 2rem;
+    font-size: 2rem;
   }
+
+  &__participants {
+    margin-top: 2rem;
+  }
+
 }

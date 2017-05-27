@@ -26,15 +26,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-/*
-<IndexLink to="/" className={className} activeClassName={activeClassName}>
-  <span>Home</span>
-</IndexLink>
-<Link to="/about" className={className} activeClassName={activeClassName}>
-  <span>About</span>
-</Link>
-<Link to="/contact" className={className} activeClassName={activeClassName}>
-  <span>Contact</span>
-</Link>
-*/

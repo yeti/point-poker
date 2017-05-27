@@ -98,7 +98,6 @@ export default class Auth extends React.Component {
                 type="submit"
                 className="Auth__form__btn Auth__form__btn--enter"
                 disabled={!this.hasValidName()}
-
               >
                 {'Enter'}
                 <span className="icon-right-open icon-on-right" />

@@ -1,0 +1,46 @@
+$fb-size: 5rem;
+
+.FloatingButton {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+
+  &--isOpen {
+    .FloatingButton__parent {
+      transform: rotate(225deg);
+    }
+  }
+
+  &--isClosed {
+    .FloatingButton__parent {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__parent {
+    @include center;
+    color: white;
+    font-size: $fb-size / 2;
+    width: $fb-size;
+    height: $fb-size;
+    border-radius: 50%;
+    background-color: $color-primary;
+    transition: 0.3s transform 0.1s ease-in-out;
+
+    &__content {
+      width: auto;
+      height: auto;
+
+      margin-top: -0.4rem;
+
+
+      span {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  &__child {
+  }
+}
