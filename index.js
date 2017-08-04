@@ -7,7 +7,7 @@ const secure = require('express-force-https');
 const app = express();
 
 const http = require('http').Server(app);
-const io =  require('socket.io')(http);
+const io = require('socket.io')(http);
 const socket = require('./lib/socket');
 
 
@@ -37,6 +37,6 @@ app.get('/:room/', sendPage);
 app.get('/:room/:user', sendPage);
 */
 
-http.listen(port, function(){
+http.listen(port, function () {
   console.log('listening on *:' + port);
 });
