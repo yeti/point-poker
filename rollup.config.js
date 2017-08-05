@@ -1,5 +1,5 @@
-const buble = require('rollup-plugin-buble');               // https://buble.surge.sh/guide/
 const commonjs = require('rollup-plugin-commonjs');         // https://github.com/rollup/rollup-plugin-commonjs
+const buble = require('rollup-plugin-buble');               // https://buble.surge.sh/guide/
 //const eslint = require('rollup-plugin-eslint');             // https://github.com/TrySound/rollup-plugin-eslint
 const nodeResolve = require('rollup-plugin-node-resolve');  // https://github.com/rollup/rollup-plugin-node-resolve
 const uglify = require('rollup-plugin-uglify');             // https://github.com/TrySound/rollup-plugin-uglify
@@ -48,6 +48,7 @@ const plugins = [
       'node_modules/react/react.js': ['Component', 'Children', 'createElement', 'PropTypes'],
       'node_modules/react-dom/index.js': ['render'],
       'node_modules/react-router/es/index.js': ['hashHistory'],
+      'node_modules/react-router/es/Router.js': ['object'],
     },
   }),
   //eslint(),
