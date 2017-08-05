@@ -48,7 +48,9 @@ const plugins = [
       'node_modules/react/react.js': ['Component', 'Children', 'createElement', 'PropTypes'],
       'node_modules/react-dom/index.js': ['render'],
       'node_modules/react-router/es/index.js': ['hashHistory'],
-      'node_modules/react-router/es/Router.js': ['object'],
+      'node_modules/prop-types/index.js': [
+        'array', 'bool', 'func', 'object', 'arrayOf', 'oneOfType', 'element', 'shape', 'string',
+      ],
     },
   }),
   //eslint(),

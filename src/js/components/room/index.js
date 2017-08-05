@@ -1,12 +1,8 @@
 import React from 'react';
 import io from 'socket.io-client';
 
-import Votes from './votes';
-import Tiles from './tiles';
-import Participants from './participants';
-import JoinLink from '../joinLink';
-import FloatingButton from './floatingButton';
-import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
+import RoomContainer from './component';
+import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
 
 export default class Room extends React.Component {
 
@@ -25,6 +21,7 @@ export default class Room extends React.Component {
     this.socket = io('/');
 
     this.socket.on('connect', (client) => {
+      console.log('connect');
       this.setState({
         connected: true,
         disconnected: false,
@@ -101,60 +98,24 @@ export default class Room extends React.Component {
     this.socket.emit('reset', true);
   }
 
+  getSocket() {
+    return this.socket;
+  }
+
   render() {
     return (
-      <div className="Room App__content__view">
-        {this.state.connected &&
-          <div className="Room__content">
-            <div className="Room__session">
-              {`Session ${this.getRoomId()}`}
-              {false &&
-                <JoinLink
-                  room={this.getRoomId()}
-                />
-              }
-            </div>
-            <div className="Room__participants">
-              {this.state.votes &&
-                <Participants
-                  onVote={this.state.onVote}
-                  socket={this.socket}
-                  user={this.getUsername()}
-                  room={this.getRoomId()}
-                  votes={this.state.votes}
-                  isRevealed={this.state.isRevealed}
-                />
-              }
-              {this.state.isAdmin &&
-                <div>
-                  <a
-                    className="btn"
-                    onClick={() => { this.onClickReveal(); } }
-                  >
-                    Reveal
-                  </a>
-                  <a
-                    className="btn"
-                    onClick={() => { this.onClickNext(); } }
-                  >
-                    Next
-                  </a>
-                </div>
-              }
-            </div>
-            <FloatingButton />
-          </div>
-        }
-        {this.state.disconnected &&
-          <div>
-            {'Disconnected '}
-            <a href="">Reconnect</a>
-          </div>
-        }
-        {!this.state.disconnected && !this.state.connected &&
-          <div>{'Connecting'}</div>
-        }
-      </div>
+      <RoomContainer
+        socket={this.socket}
+        getUsername={() => this.getUsername()}
+        getRoomId={() => this.getRoomId()}
+        connected={this.state.connected}
+        votes={this.state.votes}
+        isRevealed={this.state.isRevealed}
+        onClickReveal={() => this.onClickReveal()}
+        onClickNext={() => this.onClickNext()}
+        isAdmin={this.state.isAdmin}
+        loading={!this.state.disconnected && !this.state.connected}
+        />
     );
   }
 }
