@@ -63,7 +63,9 @@ const plugins = [
 if (isProduction) {
 
 }
-plugins.push(uglify());
+plugins.push(uglify({
+  mangle: false,
+}));
 
 module.exports = {
   entry: 'src/js/index.js',

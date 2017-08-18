@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import JoinLink from '../joinLink';
 import Participants from './participants';
+import Ballot from './participants/ballot';
 
 const RoomContainer = (props) => {
   const {
@@ -36,8 +37,13 @@ const RoomContainer = (props) => {
                 isRevealed={isRevealed}
               />
             }
+            <div className="Ballot__container">
+              <Ballot
+                  socket={socket}
+                />
+            </div>
             {isAdmin &&
-              <div>
+              <div className="Room__admin_panel">
                 <a
                   className="btn"
                   onClick={onClickReveal}

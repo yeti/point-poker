@@ -1,36 +1,36 @@
 import React from 'react';
 import _ from 'lodash';
-import Ballot from './ballot';
+import PropTypes from 'prop-types';
 
-const Participant = ({ name, value, isSelf, socket, isRevealed}) => {
+const Participant = ({ name, value, isRevealed }) => {
   return (
     <div className={`Participant ${value ? 'Participant--ready' : 'Participant--not-ready'} ${isRevealed ? 'Participant--reveal' : ''}`}>
       <div className="Participant__name">
         <span>{name}</span>
       </div>
-      {isSelf
-        ? <Ballot
-            socket={socket}
-          />
-        : <div className="Participant__value">
-            {isRevealed
+        <div className="Participant__value">
+          { isRevealed
+            ? value
               ? value
-                ? value
-                : 'N/A'
-              : value
-                ? 'ready'
-                : 'not ready'
-            }
-          </div>
-      }
+              : 'N/A'
+            : value
+              ? 'ready'
+              : 'not ready'
+          }
+        </div>
     </div>
   );
-}
+};
+
+Participant.propTypes = {
+  name: PropTypes.any,
+  value: PropTypes.any,
+  isRevealed: PropTypes.any,
+};
 
 const Participants = ({ votes, isRevealed, socket }) => {
-
-  const self = _.find(votes, (vote) => vote.id === socket.id);
-  const others = _.filter(votes, (vote) => vote.id !== socket.id);
+  const self = _.find(votes, vote => vote.id === socket.id);
+  const others = _.filter(votes, vote => vote.id !== socket.id);
 
   return (
     <div className="Participants">
@@ -54,3 +54,9 @@ const Participants = ({ votes, isRevealed, socket }) => {
   );
 };
 export default Participants;
+
+Participants.propTypes = {
+  votes: PropTypes.any,
+  isRevealed: PropTypes.any,
+  socket: PropTypes.any,
+};
