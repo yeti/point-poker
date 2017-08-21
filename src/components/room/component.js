@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import JoinLink from '../joinLink';
 import Participants from './participants';
-import Ballot from './participants/ballot';
+import Ballot from './ballot';
 
 const RoomContainer = (props) => {
   const {

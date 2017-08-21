@@ -1,5 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
+import PropTypes from 'prop-types';
 
 import RoomContainer from './component';
 import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
@@ -118,3 +119,7 @@ export default class Room extends React.Component {
     );
   }
 }
+
+Room.propTypes = {
+  params: PropTypes.object.isRequired,
+};
