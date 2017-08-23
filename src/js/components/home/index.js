@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-import Brand from '../brand';
 import { browserHistory } from 'react-router';
 
 export default class Home extends React.Component {
@@ -44,7 +43,7 @@ export default class Home extends React.Component {
           <div className="Home__sections__item Home__sections__item--join">
             <a
               className="Home__sections__item__btn"
-              onClick={() => {this.navigateToRoom('');}}
+              onClick={() => { this.navigateToRoom(''); }}
             >
               {'Join Session'}
               <span className="icon-login" />
@@ -53,7 +52,7 @@ export default class Home extends React.Component {
           <div className="Home__sections__item Home__sections__item--create">
             <a
               className="Home__sections__item__btn"
-              onClick={() => {this.navigateToRoom();}}
+              onClick={() => { this.navigateToRoom(); }}
             >
               {'Create Session'}
               <span className="icon-plus" />

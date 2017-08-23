@@ -274,32 +274,33 @@ body {
   justify-content: center;
   height: 3rem;
   width: 2.5rem; }
-  .Logo__card {
-    width: 100%;
-    height: 100%;
-    border: 1px solid;
-    border-radius: 10%;
-    display: flex;
-    flex-direction: column;
+
+.card {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between; }
+  .card__suit {
+    order: 2;
+    -ms-grid-row-align: center;
     align-self: center;
-    justify-content: space-between; }
-    .Logo__card__suit {
-      order: 2;
-      -ms-grid-row-align: center;
-      align-self: center;
-      font-size: 2rem;
-      line-height: 0.5rem;
-      margin-top: -0.5rem; }
-    .Logo__card__value {
-      font-size: 0.75rem;
-      padding: 0rem 0.15rem; }
-      .Logo__card__value--top {
-        order: 1;
-        align-self: flex-start; }
-      .Logo__card__value--bottom {
-        order: 3;
-        align-self: flex-end;
-        transform: rotate(180deg); }
+    font-size: 2rem;
+    line-height: 0.5rem;
+    margin-top: -0.5rem; }
+  .card__value {
+    font-size: 0.75rem;
+    padding: 0rem 0.15rem; }
+    .card__value--top {
+      order: 1;
+      align-self: flex-start; }
+    .card__value--bottom {
+      order: 3;
+      align-self: flex-end;
+      transform: rotate(180deg); }
 
 .Room {
   display: flex;
@@ -316,6 +317,16 @@ body {
     font-size: 2rem; }
   .Room__participants {
     margin-top: 2rem; }
+  .Room__admin_panel {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px; }
+    .Room__admin_panel .btn, .Room__admin_panel .Home__sections__item__btn {
+      margin: 0 10px; }
 
 .Tiles {
   display: flex;

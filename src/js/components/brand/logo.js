@@ -1,24 +1,19 @@
 import React from 'react';
 
 export default class Logo extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const suit = '♠';
     const value = '?';
     return (
-      <div className={'Logo'}>
-        <div className={'Logo__card'}>
-          <div className={'Logo__card__suit'}>
+      <div className="Logo">
+        <div className="card">
+          <div className="card__suit">
             {suit}
           </div>
-          <div className={'Logo__card__value Logo__card__value--top'}>
+          <div className="card__value card__value--top">
             {value}
           </div>
-          <div className={'Logo__card__value Logo__card__value--bottom'}>
+          <div className="card__value card__value--bottom">
             {value}
           </div>
         </div>
