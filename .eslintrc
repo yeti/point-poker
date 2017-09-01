@@ -1,6 +1,4 @@
-const isProduction = process.env.NODE_ENV;
-
-module.exports = {
+{
     "env": {
         "browser": true,
         "es6": true,
@@ -23,4 +21,4 @@ module.exports = {
     "plugins": [
       "react"
     ]
-};
+}
