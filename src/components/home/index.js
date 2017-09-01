@@ -2,6 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import { browserHistory } from 'react-router';
 
+import './_home.scss';
+
 export default class Home extends React.Component {
 
   constructor(props) {

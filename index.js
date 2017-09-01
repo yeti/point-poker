@@ -39,7 +39,15 @@ app.get('/serviceWorker.js', (req, res) => {
   res.sendFile(__dirname + '/serviceWorker.js');
 });
 
-//app.get('/*', sendPage);
+app.get('/style.css', (req, res) => {
+  res.sendFile(__dirname + 'style.css');
+});
+
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(__dirname + '/bundle.js');
+});
+
+app.get('/*', sendPage);
 /*
 app.get('/:room/', sendPage);
 app.get('/:room/:user', sendPage);

@@ -1,6 +1,8 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
 
+import './_dropdown.scss';
+
 export default class Ballot extends React.Component {
 
   constructor(props) {

@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import Tile from './Tile';
+import './_tiles.scss';
 
 export default class Tiles extends React.Component {
 

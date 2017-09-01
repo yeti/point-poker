@@ -1,11 +1,9 @@
 import React from 'react';
 import Logo from './logo';
 
-export default class Brand extends React.Component {
+import './_brand.scss';
 
-  constructor(props) {
-    super(props);
-  }
+export default class Brand extends React.Component {
 
   render() {
     return (

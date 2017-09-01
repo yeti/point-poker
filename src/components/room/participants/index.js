@@ -2,6 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
+import './_participant.scss';
+import './_participants.scss';
+
 const Participant = ({ name, value, isRevealed }) => {
   const displayValue = value || 'N/A';
   const displayStatus = value ? 'ready' : 'not ready';

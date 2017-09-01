@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './_logo.scss';
+
 export default class Logo extends React.Component {
   render() {
     const suit = '♠';

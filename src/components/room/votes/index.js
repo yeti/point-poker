@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 
+import './_votes.scss';
+
 const Votes = ({ votes, isRevealed }) => {
   return (
     <div className="Votes">

@@ -2,6 +2,8 @@ import React from 'react';
 import { IndexLink } from 'react-router';
 import Logo from '../brand/logo';
 
+import './_header.scss';
+
 export default class Header extends React.Component {
 
   render() {

@@ -53,7 +53,10 @@ const config = {
             'css-loader',
             {
               loader: 'sass-loader',
-              query: {
+              options: {
+                includePaths: [
+                  resolve(__dirname, 'src/styles'),
+                ],
                 sourceMap: false,
               },
             },

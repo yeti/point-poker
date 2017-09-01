@@ -4,6 +4,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
+import './_auth.scss';
 
 export default class Auth extends React.Component {
   static get propTypes() {
