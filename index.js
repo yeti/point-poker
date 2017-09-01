@@ -9,8 +9,6 @@ const compiler = webpack(webpackConfig);
 
 const app = express();
 
-console.dir(`Environment: ${process.env.NODE_ENV}`);
-
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: webpackConfig.output.publicPath,
