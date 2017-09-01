@@ -3,40 +3,25 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 const config = {
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
     './index.js',
     './styles/main.scss',
   ],
 
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'public'),
     publicPath: '/',
   },
 
   context: resolve(__dirname, 'src'),
 
-  devServer: {
-    hot: true,
-    contentBase: resolve(__dirname, 'build'),
-    publicPath: '/',
-  },
-
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
       {
         test: /\.js$/,
         loaders: [
@@ -72,22 +57,12 @@ const config = {
   },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      test: /\.js$/,
-      options: {
-        eslint: {
-          configFile: resolve(__dirname, '.eslintrc'),
-          cache: false,
-        },
-      },
-    }),
+    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: true } }),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
     new CopyWebpackPlugin([{ from: 'build', to: '' }]),
-    new OpenBrowserPlugin({ url: `http://localhost:${process.env.PORT || 4200}` }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
   ],
 };
 

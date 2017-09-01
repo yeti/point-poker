@@ -5,15 +5,19 @@ const secure = require('express-force-https');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
-const compiler = webpack(webpackConfig);
-
+const isProduction = process.env.NODE_ENV === 'production';
 const app = express();
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath,
-}));
-app.use(require('webpack-hot-middleware')(compiler));
+console.log(`${isProduction ? 'Production' : 'Dev'} Build!`);
+
+if (!isProduction) {
+  const compiler = webpack(webpackConfig);
+  app.use(require('webpack-hot-middleware')(compiler));
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath,
+  }));
+}
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
