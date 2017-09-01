@@ -21,7 +21,7 @@ const socket = require('./lib/socket');
 
 socket.init(io);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4200;
 
 app.use(express.static(__dirname + '/public'));
 app.use(secure);
@@ -37,6 +37,14 @@ app.get('/manifest.json', (req, res) => {
 
 app.get('/serviceWorker.js', (req, res) => {
   res.sendFile(__dirname + '/serviceWorker.js');
+});
+
+app.get('/style.css', (req, res) => {
+  res.sendFile(__dirname + 'style.css');
+});
+
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(__dirname + '/bundle.js');
 });
 
 app.get('/*', sendPage);
