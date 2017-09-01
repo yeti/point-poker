@@ -1,27 +1,32 @@
 import React from 'react';
-import JoinLink from '../joinLink';
-import {LOCAL_STORAGE_KEYS} from '../../utils/constants';
-import { browserHistory, Link } from 'react-router';
+import { browserHistory } from 'react-router';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 
-export default class Join extends React.Component {
+import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
+
+export default class Auth extends React.Component {
+  static get propTypes() {
+    return { params: PropTypes.any };
+  }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      code: '',
+      name: window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || '',
     };
 
     window.browserHistory = browserHistory;
   }
 
-  componentDidMount(){
-    this.codeInput.focus();
+  componentDidMount() {
+    this.nameInput.focus();
   }
 
-  handleCodeChange(event) {
+  handleNameChange(event) {
     this.setState({
-      code: event.target.value && event.target.value.toUpperCase(),
+      name: event.target.value,
     });
   }
 
@@ -29,16 +34,20 @@ export default class Join extends React.Component {
     return this.props.params.room;
   }
 
-  hasValidCode() {
-    return this.state.code !== '';
+  hasValidName() {
+    return this.state.name !== '';
   }
 
-  get placeholderCode() {
-    return 'ABCD';
+  get placeholderName() {
+    const names = [
+      'James Bond',
+      'Luke Skywalker',
+    ];
+    return _.sample(names);
   }
 
   navigate() {
-    browserHistory.push(`/join/${this.state.code}/?`);
+    browserHistory.push(`/join/${this.getRoomId()}/${this.state.name}`);
   }
 
   onSubmit(event) {
@@ -63,20 +72,23 @@ export default class Join extends React.Component {
           >
             <label
               className="Auth__form__label"
-              for="code"
+              htmlFor="name"
             >
-              {'Which session?'}
+              {'What\'s your name?'}
             </label>
             <input
               className="Auth__form__input"
-              id="code"
+              id="name"
               type="text"
-              placeholder={this.placeholderCode}
-              value={this.state.code}
-              onChange={(e) => { this.handleCodeChange(e); }}
-              ref={(input) => { this.codeInput = input; }}
+              placeholder={this.placeholderName}
+              value={this.state.name}
+              onChange={(e) => { this.handleNameChange(e); }}
+              ref={(input) => { this.nameInput = input; }}
               maxLength="10"
               autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
             />
             <span className="Auth__form__actions">
               <a
@@ -89,9 +101,9 @@ export default class Join extends React.Component {
               <button
                 type="submit"
                 className="Auth__form__btn Auth__form__btn--enter"
-                disabled={!this.hasValidCode()}
+                disabled={!this.hasValidName()}
               >
-                {'Join'}
+                {'Enter'}
                 <span className="icon-right-open icon-on-right" />
               </button>
             </span>

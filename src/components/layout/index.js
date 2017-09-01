@@ -1,6 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
-import Header from './header.js';
+import Header from './header';
 
 export default class Layout extends React.Component {
   render() {

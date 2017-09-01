@@ -3,6 +3,8 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 const Participant = ({ name, value, isRevealed }) => {
+  const displayValue = value || 'N/A';
+  const displayStatus = value ? 'ready' : 'not ready';
   return (
     <div className={`Participant ${value ? 'Participant--ready' : 'Participant--not-ready'} ${isRevealed ? 'Participant--reveal' : ''}`}>
       <div className="Participant__name">
@@ -10,12 +12,8 @@ const Participant = ({ name, value, isRevealed }) => {
       </div>
         <div className="Participant__value">
           { isRevealed
-            ? value
-              ? value
-              : 'N/A'
-            : value
-              ? 'ready'
-              : 'not ready'
+            ? displayValue
+            : displayStatus
           }
         </div>
     </div>

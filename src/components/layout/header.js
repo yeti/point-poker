@@ -1,10 +1,6 @@
 import React from 'react';
-import _ from 'lodash';
-import { IndexLink, Link } from 'react-router';
+import { IndexLink } from 'react-router';
 import Logo from '../brand/logo';
-
-let className = 'Header__links__item';
-let activeClassName = 'Header__links__item--active';
 
 export default class Header extends React.Component {
 

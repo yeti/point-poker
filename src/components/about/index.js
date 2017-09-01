@@ -1,6 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
-import { Link } from 'react-router';
 
 export default class About extends React.Component {
   render() {

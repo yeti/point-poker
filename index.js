@@ -21,7 +21,7 @@ const socket = require('./lib/socket');
 
 socket.init(io);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4200;
 
 app.use(express.static(__dirname + '/public'));
 app.use(secure);
@@ -39,7 +39,7 @@ app.get('/serviceWorker.js', (req, res) => {
   res.sendFile(__dirname + '/serviceWorker.js');
 });
 
-app.get('/*', sendPage);
+//app.get('/*', sendPage);
 /*
 app.get('/:room/', sendPage);
 app.get('/:room/:user', sendPage);

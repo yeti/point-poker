@@ -1,6 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
-import Dropdown from 'react-dropdown'
+import Dropdown from 'react-dropdown';
 
 export default class Ballot extends React.Component {
 
@@ -23,7 +22,7 @@ export default class Ballot extends React.Component {
   }
 
   onClick(option) {
-    console.dir(option);
+    console.dir(option); // eslint-disable-line
 
     const vote = option.value;
 
@@ -38,7 +37,7 @@ export default class Ballot extends React.Component {
     return (
       <Dropdown
         options={this.getTiles()}
-        onChange={(option) => this.onClick(option)}
+        onChange={option => this.onClick(option)}
         value={this.state.vote}
         placeholder="Select an option"
       />

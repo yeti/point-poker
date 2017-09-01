@@ -14,7 +14,7 @@ export default class Tiles extends React.Component {
     };
 
     this.props.socket.on('reset', () => {
-      console.dir('resetting');
+      console.dir('resetting'); // eslint-disable-line
       this.setState({
         vote: null,
       });

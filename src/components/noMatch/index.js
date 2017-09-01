@@ -1,12 +1,6 @@
 import React from 'react';
-import _ from 'lodash';
-import { browserHistory } from 'react-router';
 
 export default class NoMatch extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

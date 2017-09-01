@@ -11,8 +11,8 @@
     },
     "extends": ["airbnb/base", "plugin:react/recommended"],
     "rules": {
-        "no-console": isProduction ? ["error", { allow: ["info", "warn", "error"] }] : ["off"],
-        "no-debugger": isProduction ? ["error"] : ["off"],
+        "no-console": ["error", { allow: ["info", "warn", "error"] }],
+        "no-debugger": ["error"],
         "class-methods-use-this": 0,
         "import/prefer-default-export": 0,
         "react/prop-types": 1,
