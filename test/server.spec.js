@@ -120,7 +120,7 @@ describe('Server', () => {
 
           getUserData('room A', client2.id).should.have.all.keys(['user', 'isAdmin', 'vote', 'id']);
           getUserName('room A', client2.id).should.equal('user 2');
-          isAdmin('room A', client2.id).should.equal(false);
+          isAdmin('room A', client2.id).should.equal(true);
           expect(getVote('room A', client2.id)).to.be.null;
           getUserId('room A', client2.id).should.equal(client2.id);
 
@@ -168,35 +168,6 @@ describe('Server', () => {
                 done();
               }, 100);
             }, 100);
-          }, 100);
-        }, 100);
-      }).catch((e) => { console.dir(e) });
-    });
-
-    it('should grant admin privileges to first person to join', () => {
-      const client1 = createClient();
-      const client2 = createClient();
-
-      Promise.all([
-        authenticate(client1, 'room A', 'user 1'),
-        authenticate(client2, 'room A', 'user 2'),
-      ]).then(() => {
-
-        setTimeout(() => {
-          isAdmin('room A', client1.id).should.equal(true);
-          client1.disconnect();
-
-          setTimeout(() => {
-
-            const client3 = createClient();
-            authenticate(client3, 'room A', 'new guy').then(() => {
-
-              setTimeout(() => {
-                isAdmin('room A', client2.id).should.equal(false);
-                isAdmin('room A', client3.id).should.equal(true);
-                done();
-              }, 100);
-            });
           }, 100);
         }, 100);
       }).catch((e) => { console.dir(e) });
