@@ -5,7 +5,6 @@ import RoomContainer from './component';
 import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
 
 export default class Room extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -21,7 +20,6 @@ export default class Room extends React.Component {
     this.socket = io('/');
 
     this.socket.on('connect', (client) => {
-      console.log('connect');
       this.setState({
         connected: true,
         disconnected: false,
