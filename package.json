@@ -5,40 +5,38 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "watch": {
-    "server": [
-      "lib",
-      "index.js"
-    ],
-    "build:js": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "js",
-      "quiet": false
-    },
-    "build:sass": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "scss",
-      "quiet": false
-    }
-  },
   "scripts": {
-    "start": "node index.js",
-    "preserver": "npm run lint:server",
-    "server": "node index.js & gulp reload",
-    "dev": "npm-watch",
-    "build": "npm run build:js && npm run build:sass",
-    "prebuild:js": "npm run lint:client",
-    "build:js": "rollup --config rollup.config.js",
-    "build:sass": "gulp sass",
+    "dev": "NODE_ENV=dev node index",
+    "prestart": "npm run checks",
+    "start": "NODE_ENV=production node index",
     "lint:server": "eslint index.js lib/**/*.js -c ./.eslintrc-server.js",
     "lint:client": "eslint src/**/*.js -c ./.eslintrc-client.js",
-    "test": "mocha"
+    "test": "mocha",
+    "checks": "npm run lint:server && npm test"
   },
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-node": "^4.2.2",
+    "express": "^4.15.2",
+    "express-force-https": "^1.0.0",
+    "lodash": "^4.17.4",
+    "open-browser-webpack-plugin": "0.0.5",
+    "prettyjson": "^1.2.1",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-copy-to-clipboard": "^5.0.0",
+    "react-dom": "^15.4.2",
+    "react-dropdown": "^1.2.3",
+    "react-router": "^3.0.0",
+    "react-router-dom": "^4.0.0",
+    "react-router-transition": "0.0.6",
+    "react-tooltip": "^3.3.0",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
+    "starwars-names": "^1.6.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
@@ -68,27 +66,6 @@
     "rollup-plugin-node-resolve": "2.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-uglify": "1.0.1",
-    "rollup-watch": "3.2.2",
-    "webpack": "^3.5.5",
-    "webpack-dev-middleware": "^1.12.0",
-    "webpack-hot-middleware": "^2.18.2"
-  },
-  "dependencies": {
-    "eslint-plugin-node": "^4.2.2",
-    "express": "^4.15.2",
-    "express-force-https": "^1.0.0",
-    "lodash": "^4.17.4",
-    "prettyjson": "^1.2.1",
-    "react-addons-css-transition-group": "^15.5.2",
-    "react-copy-to-clipboard": "^5.0.0",
-    "react-dom": "^15.4.2",
-    "react-dropdown": "^1.2.3",
-    "react-router": "^3.0.0",
-    "react-router-dom": "^4.0.0",
-    "react-router-transition": "0.0.6",
-    "react-tooltip": "^3.3.0",
-    "socket.io": "^1.7.3",
-    "socket.io-client": "^1.7.3",
-    "starwars-names": "^1.6.0"
+    "rollup-watch": "3.2.2"
   }
 }

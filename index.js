@@ -4,9 +4,12 @@ const secure = require('express-force-https');
 
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
+
 const compiler = webpack(webpackConfig);
 
 const app = express();
+
+console.dir(`Environment: ${process.env.NODE_ENV}`);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
