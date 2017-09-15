@@ -1,0 +1,20 @@
+{
+  "short_name": "PointPoker",
+  "name": "Point Poker",
+  "display": "standalone",
+  "theme_color": "#00707e",
+  "background_color": "#00707e",
+  "icons": [
+    {
+      "src": "icons/card-144px.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "icons/card.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen"
+}

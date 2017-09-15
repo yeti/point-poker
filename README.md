@@ -27,3 +27,14 @@ npm run dev
 ```
 
 This should do just about the same as a Production run, but with some watchers and browser-sync to speed up the dev workflow.
+
+
+### Running Storybook
+
+To start storybook, run:
+
+```
+npm run storybook
+```
+
+It will kick off a dev server on port 6006.

@@ -1,17 +1,53 @@
-.btn {
+
+@mixin btn($bg-color: $color-default, $color: $color-white) {
   text-decoration: none;
-  background: $tile-bg-color;
-  color: $tile-text-color;
-  border: 0.2rem solid $tile-border-color;
-  border-radius: 0.5rem;
-  padding: 0.5rem 3rem;
+  background: $bg-color;
+  color: $color;
+  border: 0rem $bg-color;
+  border-radius: 0.2rem;
+  padding: 1rem 2rem;
   transition: all 0.1s;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  @include center;
+  transition: background $transition-duration-fast ease-in-out;
 
   &:hover {
-    background: $tile-active-bg-color;
-    color: $tile-active-text-color;
-    border: 0.2rem solid $tile-active-border-color;
+    background: darken($bg-color, 10%);
+    //box-shadow: 0 0 0.5em $tile-active-shadow-color;
+  }
+
+  &:active, &:focus {
     box-shadow: 0 0 0.5em $tile-active-shadow-color;
   }
-  
+
+  &:disabled {
+    background: lighten($bg-color, 25%);
+    color: darken($color, 10%);
+  }
+
+
+  [class^="icon-"] {
+    margin-right: -0.6rem;
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+  }
+
+  .icon-on-left {
+    margin-right: 0.3rem;
+    margin-left: -0.6rem;
+  }
+
+
+}
+
+
+.btn, .btn--default {
+  @include btn($color-default, $color-white);
+}
+
+.btn--primary {
+  @include btn($color-primary, $color-white);
 }

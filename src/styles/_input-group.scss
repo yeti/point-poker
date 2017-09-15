@@ -1,0 +1,38 @@
+$input-border-color: black;
+/*
+input {
+  text-decoration: none;
+  background: $tile-bg-color;
+  color: $tile-text-color;
+  border: 0.01rem solid $input-border-color;
+  border-radius: 0.1rem;
+  padding: 0.5rem 3rem;
+  transition: all 0.1s;
+
+  &:focus {
+    //background-color: $tile-text-color;
+    //color: $tile-bg-color;
+    box-shadow: 0 0px 0.3rem $input-border-color;
+    outline: 0px auto -webkit-focus-ring-color;
+    //border-color: $color-secondary;
+  }
+}
+*/
+
+.input-group {
+  display: flex;
+  width: 100%;
+
+  .input-group__item{
+    &:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+}
