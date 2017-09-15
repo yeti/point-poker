@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
@@ -47,21 +46,19 @@ const config = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                includePaths: [
-                  resolve(__dirname, 'src/styles'),
-                ],
-                sourceMap: false,
-              },
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                resolve(__dirname, 'src/styles'),
+              ],
+              sourceMap: false,
             },
-          ],
-        }),
+          },
+        ],
       },
       { test: /\.(png|jpg)$/, use: 'url-loader?limit=15000' },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader' },
@@ -82,7 +79,6 @@ const config = {
       },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
     new CopyWebpackPlugin([{ from: 'build', to: '' }]),
     new OpenBrowserPlugin({ url: `http://localhost:${process.env.PORT || 4200}` }),
     new webpack.HotModuleReplacementPlugin(),

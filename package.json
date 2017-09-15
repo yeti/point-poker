@@ -3,13 +3,14 @@
   "version": "1.1.0",
   "description": "Point poker using sockets",
   "engines": {
-    "node": ">=4.0.0"
+    "node": "8.1.2",
+    "npm": "5.0.4"
   },
   "scripts": {
     "dev": "NODE_ENV=dev node index",
     "prebuild": "npm run checks",
     "build": "NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
-    "prestart": "npm run build",
+    "postinstall": "npm run build",
     "start": "NODE_ENV=production node index",
     "lint:server": "eslint index.js lib/**/*.js -c ./.eslintrc-server.js",
     "lint:client": "eslint src/**/*.js -c ./.eslintrc",
@@ -21,9 +22,6 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.2.6",
-    "@storybook/addon-links": "^3.2.6",
-    "@storybook/react": "^3.2.8",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-minify-webpack-plugin": "^0.2.0",
@@ -81,5 +79,10 @@
     "testMatch": [
       "**/src/**/*.spec.js?(x)"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-links": "^3.2.6",
+    "@storybook/react": "^3.2.8"
   }
 }
