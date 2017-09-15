@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=dev node index",
     "prebuild": "npm run checks",
     "build": "NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
-    "prestart": "npm run build",
+    "postinstall": "npm run build",
     "start": "NODE_ENV=production node index",
     "lint:server": "eslint index.js lib/**/*.js -c ./.eslintrc-server.js",
     "lint:client": "eslint src/**/*.js -c ./.eslintrc",
