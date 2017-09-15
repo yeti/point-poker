@@ -28,6 +28,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "chai": "^3.5.0",
+    "classwrap": "^1.0.2",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.7",
     "enzyme": "^2.9.1",

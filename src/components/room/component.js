@@ -16,7 +16,7 @@ const RoomContainer = (props) => {
     onClickNext,
     isAdmin } = props;
   return (
-    <div className="Room App__content__view">
+    <div className="Room app__view">
       {connected &&
         <div className="Room__content">
           <div className="Room__session">

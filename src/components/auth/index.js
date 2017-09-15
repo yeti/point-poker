@@ -59,7 +59,7 @@ export default class Auth extends React.Component {
 
   render() {
     return (
-      <div className="Auth App__content__view">
+      <div className="Auth app__view">
         <div >
           <form
             className="Auth__form"

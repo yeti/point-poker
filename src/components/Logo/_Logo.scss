@@ -1,0 +1,13 @@
+@import 'main';
+
+.Logo {
+  font-size: 6rem;
+
+  &--large {
+    font-size: 10rem;
+  }
+
+  &--small {
+    font-size: 3rem;
+  }
+}

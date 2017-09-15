@@ -3,7 +3,7 @@ import React from 'react';
 export default class About extends React.Component {
   render() {
     return (
-      <div className="About App__content__view">
+      <div className="About app__view">
         {'What about it?'}
       </div>
     );

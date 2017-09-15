@@ -2,7 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import { browserHistory } from 'react-router';
 
-import './_home.scss';
+import View from 'components/View';
+import Jumbotron from './Jumbotron';
+import './_Home.scss';
 
 export default class Home extends React.Component {
 
@@ -35,33 +37,9 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="Home App__content__view">
-        <div className="Home__jumbotron">
-          <div className="Home__jumbotron__copy">
-            {'Plan your next sprint'}
-          </div>
-        </div>
-        <div className="Home__sections">
-          <div className="Home__sections__item Home__sections__item--join">
-            <a
-              className="Home__sections__item__btn"
-              onClick={() => { this.navigateToRoom(''); }}
-            >
-              {'Join Session'}
-              <span className="icon-login" />
-            </a>
-          </div>
-          <div className="Home__sections__item Home__sections__item--create">
-            <a
-              className="Home__sections__item__btn"
-              onClick={() => { this.navigateToRoom(); }}
-            >
-              {'Create Session'}
-              <span className="icon-plus" />
-            </a>
-          </div>
-        </div>
-      </div>
+      <View className="Home">
+        <Jumbotron className="Home__Jumbotron" onClick={() => this.navigateToRoom('') } />
+      </View>
     );
   }
 }

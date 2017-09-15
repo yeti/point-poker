@@ -1,18 +1,30 @@
 import React from 'react';
-import Header from './header';
-import './_app.scss';
+import PropTypes from 'prop-types';
 
-export default class Layout extends React.Component {
+import Header from './Header';
+import './_Layout.scss';
+
+class Layout extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App__header">
+      <div className="Layout">
+        <div className="Layout__header">
           <Header />
         </div>
-        <div className="App__content">
+        <div className="Layout__content">
           {this.props.children}
         </div>
       </div>
     );
   }
 }
+
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  className: PropTypes.string,
+};
+
+export default Layout;

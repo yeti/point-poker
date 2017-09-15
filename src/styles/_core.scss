@@ -8,8 +8,5 @@ html, body, main {
 body {
   background-color: $color-bg;
   color: $color-text;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  //font-family: 'Mallory Bold';
-  //font-family: 'Roboto', sans-serif;
-  //font-family: 'Baloo Bhaina', cursive;
+  @include roboto(normal);
 }

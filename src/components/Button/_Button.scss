@@ -1,0 +1,55 @@
+@import 'main';
+
+@mixin btn($bg-color: $color-default, $color: $color-white) {
+  @include roboto-condensed(light);
+  text-decoration: none;
+  background: $bg-color;
+  color: $color;
+  border: 0rem $bg-color;
+  border-radius: 0.2rem;
+  padding: 1rem 2rem;
+  transition: all 0.1s;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+  @include center;
+  transition: background $transition-duration-fast ease-in-out,
+    box-shadow $transition-duration-fast ease-in-out;
+
+  &:hover {
+    background: darken($bg-color, 10%);
+  }
+
+  &:active, &:focus {
+    box-shadow: 0 0 0.5em $tile-active-shadow-color;
+  }
+
+  &:disabled {
+    background: lighten($bg-color, 25%);
+    color: darken($color, 10%);
+  }
+
+
+  [class^="icon-"] {
+    margin-right: -0.6rem;
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+  }
+
+  .icon-on-left {
+    margin-right: 0.3rem;
+    margin-left: -0.6rem;
+  }
+}
+
+
+.Button{
+  @include btn($color-default, $color-white);
+
+  &--default {}
+
+  &--primary {
+    @include btn($color-primary, $color-white);
+  }
+}

@@ -11,7 +11,7 @@
   @else if $point == phablet {
     @media (min-width: 37.5em)  { @content ; }
  }
- @else if $point == mobileonly {
+ @else if $point == mobile {
     @media (max-width: 37.5em)  { @content ; }
  }
 }

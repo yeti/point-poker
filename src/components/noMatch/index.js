@@ -4,7 +4,7 @@ export default class NoMatch extends React.Component {
 
   render() {
     return (
-      <div className="NoMatch App__content__view">
+      <div className="NoMatch app__view">
         <div className="NoMatch__copy">
           <div className="NoMatch__copy__title">
             {'404'}
