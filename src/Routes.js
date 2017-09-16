@@ -4,7 +4,7 @@ import { Router, Route, browserHistory } from 'react-router';
 // Import the components.
 import Layout from './components/Layout';
 import Home from './components/Home';
-import Auth from './components/auth';
+import Auth from './components/Auth';
 import About from './components/about';
 import Contact from './components/contact';
 import Room from './components/room';

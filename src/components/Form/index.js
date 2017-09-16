@@ -9,7 +9,7 @@ class Form extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: props.value };
   }
 
   componentDidMount() {
@@ -19,13 +19,13 @@ class Form extends Component {
   handleKeyDown(e) {
     if (e.key === 'Enter') {
       e.preventDefault();
-      this.props.onSubmit(e);
+      this.handleSubmit(e);
     }
   }
 
   handleChange(event) {
     this.setState({
-      value: event.target.value && event.target.value.toUpperCase(),
+      value: this.props.valueTransform(event.target.value),
     });
   }
 
@@ -37,7 +37,15 @@ class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.onSubmit(this.state.value);
+    if (this.inputIsValid()) {
+      this.props.onSubmit(this.state.value);
+    }
+  }
+
+  moveCaretAtEnd(e) {
+    const tempValue = e.target.value;
+    e.target.value = '';
+    e.target.value = tempValue;
   }
 
   render() {
@@ -78,6 +86,7 @@ class Form extends Component {
             ref={(input) => { this.input = input; }}
             maxLength="10"
             autoComplete="off"
+            onFocus={this.moveCaretAtEnd}
           />
           <span className="Form__actions">
             <Button
@@ -111,6 +120,13 @@ Form.propTypes = {
   backLabel: PropTypes.string,
   submitLabel: PropTypes.string,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
+  valueTransform: PropTypes.func,
+};
+
+Form.defaultProps = {
+  value: '',
+  valueTransform: (value => value),
 };
 
 export default Form;

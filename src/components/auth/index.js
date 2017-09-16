@@ -3,40 +3,14 @@ import { browserHistory } from 'react-router';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
-import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
-import './_auth.scss';
+import Form from 'components/Form';
+import View from 'components/View';
+import { LOCAL_STORAGE_KEYS } from 'utils/constants';
+import './_Auth.scss';
 
 export default class Auth extends React.Component {
   static get propTypes() {
     return { params: PropTypes.any };
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || '',
-    };
-
-    window.browserHistory = browserHistory;
-  }
-
-  componentDidMount() {
-    this.nameInput.focus();
-  }
-
-  handleNameChange(event) {
-    this.setState({
-      name: event.target.value,
-    });
-  }
-
-  getRoomId() {
-    return this.props.params.room;
-  }
-
-  hasValidName() {
-    return this.state.name !== '';
   }
 
   get placeholderName() {
@@ -47,70 +21,33 @@ export default class Auth extends React.Component {
     return _.sample(names);
   }
 
-  navigate() {
-    browserHistory.push(`/join/${this.getRoomId()}/${this.state.name}`);
+  get title() {
+    return 'What\'s your first name?';
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.navigate();
+  getRoomId() {
+    return this.props.params.room;
+  }
+
+  navigate(name) {
+    browserHistory.push(`/join/${this.getRoomId()}/${name}`);
   }
 
   render() {
     return (
-      <div className="Auth app__view">
-        <div >
-          <form
-            className="Auth__form"
-            onSubmit={(e) => { this.onSubmit(e); }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                this.onSubmit(e);
-              }
-            }}
-          >
-            <label
-              className="Auth__form__label"
-              htmlFor="name"
-            >
-              {'What\'s your name?'}
-            </label>
-            <input
-              className="Auth__form__input"
-              id="name"
-              type="text"
-              placeholder={this.placeholderName}
-              value={this.state.name}
-              onChange={(e) => { this.handleNameChange(e); }}
-              ref={(input) => { this.nameInput = input; }}
-              maxLength="10"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck="false"
-            />
-            <span className="Auth__form__actions">
-              <a
-                className="Auth__form__btn Auth__form__btn--back"
-                onClick={browserHistory.goBack}
-              >
-                <span className="icon-left-open icon-on-left" />
-                {'Back'}
-              </a>
-              <button
-                type="submit"
-                className="Auth__form__btn Auth__form__btn--enter"
-                disabled={!this.hasValidName()}
-              >
-                {'Enter'}
-                <span className="icon-right-open icon-on-right" />
-              </button>
-            </span>
-          </form>
-        </div>
-      </div>
+      <View className="Auth">
+        <Form
+          className="Auth__Form"
+          onSubmit={name => this.navigate(name)}
+          onBack={browserHistory.goBack}
+          backLabel="Back"
+          placeholderCode
+          submitLabel="Enter 🚪"
+          placeholder={this.placeholderCode}
+          label={this.title}
+          value={window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || ''}
+        />
+      </View>
     );
   }
 }

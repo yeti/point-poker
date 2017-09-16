@@ -28,9 +28,10 @@ export default class Join extends React.Component {
           onBack={browserHistory.goBack}
           backLabel="Back"
           placeholderCode
-          submitLabel="Enter"
+          submitLabel="Enter 🚪"
           placeholder={this.placeholderCode}
           label={this.title}
+          valueTransform={value => (value && value.toUpperCase())}
         />
       </View>
     );

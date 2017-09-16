@@ -10,12 +10,12 @@ $input-width: 20rem;
   &__form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     font-size: 2rem;
   }
 
   &__label {
-    @include roboto(thin);
+    @include roboto(light);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
@@ -24,11 +24,12 @@ $input-width: 20rem;
     @include roboto(thin);
     width: $input-width;
     color: black;
-    text-align: center;
     border: 0px solid;
-    border-bottom: 0.1rem solid black;
+    border-bottom: 0.1rem solid gray;
     padding-bottom: 0.5rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    transition: border-bottom 0.2s ease-in-out,
+      font-size 0.2s ease-in-out;
 
     @include media("<tablet") {
       font-size: 2.5rem;
@@ -36,6 +37,7 @@ $input-width: 20rem;
 
     &:focus {
       outline: 0px auto -webkit-focus-ring-color;
+      border-bottom: 0.1rem solid black;
     }
 
     &::placeholder {
