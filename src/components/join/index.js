@@ -1,101 +1,38 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
+import Form from 'components/Form';
+import View from 'components/View';
+import './_Join.scss';
+
 export default class Join extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      code: '',
-    };
-
-    window.browserHistory = browserHistory;
-  }
-
-  componentDidMount() {
-    this.codeInput.focus();
-  }
-
-  handleCodeChange(event) {
-    this.setState({
-      code: event.target.value && event.target.value.toUpperCase(),
-    });
-  }
-
-  getRoomId() {
-    return this.props.params.room;
-  }
-
-  hasValidCode() {
-    return this.state.code !== '';
-  }
 
   get placeholderCode() {
     return 'ABCD';
   }
 
-  navigate() {
-    browserHistory.push(`/join/${this.state.code}/?`);
+  get title() {
+    return 'Please enter a room name';
   }
 
-  onSubmit(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.navigate();
+  navigate(room) {
+    browserHistory.push(`/join/${room}/?`);
   }
 
   render() {
     return (
-      <div className="Auth app__view">
-        <div >
-          <form
-            className="Auth__form"
-            onSubmit={(e) => { this.onSubmit(e); }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                this.onSubmit(e);
-              }
-            }}
-          >
-            <label
-              className="Auth__form__label"
-              htmlFor="code"
-            >
-              {'Which session?'}
-            </label>
-            <input
-              className="Auth__form__input"
-              id="code"
-              type="text"
-              placeholder={this.placeholderCode}
-              value={this.state.code}
-              onChange={(e) => { this.handleCodeChange(e); }}
-              ref={(input) => { this.codeInput = input; }}
-              maxLength="10"
-              autoComplete="off"
-            />
-            <span className="Auth__form__actions">
-              <a
-                className="Auth__form__btn Auth__form__btn--back"
-                onClick={browserHistory.goBack}
-              >
-                <span className="icon-left-open icon-on-left" />
-                {'Back'}
-              </a>
-              <button
-                type="submit"
-                className="Auth__form__btn Auth__form__btn--enter"
-                disabled={!this.hasValidCode()}
-              >
-                {'Join'}
-                <span className="icon-right-open icon-on-right" />
-              </button>
-            </span>
-          </form>
-        </div>
-      </div>
+      <View className="Join">
+        <Form
+          className="Join__Form"
+          onSubmit={room => this.navigate(room)}
+          onBack={browserHistory.goBack}
+          backLabel="Back"
+          placeholderCode
+          submitLabel="Enter"
+          placeholder={this.placeholderCode}
+          label={this.title}
+        />
+      </View>
     );
   }
 }

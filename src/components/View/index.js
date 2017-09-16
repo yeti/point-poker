@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 
 import './_View.scss';
 
-class View extends React.Component {
+class View extends Component {
   render() {
     const {
       className,

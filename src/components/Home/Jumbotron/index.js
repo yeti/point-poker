@@ -30,7 +30,7 @@ class Jumbotron extends React.Component {
         </div>
         <div className="Jumbotron__cta">
           <Button
-            type="primary"
+            buttonType="primary"
             className="Jumbotron__button"
             onClick={onClick}
           >

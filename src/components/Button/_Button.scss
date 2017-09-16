@@ -15,14 +15,15 @@
   cursor: pointer;
   @include center;
   transition: background $transition-duration-fast ease-in-out,
-    box-shadow $transition-duration-fast ease-in-out;
+  box-shadow $transition-duration-fast ease-in-out;
+  outline: none;
 
   &:hover {
-    background: darken($bg-color, 10%);
+    box-shadow: 0 0 0.5em $tile-active-shadow-color;
   }
 
   &:active, &:focus {
-    box-shadow: 0 0 0.5em $tile-active-shadow-color;
+    background: darken($bg-color, 10%);
   }
 
   &:disabled {

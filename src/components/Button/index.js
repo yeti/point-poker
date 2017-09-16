@@ -8,8 +8,10 @@ class Button extends Component {
 
   render() {
     const {
+      buttonType,
       className,
       children,
+      disabled,
       type,
       onClick,
     } = this.props;
@@ -17,15 +19,15 @@ class Button extends Component {
     const classNames = classwrap(
       [
         'Button',
-        `Button--${type}`,
+        `Button--${buttonType}`,
         className,
       ],
     );
 
     return (
-      <span className={classNames} onClick={onClick}>
+      <button className={classNames} onClick={onClick} type={type} disabled={disabled}>
         {children}
-      </span>
+      </button>
     );
   }
 }
@@ -36,8 +38,10 @@ Button.propTypes = {
     PropTypes.node,
   ]),
   className: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary']),
+  type: PropTypes.string,
+  buttonType: PropTypes.oneOf(['default', 'primary']),
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {

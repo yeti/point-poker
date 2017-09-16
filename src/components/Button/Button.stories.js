@@ -12,7 +12,7 @@ const stories = storiesOf('Button', module);
 
 stories.add('Default', () => (
     <div style={{ width: '10rem', padding: '5rem' }}>
-      <Button>
+      <Button buttonType="default">
         Buttons Yo!
       </Button>
     </div>
@@ -21,7 +21,7 @@ stories.add('Default', () => (
 
 stories.add('Primary', () => (
     <div style={{ width: '10rem', padding: '5rem' }}>
-      <Button>
+      <Button buttonType="primary">
         Clickity Click Clack
       </Button>
     </div>
