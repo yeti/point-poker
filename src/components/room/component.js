@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import View from 'components/View';
+
 import JoinLink from '../joinLink';
 import Participants from './participants';
 import Ballot from './participants/ballot';
@@ -16,7 +19,7 @@ const RoomContainer = (props) => {
     onClickNext,
     isAdmin } = props;
   return (
-    <div className="Room app__view">
+    <View className="Room app__view">
       {connected &&
         <div className="Room__content">
           <div className="Room__session">
@@ -67,7 +70,7 @@ const RoomContainer = (props) => {
           <a href="">Reconnect</a>
         </div>
       }
-    </div>
+    </View>
   );
 };
 

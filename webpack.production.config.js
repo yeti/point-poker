@@ -18,6 +18,10 @@ const config = {
   },
 
   context: resolve(__dirname, 'src'),
+  resolve: {
+    modules: [resolve(__dirname, 'src'), 'node_modules'],
+
+  },
 
   module: {
     rules: [

@@ -14,7 +14,7 @@
     border-radius: 0.5rem;
     width: $tile-width;
     height: $tile-height;
-    cursor: pointer;
+    @include clickable;
     display: flex;
     align-items: center;
     justify-content: center;

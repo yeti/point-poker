@@ -12,7 +12,7 @@ export default class Join extends React.Component {
   }
 
   get title() {
-    return 'Please enter a room name';
+    return 'Please choose a room code';
   }
 
   navigate(room) {
@@ -28,7 +28,7 @@ export default class Join extends React.Component {
           onBack={browserHistory.goBack}
           backLabel="Back"
           placeholderCode
-          submitLabel="Enter 🚪"
+          submitLabel="Join"
           placeholder={this.placeholderCode}
           label={this.title}
           valueTransform={value => (value && value.toUpperCase())}

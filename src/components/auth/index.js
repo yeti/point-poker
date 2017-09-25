@@ -22,7 +22,7 @@ export default class Auth extends React.Component {
   }
 
   get title() {
-    return 'What\'s your first name?';
+    return 'What\'s your name?';
   }
 
   getRoomId() {
@@ -42,7 +42,7 @@ export default class Auth extends React.Component {
           onBack={browserHistory.goBack}
           backLabel="Back"
           placeholderCode
-          submitLabel="Enter 🚪"
+          submitLabel="Enter"
           placeholder={this.placeholderCode}
           label={this.title}
           value={window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || ''}

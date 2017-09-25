@@ -10,7 +10,7 @@
   white-space: nowrap;
   display: inline-block;
   font-size: 1rem;
-  cursor: pointer;
+  @include clickable;
   @include center;
   transition: background $transition-duration-fast ease-in-out;
 

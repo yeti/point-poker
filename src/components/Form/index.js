@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 
 import Button from 'components/Button';
+import BackButton from 'components/BackButton';
 import './_Form.scss';
 
 class Form extends Component {
@@ -52,60 +53,55 @@ class Form extends Component {
     const {
       className,
       label,
-      onBack,
-      backLabel,
       submitLabel,
       placeholder,
     } = this.props;
 
     const classNames = classwrap([
       'Form',
+      {
+        Form: {
+          '--isValid': this.inputIsValid(),
+        },
+      },
       className,
     ]);
 
     return (
       <div className={classNames}>
         <form
-          className="Form__form"
+          className="Form__Form"
           onSubmit={ e => this.handleSubmit(e) }
           onKeyDown={ e => this.handleKeyDown(e) }
         >
+          <BackButton className="Form__BackButton" />
           <label
-            className="Form__label"
+            className="Form__Label"
             htmlFor="code"
           >
             {label}
           </label>
-          <input
-            className="Form__input"
-            id="code"
-            type="text"
-            placeholder={placeholder}
-            value={this.state.value}
-            onChange={(e) => { this.handleChange(e); }}
-            ref={(input) => { this.input = input; }}
-            maxLength="10"
-            autoComplete="off"
-            onFocus={this.moveCaretAtEnd}
-          />
-          <span className="Form__actions">
-            <Button
-              className="Form__btn Form__btn--back"
-              onClick={onBack}
-            >
-              <span className="icon-left-open icon-on-left" />
-              {backLabel}
-            </Button>
+          <div className="Form__InputGroup">
+            <input
+              className="Form__Input"
+              id="code"
+              type="text"
+              placeholder={placeholder}
+              value={this.state.value}
+              onChange={(e) => { this.handleChange(e); }}
+              ref={(input) => { this.input = input; }}
+              maxLength="10"
+              autoComplete="off"
+              onFocus={this.moveCaretAtEnd}
+            />
             <Button
               type="submit"
-              className="Form__btn Form__btn--submit"
-              disabled={!this.inputIsValid()}
+              className="Form__SubmitButton"
               buttonType="primary"
             >
               {submitLabel}
-              <span className="icon-right-open icon-on-right" />
             </Button>
-          </span>
+          </div>
         </form>
       </div>
     );
@@ -116,8 +112,6 @@ Form.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
   onSubmit: PropTypes.func,
-  onBack: PropTypes.func,
-  backLabel: PropTypes.string,
   submitLabel: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,

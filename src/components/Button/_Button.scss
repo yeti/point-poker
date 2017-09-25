@@ -12,7 +12,7 @@
   white-space: nowrap;
   display: inline-block;
   font-size: 1.5rem;
-  cursor: pointer;
+  @include clickable;
   @include center;
   transition: background $transition-duration-fast ease-in-out,
   box-shadow $transition-duration-fast ease-in-out;

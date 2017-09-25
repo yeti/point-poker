@@ -7,20 +7,20 @@ $input-width: 20rem;
   height: 100%;
   @include center;
 
-  &__form {
+  &__Form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 2rem;
   }
 
-  &__label {
+  &__Label {
     @include roboto(light);
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
-  &__input {
+  &__Input {
     @include roboto(thin);
     width: $input-width;
     color: black;
@@ -45,16 +45,25 @@ $input-width: 20rem;
     }
   }
 
-  &__actions {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: $input-width;
+  &__InputGroup {
+    position: relative;
   }
 
-  &__btn {
-    &--back {}
-    &--submit {}
+  &__SubmitButton {
+    transform: scale(0);
+    opacity: 0;
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+    transition: $transition-duration-fast / 2 ease-in-out;
+  }
+
+  &--isValid {
+    .Form__SubmitButton {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 }

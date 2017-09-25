@@ -1,0 +1,15 @@
+@import 'main';
+
+$input-width: 20rem;
+
+.BackButton {
+  @include clickable;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: $color-default;
+  transition: color $transition-duration-fast ease-in-out;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

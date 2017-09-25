@@ -34,7 +34,7 @@ class Jumbotron extends React.Component {
             className="Jumbotron__button"
             onClick={onClick}
           >
-            Get Started 👟
+            Get Started
           </Button>
         </div>
       </div>
