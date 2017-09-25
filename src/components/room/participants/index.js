@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import './_participant.scss';
@@ -30,8 +29,16 @@ Participant.propTypes = {
 };
 
 const Participants = ({ votes, isRevealed, socket }) => {
-  const self = _.find(votes, vote => vote.id === socket.id);
-  const others = _.filter(votes, vote => vote.id !== socket.id);
+  let self;
+  const others = [];
+
+  votes.forEach((vote) => {
+    if (vote.id === socket.id) {
+      self = vote;
+    } else {
+      others.push(vote);
+    }
+  });
 
   return (
     <div className="Participants">
@@ -42,7 +49,7 @@ const Participants = ({ votes, isRevealed, socket }) => {
         isSelf={true}
         isRevealed={isRevealed}
       />
-      {_.map(others, participant => (
+      {others.map(participant => (
         <Participant
           name={participant.user}
           value={participant.vote}

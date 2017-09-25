@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import Tile from './Tile';
 import './_tiles.scss';
@@ -42,7 +41,7 @@ export default class Tiles extends React.Component {
     return (
       <div className="Tiles">
         {
-          _.map(this.state.tiles, tile => (
+          this.state.tiles.map(tile => (
             <Tile
               value={ tile }
               onClick={() => { this.onClick(tile); } }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 
+import { sample } from 'utils';
 import Form from 'components/Form';
 import View from 'components/View';
 import { LOCAL_STORAGE_KEYS } from 'utils/constants';
@@ -18,7 +18,7 @@ export default class Auth extends React.Component {
       'James Bond',
       'Luke Skywalker',
     ];
-    return _.sample(names);
+    return sample(names);
   }
 
   get title() {
