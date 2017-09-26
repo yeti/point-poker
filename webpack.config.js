@@ -5,6 +5,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+
+const port = process.env.PORT || 4200;
+
 const config = {
   devtool: 'inline-source-map',
 
@@ -27,10 +30,16 @@ const config = {
 
   },
 
-  devServer: {
+  devServer: { // dev server broadcasted on local network
     hot: true,
-    contentBase: resolve(__dirname, 'build'),
-    publicPath: '/',
+    port,
+    contentBase: resolve(__dirname, 'public'),
+    publicPath: resolve(__dirname, 'public'),
+    historyApiFallback: {
+      index: resolve(__dirname, 'public/index.html'),
+    },
+    disableHostCheck: true,
+    host: '0.0.0.0',
   },
 
   module: {
@@ -85,7 +94,7 @@ const config = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new CopyWebpackPlugin([{ from: 'build', to: '' }]),
-    new OpenBrowserPlugin({ url: `http://localhost:${process.env.PORT || 4200}` }),
+    new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

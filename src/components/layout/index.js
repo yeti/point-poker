@@ -9,7 +9,7 @@ class Layout extends React.Component {
     return (
       <div className="Layout">
         <div className="Layout__header">
-          <Header />
+          <Header code={this.props.params.room}/>
         </div>
         <div className="Layout__content">
           {this.props.children}

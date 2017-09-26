@@ -15,8 +15,14 @@ export default class Auth extends React.Component {
 
   get placeholderName() {
     const names = [
-      'James Bond',
-      'Luke Skywalker',
+      'Alex',
+      'Dean',
+      'Ellie',
+      'Jen',
+      'Josh',
+      'Lee',
+      'Nico',
+      'Rudy',
     ];
     return sample(names);
   }
@@ -43,7 +49,7 @@ export default class Auth extends React.Component {
           backLabel="Back"
           placeholderCode
           submitLabel="Enter"
-          placeholder={this.placeholderCode}
+          placeholder={this.placeholderName}
           label={this.title}
           value={window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || ''}
         />

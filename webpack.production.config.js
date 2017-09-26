@@ -2,6 +2,7 @@ const { resolve } = require('path');
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
   devtool: 'source-map',
@@ -63,6 +64,7 @@ const config = {
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([{ from: 'build', to: '' }]),
+    new BundleAnalyzerPlugin(),
   ],
 };
 
