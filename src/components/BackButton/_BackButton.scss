@@ -8,8 +8,15 @@ $input-width: 20rem;
   margin-bottom: 0.75rem;
   color: $color-default;
   transition: color $transition-duration-fast ease-in-out;
+  display: flex;
 
   &:hover {
     color: $color-primary;
   }
+
+  &__Icon {
+    margin-right: 0.25rem;
+  }
+
+  &__Label {}
 }
