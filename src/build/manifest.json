@@ -6,15 +6,15 @@
   "background_color": "#00707e",
   "icons": [
     {
-      "src": "icons/card-144px.png",
+      "src": "logo-144px.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "icons/logo-512.png",
+      "src": "logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/"
+  "start_url": "/?utm_source=homescreen"
 }
