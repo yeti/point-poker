@@ -1,0 +1,38 @@
+@import 'main';
+
+.Room {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__content {
+    max-width: 100rem;
+    width: 90%;
+
+    @include media("<tablet") {
+      // margin: 1rem;
+      // width: 100%;
+    }
+  }
+
+  &__admin_panel {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+
+    .btn {
+      margin: 0 10px;
+    }
+  }
+
+  &__Table {
+    width: 100%;
+    height: 50vh;
+    padding: 2rem 0rem;
+  }
+}

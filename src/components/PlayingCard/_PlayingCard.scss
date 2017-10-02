@@ -1,0 +1,70 @@
+@import 'main';
+
+.PlayingCard {
+  $border-radius: 0.5rem;
+  $width: 4rem;
+
+  &__Container {
+    width: $width;
+    height: 3.5 / 2.5 * $width;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    border-radius: $border-radius;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  &__Side {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    display: block;
+    border-radius: $border-radius;
+
+    &--front {
+      diplay: flex;
+      background-color: #e8ded2;
+    }
+
+    &--back {
+      background-color: $color-primary;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__Content {
+    padding: $width / 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__Value {
+    @include roboto();
+    font-size: 1.25rem;
+    color: $color3;
+  }
+
+  &__Row {
+    height: 50%;
+
+    &--top {}
+
+    &--bottom {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--shown {
+    .PlayingCard__Container {
+      transform: rotateY(0deg);
+    }
+  }
+
+  &--hidden {
+    .PlayingCard__Container {
+      transform: rotateY(180deg);
+    }
+  }
+}

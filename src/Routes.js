@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Auth from './components/Auth';
 import About from './components/about';
 import Contact from './components/contact';
-import Room from './components/room';
+import Room from './components/Room2';
 import Join from './components/Join';
 
 const Routes = () => (
