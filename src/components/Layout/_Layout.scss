@@ -8,7 +8,8 @@
   &__content {
     width: 100%;
     padding-top: $header-height;
-    //min-height: calc(100% - #{$header-height} - 1px);
+    min-height: calc(100% - #{$header-height} - 1px);
+    height: calc(100% - #{$header-height} - 1px);
   }
 
   &__offline {

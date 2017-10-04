@@ -55,6 +55,10 @@ class Seat extends Component {
     return `translate(${this.cardTranslateX}px, ${this.cardTranslateY}px)`;
   }
 
+  get noTranslate() {
+    return 'translate(0px, 0px)';
+  }
+
   render() {
     const {
       className,
@@ -69,6 +73,20 @@ class Seat extends Component {
       ],
     );
 
+    const hasChosenCard = !!user.vote;
+    const cardValue = hasChosenCard ? user.vote : '';
+    const cardHidden = !isRevealed;
+    const cardStyles = hasChosenCard
+      ? {
+        transform: `${this.cardTranslate} scale(1)`,
+        opacity: 1,
+      }
+      : {
+        transform: `${this.noTranslate} scale(0)`,
+        opacity: 0,
+      };
+
+
     return (
       <div className={classNames} style={{
         top: this.top,
@@ -78,15 +96,11 @@ class Seat extends Component {
           <div className="Seat__Name">
             {user.user}
           </div>
-          {user.vote &&
-            <div className="Seat__CardsContainer" style={{}}>
-              <div className="Seat__CardsWrapper" style={{
-                transform: this.cardTranslate,
-              }}>
-                <PlayingCard className="Seat__Cards" value={user.vote} hidden={!isRevealed} />
-              </div>
+          <div className="Seat__CardsContainer" style={{}}>
+            <div className="Seat__CardsWrapper" style={cardStyles}>
+              <PlayingCard className="Seat__Cards" value={cardValue} hidden={cardHidden} />
             </div>
-          }
+          </div>
         </div>
       </div>
     );

@@ -2,11 +2,11 @@
 
 .PlayingCard {
   $border-radius: 0.5rem;
-  $width: 4rem;
+  $size: 4rem; // The width, basically
 
   &__Container {
-    width: $width;
-    height: 3.5 / 2.5 * $width;
+    width: var(--size, $size);
+    height: calc(var(--size, $size) * 3.5 / 2.5); // Playing card dimensions are 3.5in x 2.5in
     transition: transform 0.2s ease-in-out;
     position: relative;
     border-radius: $border-radius;
@@ -34,7 +34,7 @@
   }
 
   &__Content {
-    padding: $width / 20;
+    padding: calc(var(--size, $size) / 20);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +42,7 @@
 
   &__Value {
     @include roboto();
-    font-size: 1.25rem;
+    font-size: calc(var(--size, $size) / 3.2);
     color: $color3;
   }
 

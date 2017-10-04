@@ -31,12 +31,22 @@
     position: relative;
   }
 
-  &__Cards {}
+  &__Cards {
+    --size: 4rem;
+
+    @include media("<tablet") {
+      --size: 2rem;
+    }
+  }
 
   &__CardsContainer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &__CardsWrapper {
+    transition: $transition-duration-fast ease-in-out;
   }
 }

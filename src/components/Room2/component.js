@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import View from 'components/View';
+import AdminPanel from 'components/AdminPanel';
+import BackButton from 'components/BackButton';
 import Table from 'components/Table';
+import View from 'components/View';
 
 import Ballot from './participants/ballot';
 
@@ -14,11 +16,12 @@ const RoomContainer = (props) => {
     isRevealed,
     onClickReveal,
     onClickNext,
-    isAdmin } = props;
+  } = props;
   return (
-    <View className="Room app__view">
+    <View className="Room">
       {connected &&
-        <div className="Room__content">
+        <div className="Room__Content">
+          <BackButton className="Room__BackButton" />
           <div className="Room__Table">
             {votes &&
               <Table
@@ -27,27 +30,17 @@ const RoomContainer = (props) => {
               />
             }
           </div>
-            <div className="Ballot__container">
+            <div className="Room__Hand">
               <Ballot
                   socket={socket}
                 />
             </div>
-            {isAdmin &&
-              <div className="Room__admin_panel">
-                <a
-                  className="btn"
-                  onClick={onClickReveal}
-                >
-                  Reveal
-                </a>
-                <a
-                  className="btn"
-                  onClick={onClickNext}
-                >
-                  Next
-                </a>
-              </div>
-            }
+            <AdminPanel
+              className="Room__AdminPanel"
+              handleReveal={onClickReveal}
+              handleNext={onClickNext}
+              isRevealed={isRevealed}
+            />
           </div>
       }
       {!connected &&

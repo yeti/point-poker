@@ -19,7 +19,7 @@
   outline: none;
 
   &:hover {
-    box-shadow: 0 0 0.5em $tile-active-shadow-color;
+    box-shadow: 0 0 0.5em $bg-color;
   }
 
   &:active, &:focus {
