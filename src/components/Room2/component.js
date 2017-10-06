@@ -5,6 +5,8 @@ import AdminPanel from 'components/AdminPanel';
 import BackButton from 'components/BackButton';
 import Table from 'components/Table';
 import View from 'components/View';
+import Connecting from 'components/Connecting';
+import Disconnected from 'components/Disconnected';
 
 import Ballot from './participants/ballot';
 
@@ -12,6 +14,7 @@ const RoomContainer = (props) => {
   const {
     socket,
     connected,
+    disconnected,
     votes,
     isRevealed,
     onClickReveal,
@@ -19,6 +22,13 @@ const RoomContainer = (props) => {
   } = props;
   return (
     <View className="Room">
+      {!connected &&
+        (disconnected
+          ? <Disconnected className="Room__MessageView"/>
+          : <Connecting className="Room__MessageView"/>
+        )
+
+      }
       {connected &&
         <div className="Room__Content">
           <BackButton className="Room__BackButton" />
@@ -43,12 +53,6 @@ const RoomContainer = (props) => {
             />
           </div>
       }
-      {!connected &&
-        <div>
-          Disconnected
-          <a href="">Reconnect</a>
-        </div>
-      }
     </View>
   );
 };
@@ -57,6 +61,7 @@ RoomContainer.propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   isRevealed: PropTypes.bool.isRequired,
   connected: PropTypes.bool.isRequired,
+  disconnected: PropTypes.bool.isRequired,
   votes: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,

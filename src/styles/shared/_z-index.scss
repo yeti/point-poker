@@ -1,0 +1,9 @@
+$stack: 'seat-card', 'seat';
+
+@function z-index($key) {
+  @return index($stack, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

@@ -107,13 +107,9 @@ export default class Room extends React.Component {
         socket={this.socket}
         getUsername={() => this.getUsername()}
         getRoomId={() => this.getRoomId()}
-        connected={this.state.connected}
-        votes={this.state.votes}
-        isRevealed={this.state.isRevealed}
         onClickReveal={() => this.onClickReveal()}
         onClickNext={() => this.onClickNext()}
-        isAdmin={this.state.isAdmin}
-        loading={!this.state.disconnected && !this.state.connected}
+        {...this.state}
         />
     );
   }

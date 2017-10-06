@@ -38,10 +38,15 @@
     width: 100%;
     max-width: 55rem;
     height: 50vh;
+    max-height: 30rem;
     padding: 2rem 0rem;
 
     @include media("<tablet") {
       width: 50%;
     }
+  }
+
+  &__MessageView {
+    height: 90%;
   }
 }

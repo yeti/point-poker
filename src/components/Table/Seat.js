@@ -42,17 +42,22 @@ class Seat extends Component {
 
   // This is the x component of the card translation (https://stackoverflow.com/questions/839899/how-do-i-calculate-a-point-on-a-circle-s-circumference)
   get cardTranslateX() {
-    return this.cardTranslateDistance * Math.cos(this.cardAngle);
+    return Math.cos(this.cardAngle);
   }
 
   // This is the y component of the card translation (https://stackoverflow.com/questions/839899/how-do-i-calculate-a-point-on-a-circle-s-circumference)
   get cardTranslateY() {
-    return this.cardTranslateDistance * Math.sin(this.cardAngle);
+    return Math.sin(this.cardAngle);
+  }
+
+  getScaledTranslate(translate) {
+    const fallbackDistance = 4.7;
+    return `calc(var(--translate-distance, ${fallbackDistance}rem) * ${translate})`;
   }
 
   // This is the css friendly translation data string
   get cardTranslate() {
-    return `translate(${this.cardTranslateX}px, ${this.cardTranslateY}px)`;
+    return `translate(${this.getScaledTranslate(this.cardTranslateX)}, ${this.getScaledTranslate(this.cardTranslateY)})`;
   }
 
   get noTranslate() {
