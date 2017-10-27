@@ -8,10 +8,12 @@
 
 
   &__Shape {
-    border: 1px solid lightgray;
+    z-index: -1;
     width: 80%;
     height: 80%;
     border-radius: 50rem;
+    background-color: $color-bg;
+    box-shadow: inset 0 0 1rem 0 rgba(0,0,0,.28);
   }
 }
 
@@ -33,8 +35,9 @@
     animation: $transition-duration scale-in-center $ease-out-quad both;
     padding: 1rem;
     border-radius: 10rem;
-    background-color: $color-white;
-    border: 1px solid lightgray;
+    background-color: $color-bg;
+    // border: 1px solid lightgray;
+    box-shadow: inset 0 0 0.7rem 0 rgba(0,0,0,.28);
 
     @include media("<tablet") {
       padding: 0.5rem;
@@ -51,10 +54,14 @@
     }
   }
 
-  &__Cards {
+  &__Card {
     --size: 4rem;
     @include media("<tablet") {
       --size: 2rem;
+    }
+
+    .PlayingCard__Side {
+      box-shadow: 0 4px 8px rgba(0,0,0,.28);
     }
   }
 
@@ -67,6 +74,6 @@
   }
 
   &__CardsWrapper {
-    transition: $transition-duration-fast $ease-out-quad;;
+    transition: $transition-duration-fast $ease-out-quad;
   }
 }

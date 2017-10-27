@@ -103,7 +103,7 @@ class Seat extends Component {
           </div>
           <div className="Seat__CardsContainer" style={{}}>
             <div className="Seat__CardsWrapper" style={cardStyles}>
-              <PlayingCard className="Seat__Cards" value={cardValue} hidden={cardHidden} />
+              <PlayingCard className="Seat__Card" value={cardValue} hidden={cardHidden} />
             </div>
           </div>
         </div>

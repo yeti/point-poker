@@ -3,6 +3,7 @@
 .PlayingCard {
   $border-radius: 0.5rem;
   $size: 4rem; // The width, basically
+  border-radius: $border-radius;
 
   &__Container {
     width: var(--size, #{$size});

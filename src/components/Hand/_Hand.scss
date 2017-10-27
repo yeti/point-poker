@@ -16,6 +16,7 @@
     left: 20%;
     transition: $transition-duration-fast ease-in-out;
     cursor: pointer;
+    user-select: none;
 
     @for $i from 0 through $nCards {
       &:nth-child(#{$i}) {
@@ -29,17 +30,19 @@
           z-index: 101;
         }
 
+        @include media("<tablet") {
+          --size: 3rem;
+          &:hover {
+            transform: rotate(($i * $rotationOffset) - $angleAdjustment);
+
+          }
+        }
+
         &.Hand__Card--active {
           transform: scale(1.05) rotate(($i * $rotationOffset) - $angleAdjustment);
           z-index: 100;
         }
       }
     }
-  }
-
-  &__Card {
-
-
-
   }
 }
