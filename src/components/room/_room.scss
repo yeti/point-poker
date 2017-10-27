@@ -11,6 +11,10 @@
 
   &__BackButton {
     align-self: flex-start;
+
+    @include media("<tablet") {
+      margin-left: 1rem;
+    }
   }
 
   &__Content {
@@ -30,13 +34,19 @@
     @include center;
     height: 25vh;
     width: 100%;
+    transition: $transition-duration-fast ease-in-out;
   }
 
   &__HandContainer {
-    padding: 2rem;
+    padding-left: 6%;
   }
 
-  &__AdminPanel {
+  &__AdminPanelWrapper {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(15rem);
+    transition: $transition-duration-fast ease-in-out;
   }
 
   &__Table {
@@ -54,5 +64,15 @@
 
   &__MessageView {
     height: 90%;
+  }
+
+  &--isRevealed {
+    .Room__Hand {
+      transform: translateY(15rem);
+    }
+
+    .Room__AdminPanelWrapper {
+      transform: translateX(-50%) translateY(0rem);
+    }
   }
 }

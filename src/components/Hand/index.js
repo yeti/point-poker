@@ -15,6 +15,14 @@ class Hand extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.socket.on('reset', () => {
+      this.setState({
+        value: null,
+      });
+    });
+  }
+
   handlePlay(value) {
     const vote = value === this.state.value ? null : value;
     this.props.handleVote(vote);
@@ -60,6 +68,7 @@ Hand.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.string),
   className: PropTypes.string,
   handleVote: PropTypes.func,
+  socket: PropTypes.obj,
 };
 
 Hand.defaultProps = {

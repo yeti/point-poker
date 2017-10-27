@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 
 import RoomContainer from './component';
 import { LOCAL_STORAGE_KEYS } from '../../utils/constants';
-import './_room.scss';
+import './_Room.scss';
 
 export default class Room extends React.Component {
   constructor(props) {

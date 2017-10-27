@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classwrap from 'classwrap';
 
-// import AdminPanel from 'components/AdminPanel';
+import AdminPanel from 'components/AdminPanel';
 import BackButton from 'components/BackButton';
 import Table from 'components/Table';
 import View from 'components/View';
 import Connecting from 'components/Connecting';
 import Disconnected from 'components/Disconnected';
 import Hand from 'components/Hand';
-
-// import Ballot from './participants/ballot';
 
 const RoomContainer = (props) => {
   const {
@@ -18,11 +17,20 @@ const RoomContainer = (props) => {
     disconnected,
     votes,
     isRevealed,
-    // onClickReveal,
-    // onClickNext,
+    handleNext,
+    socket,
   } = props;
+
+  const classNames = classwrap([
+    'Room',
+    {
+      Room: {
+        '--isRevealed': isRevealed,
+      },
+    },
+  ]);
   return (
-    <View className="Room">
+    <View className={classNames}>
       {!connected &&
         (disconnected
           ? <Disconnected className="Room__MessageView"/>
@@ -43,17 +51,18 @@ const RoomContainer = (props) => {
           </div>
           <div className="Room__Hand">
             <div className="Room__HandContainer">
-              <Hand handleVote={handleVote}/>
-              {/*
-                <Ballot socket={socket} />
-                <AdminPanel
-                  className="Room__AdminPanel"
-                  handleReveal={onClickReveal}
-                  handleNext={onClickNext}
-                  isRevealed={isRevealed}
-                />
-            */}
+              <Hand
+                handleVote={handleVote}
+                socket={socket}
+              />
             </div>
+          </div>
+          <div className="Room__AdminPanelWrapper">
+            <AdminPanel
+              className="Room__AdminPanel"
+              handleNext={handleNext}
+              isRevealed={isRevealed}
+            />
           </div>
         </div>
       }
@@ -75,8 +84,7 @@ RoomContainer.propTypes = {
   getRoomId: PropTypes.func.isRequired,
   getUsername: PropTypes.func.isRequired,
   socket: PropTypes.object.isRequired,
-  onClickReveal: PropTypes.func.isRequired,
-  onClickNext: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
   handleVote: PropTypes.func.isRequired,
 };
 

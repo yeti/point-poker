@@ -15,7 +15,7 @@
   @include clickable;
   @include center;
   transition: background $transition-duration-fast ease-in-out,
-  box-shadow $transition-duration-fast ease-in-out;
+    box-shadow $transition-duration-fast ease-in-out;
   outline: none;
 
   &:hover {

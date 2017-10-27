@@ -37,10 +37,10 @@
     border-radius: 10rem;
     background-color: $color-bg;
     // border: 1px solid lightgray;
-    box-shadow: inset 0 0 0.7rem 0 rgba(0,0,0,.28);
+    box-shadow: inset 0 0 0.3rem 0 rgba(0,0,0,.28);
 
     @include media("<tablet") {
-      padding: 0.5rem;
+      // padding: 0.5rem;
     }
   }
 
@@ -50,7 +50,7 @@
     font-size: 1.2rem;
 
     @include media("<tablet") {
-      font-size: 0.75rem;
+      font-size: 1rem;
     }
   }
 

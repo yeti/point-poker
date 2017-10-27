@@ -3,7 +3,7 @@
 .Hand {
   $rotationOffset: 5deg;
   $nCards: 14;
-  $angleAdjustment: ($rotationOffset * $nCards / 2);
+  $angleAdjustment: ($rotationOffset * ($nCards + 1) / 2);
 
   width: 100%;
 
@@ -19,27 +19,28 @@
     user-select: none;
 
     @for $i from 0 through $nCards {
+      $rotation: (($i) * $rotationOffset) - $angleAdjustment;
       &:nth-child(#{$i}) {
         box-shadow: 0 4px 8px rgba(0,0,0,.28);
         --size: 6rem;
-        transform: rotate(($i * $rotationOffset) - $angleAdjustment);
+        transform: rotate($rotation);
         transform-origin: center 40rem;
 
         &:hover {
-          transform: scale(1.025) rotate(($i * $rotationOffset) - $angleAdjustment);
+          transform: scale(1.025) rotate($rotation);
           z-index: 101;
         }
 
         @include media("<tablet") {
           --size: 3rem;
           &:hover {
-            transform: rotate(($i * $rotationOffset) - $angleAdjustment);
+            transform: rotate($rotation);
 
           }
         }
 
         &.Hand__Card--active {
-          transform: scale(1.05) rotate(($i * $rotationOffset) - $angleAdjustment);
+          transform: scale(1.05) rotate($rotation);
           z-index: 100;
         }
       }
