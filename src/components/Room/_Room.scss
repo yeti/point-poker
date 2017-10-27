@@ -36,6 +36,10 @@
     height: 25vh;
     width: 100%;
     transition: $transition-duration-fast ease-in-out;
+
+    @include media("<tablet") {
+      transform: scale(0.7);
+    }
   }
 
   &__HandContainer {
