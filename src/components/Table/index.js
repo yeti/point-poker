@@ -5,10 +5,13 @@ import classwrap from 'classwrap';
 import Seat from './Seat';
 import './_Table.scss';
 
+const isOdd = n => n % 2 === 1;
+
 class Table extends Component {
 
   getSeatOffset(seatIndex, nSeats) {
-    const offsetAngle = 360 / nSeats;
+    const adjustNSeats = isOdd(nSeats) ? nSeats + 1 : nSeats;
+    const offsetAngle = 360 / adjustNSeats;
     const initialOffset = 90; // Offset of first seat
 
     return initialOffset + (seatIndex * offsetAngle);

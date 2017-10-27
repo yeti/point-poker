@@ -40,18 +40,18 @@ const RoomContainer = (props) => {
               />
             }
           </div>
-            <div className="Room__Hand">
-              <Ballot
-                  socket={socket}
-                />
+          <div className="Room__Hand">
+            <div className="Room__HandContainer">
+              <Ballot socket={socket} />
+              <AdminPanel
+                className="Room__AdminPanel"
+                handleReveal={onClickReveal}
+                handleNext={onClickNext}
+                isRevealed={isRevealed}
+              />
             </div>
-            <AdminPanel
-              className="Room__AdminPanel"
-              handleReveal={onClickReveal}
-              handleNext={onClickNext}
-              isRevealed={isRevealed}
-            />
           </div>
+        </div>
       }
     </View>
   );

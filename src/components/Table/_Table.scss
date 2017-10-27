@@ -32,7 +32,7 @@
     position: relative;
     animation: $transition-duration scale-in-center $ease-out-quad both;
     padding: 1rem;
-    border-radius: 0.25rem;
+    border-radius: 10rem;
     background-color: $color-white;
     border: 1px solid lightgray;
 
@@ -43,6 +43,8 @@
 
   &__Name {
     @include roboto();
+    color: $color4;
+    font-size: 1.2rem;
 
     @include media("<tablet") {
       font-size: 0.75rem;
