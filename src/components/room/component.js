@@ -1,67 +1,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import AdminPanel from 'components/AdminPanel';
+import BackButton from 'components/BackButton';
+import Table from 'components/Table';
 import View from 'components/View';
+import Connecting from 'components/Connecting';
+import Disconnected from 'components/Disconnected';
+import Hand from 'components/Hand';
 
-import Participants from './participants';
-import Ballot from './participants/ballot';
+// import Ballot from './participants/ballot';
 
 const RoomContainer = (props) => {
   const {
-    socket,
-    getUsername,
-    getRoomId,
+    handleVote,
     connected,
+    disconnected,
     votes,
     isRevealed,
-    onClickReveal,
-    onClickNext,
-    isAdmin } = props;
+    // onClickReveal,
+    // onClickNext,
+  } = props;
   return (
-    <View className="Room app__view">
+    <View className="Room">
+      {!connected &&
+        (disconnected
+          ? <Disconnected className="Room__MessageView"/>
+          : <Connecting className="Room__MessageView"/>
+        )
+
+      }
       {connected &&
-        <div className="Room__content">
-          <div className="Room__session">
-            {`Session ${getRoomId()}`}
-          </div>
-          <div className="Room__participants">
+        <div className="Room__Content">
+          <BackButton className="Room__BackButton" />
+          <div className="Room__Table">
             {votes &&
-              <Participants
-                socket={socket}
-                user={getUsername()}
-                room={getRoomId()}
-                votes={votes}
+              <Table
+                users={votes}
                 isRevealed={isRevealed}
               />
             }
-            <div className="Ballot__container">
-              <Ballot
-                  socket={socket}
-                />
-            </div>
-            {isAdmin &&
-              <div className="Room__admin_panel">
-                <a
-                  className="btn"
-                  onClick={onClickReveal}
-                >
-                  Reveal
-                </a>
-                <a
-                  className="btn"
-                  onClick={onClickNext}
-                >
-                  Next
-                </a>
-              </div>
-            }
           </div>
-        </div>
-      }
-      {!connected &&
-        <div>
-          Disconnected
-          <a href="">Reconnect</a>
+          <div className="Room__Hand">
+            <div className="Room__HandContainer">
+              <Hand handleVote={handleVote}/>
+              {/*
+                <Ballot socket={socket} />
+                <AdminPanel
+                  className="Room__AdminPanel"
+                  handleReveal={onClickReveal}
+                  handleNext={onClickNext}
+                  isRevealed={isRevealed}
+                />
+            */}
+            </div>
+          </div>
         </div>
       }
     </View>
@@ -72,6 +65,7 @@ RoomContainer.propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   isRevealed: PropTypes.bool.isRequired,
   connected: PropTypes.bool.isRequired,
+  disconnected: PropTypes.bool.isRequired,
   votes: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
@@ -83,6 +77,7 @@ RoomContainer.propTypes = {
   socket: PropTypes.object.isRequired,
   onClickReveal: PropTypes.func.isRequired,
   onClickNext: PropTypes.func.isRequired,
+  handleVote: PropTypes.func.isRequired,
 };
 
 export default RoomContainer;

@@ -89,12 +89,16 @@ export default class Room extends React.Component {
     return this.props.params.user;
   }
 
-  onClickReveal() {
+  handleReveal() {
     this.socket.emit('reveal', !this.state.isRevealed);
   }
 
-  onClickNext() {
+  handleNext() {
     this.socket.emit('reset', true);
+  }
+
+  handleVote(vote) {
+    this.socket.emit('vote', vote);
   }
 
   getSocket() {
@@ -107,13 +111,10 @@ export default class Room extends React.Component {
         socket={this.socket}
         getUsername={() => this.getUsername()}
         getRoomId={() => this.getRoomId()}
-        connected={this.state.connected}
-        votes={this.state.votes}
-        isRevealed={this.state.isRevealed}
-        onClickReveal={() => this.onClickReveal()}
-        onClickNext={() => this.onClickNext()}
-        isAdmin={this.state.isAdmin}
-        loading={!this.state.disconnected && !this.state.connected}
+        handleReveal={() => this.handleReveal()}
+        handleNext={() => this.handleNext()}
+        handleVote={vote => this.handleVote(vote)}
+        {...this.state}
         />
     );
   }

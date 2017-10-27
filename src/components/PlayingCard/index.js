@@ -12,6 +12,7 @@ class PlayingCard extends Component {
       className,
       value,
       hidden,
+      onClick,
     } = this.props;
 
     const classNames = classwrap(
@@ -36,7 +37,7 @@ class PlayingCard extends Component {
     );
 
     return (
-      <div className={classNames}>
+      <div className={classNames} onClick={onClick}>
         <div className="PlayingCard__Container">
           <div className="PlayingCard__Side PlayingCard__Side--front">
             <div className="PlayingCard__Row PlayingCard__Row--top">
@@ -58,8 +59,11 @@ PlayingCard.propTypes = {
   className: PropTypes.string,
   hidden: PropTypes.bool,
   value: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
-PlayingCard.defaultProps = {};
+PlayingCard.defaultProps = {
+  onClick: () => {},
+};
 
 export default PlayingCard;

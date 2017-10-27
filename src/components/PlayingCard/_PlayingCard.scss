@@ -5,8 +5,8 @@
   $size: 4rem; // The width, basically
 
   &__Container {
-    width: var(--size, $size);
-    height: calc(var(--size, $size) * 3.5 / 2.5); // Playing card dimensions are 3.5in x 2.5in
+    width: var(--size, #{$size});
+    height: calc(var(--size, #{$size}) * 3.5 / 2.5); // Playing card dimensions are 3.5in x 2.5in
     transition: transform $transition-duration $ease-out-quad;
     position: relative;
     border-radius: $border-radius;

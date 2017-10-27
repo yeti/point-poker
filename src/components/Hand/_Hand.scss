@@ -1,0 +1,45 @@
+@import 'main';
+
+.Hand {
+  $rotationOffset: 5deg;
+  $nCards: 14;
+  $angleAdjustment: ($rotationOffset * $nCards / 2);
+
+  width: 100%;
+
+  position: relative;
+
+  transform: translate(-5vw, -5rem);
+
+  &__Card {
+    position: absolute;
+    left: 20%;
+    transition: $transition-duration-fast ease-in-out;
+    cursor: pointer;
+
+    @for $i from 0 through $nCards {
+      &:nth-child(#{$i}) {
+        box-shadow: 0 4px 8px rgba(0,0,0,.28);
+        --size: 6rem;
+        transform: rotate(($i * $rotationOffset) - $angleAdjustment);
+        transform-origin: center 40rem;
+
+        &:hover {
+          transform: scale(1.025) rotate(($i * $rotationOffset) - $angleAdjustment);
+          z-index: 101;
+        }
+
+        &.Hand__Card--active {
+          transform: scale(1.05) rotate(($i * $rotationOffset) - $angleAdjustment);
+          z-index: 100;
+        }
+      }
+    }
+  }
+
+  &__Card {
+
+
+
+  }
+}
