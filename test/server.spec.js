@@ -6,9 +6,10 @@ const io = require('socket.io').listen(port);
 const ioClient = require('socket.io-client');
 const socket = require('../lib/socket');
 const chai = require('chai')
-const should = chai.should();
-const expect = chai.expect;
 const _ = require('lodash');
+
+const expect = chai.expect;
+chai.should();
 
 describe('Server', () => {
 
@@ -56,6 +57,10 @@ describe('Server', () => {
 
     const getUserName = (room, id) => {
       return _.get(getUserData(room, id), 'user');
+    };
+
+    const getUserId = (room, id) => {
+      return _.get(getUserData(room, id), 'id');
     };
 
     const getVote = (room, id) => {
@@ -107,20 +112,23 @@ describe('Server', () => {
           getRoom('room B').should.have.all.keys([client3.id]);
 
           // Check users have the right data associated
-          getUserData('room A', client1.id).should.have.all.keys(['user', 'isAdmin', 'vote']);
+          getUserData('room A', client1.id).should.have.all.keys(['user', 'isAdmin', 'vote', 'id']);
           getUserName('room A', client1.id).should.equal('user 1');
           isAdmin('room A', client1.id).should.equal(true);
           expect(getVote('room A', client1.id)).to.be.null;
+          getUserId('room A', client1.id).should.equal(client1.id);
 
-          getUserData('room A', client2.id).should.have.all.keys(['user', 'isAdmin', 'vote']);
+          getUserData('room A', client2.id).should.have.all.keys(['user', 'isAdmin', 'vote', 'id']);
           getUserName('room A', client2.id).should.equal('user 2');
-          isAdmin('room A', client2.id).should.equal(false);
+          isAdmin('room A', client2.id).should.equal(true);
           expect(getVote('room A', client2.id)).to.be.null;
+          getUserId('room A', client2.id).should.equal(client2.id);
 
-          getUserData('room B', client3.id).should.have.all.keys(['user', 'isAdmin', 'vote']);
+          getUserData('room B', client3.id).should.have.all.keys(['user', 'isAdmin', 'vote', 'id']);
           getUserName('room B', client3.id).should.equal('user 3');
           isAdmin('room B', client3.id).should.equal(true);
           expect(getVote('room B', client3.id)).to.be.null;
+          getUserId('room B', client3.id).should.equal(client3.id);
 
           done();
         }, 100);
@@ -160,35 +168,6 @@ describe('Server', () => {
                 done();
               }, 100);
             }, 100);
-          }, 100);
-        }, 100);
-      }).catch((e) => { console.dir(e) });
-    });
-
-    it('should grant admin privileges to first person to join', () => {
-      const client1 = createClient();
-      const client2 = createClient();
-
-      Promise.all([
-        authenticate(client1, 'room A', 'user 1'),
-        authenticate(client2, 'room A', 'user 2'),
-      ]).then(() => {
-
-        setTimeout(() => {
-          isAdmin('room A', client1.id).should.equal(true);
-          client1.disconnect();
-
-          setTimeout(() => {
-
-            const client3 = createClient();
-            authenticate(client3, 'room A', 'new guy').then(() => {
-
-              setTimeout(() => {
-                isAdmin('room A', client2.id).should.equal(false);
-                isAdmin('room A', client3.id).should.equal(true);
-                done();
-              }, 100);
-            });
           }, 100);
         }, 100);
       }).catch((e) => { console.dir(e) });

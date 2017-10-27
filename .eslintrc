@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true,
+        }
+    },
+    "extends": ["airbnb/base", "plugin:react/recommended"],
+    "rules": {
+        "no-console": ["error", { allow: ["info", "warn", "error"] }],
+        "no-debugger": ["error"],
+        "class-methods-use-this": 0,
+        "import/prefer-default-export": 0,
+        "react/prop-types": 1,
+        "arrow-body-style": 0,
+    },
+    "plugins": [
+      "react"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"],
+        },
+      },
+  },
+}

@@ -3,74 +3,96 @@
   "version": "1.1.0",
   "description": "Point poker using sockets",
   "engines": {
-    "node": ">=4.0.0"
-  },
-  "watch": {
-    "server": [
-      "lib",
-      "index.js"
-    ],
-    "build:js": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "js",
-      "quiet": false
-    },
-    "build:sass": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "scss",
-      "quiet": false
-    }
+    "node": "8.1.2",
+    "npm": "5.0.4"
   },
   "scripts": {
-    "prestart": "npm run build",
-    "start": "node index.js",
-    "preserver": "npm run lint:server",
-    "server": "node index.js & gulp reload",
-    "dev": "npm-watch",
-    "build": "npm run build:js && npm run build:sass",
-    "prebuild:js": "npm run lint:client",
-    "build:js": "rollup --config rollup.config.js",
-    "build:sass": "gulp sass",
+    "dev": "NODE_ENV=dev node index",
+    "prebuild": "npm run checks",
+    "build": "NODE_ENV=production webpack --config webpack.production.config.js -p --progress --profile --colors",
+    "postinstall": "npm run build",
+    "start": "NODE_ENV=production node index",
     "lint:server": "eslint index.js lib/**/*.js -c ./.eslintrc-server.js",
-    "lint:client": "eslint src/**/*.js -c ./.eslintrc-client.js",
-    "test": "mocha"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "mocha": "^3.3.0",
-    "rollup": "0.41.6",
-    "rollup-plugin-buble": "0.15.0",
-    "rollup-plugin-commonjs": "8.0.2",
-    "rollup-plugin-eslint": "3.0.0",
-    "rollup-plugin-jsx": "^1.0.3",
-    "rollup-plugin-node-resolve": "2.0.0",
-    "rollup-plugin-replace": "^1.1.1",
-    "rollup-plugin-uglify": "1.0.1",
-    "rollup-watch": "3.2.2"
+    "lint:client": "eslint src/**/*.js -c ./.eslintrc",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "mocha",
+    "test:client": "jest",
+    "checks": "npm run lint:server && npm test",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "eslint-plugin-node": "^4.2.2",
-    "express": "^4.15.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "classwrap": "^1.1.0",
+    "copy-webpack-plugin": "^4.1.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-react": "^7.4.0",
+    "express": "^4.16.1",
+    "express-force-https": "^1.0.0",
+    "express-static-gzip": "^0.3.0",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "inherits": "^2.0.3",
+    "jest": "^21.2.1",
     "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
+    "node-sass": "^4.5.3",
+    "npm-watch": "^0.3.0",
+    "open-browser-webpack-plugin": "0.0.5",
+    "postcss-loader": "^2.0.6",
     "prettyjson": "^1.2.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.0",
-    "react-router-dom": "^4.0.0",
-    "socket.io": "^1.7.3",
-    "socket.io-client": "^1.7.3"
-  }
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-copy-to-clipboard": "^5.0.1",
+    "react-dom": "^16.0.0",
+    "react-dropdown": "^1.3.1",
+    "react-feather": "^1.0.7",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-transition": "1.1.1",
+    "react-test-renderer": "^16.0.0",
+    "react-tooltip": "^3.3.1",
+    "react-transition-group": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3",
+    "starwars-names": "^1.6.0",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.19.1"
+  },
+  "jest": {
+    "mapCoverage": true,
+    "collectCoverageFrom": [
+      "/src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "**/src/**/*.spec.js?(x)"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^3.2.12",
+    "@storybook/react": "^3.2.12",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2017": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "react-addons-test-utils": "^15.6.2",
+    "webpack-bundle-analyzer": "^2.9.0"
+  },
+  "false": {}
 }

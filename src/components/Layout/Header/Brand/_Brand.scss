@@ -1,0 +1,35 @@
+@import 'main';
+
+.Brand {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+
+  &__logo {
+    font-size: 3rem;
+    margin: 0rem 0.75rem;
+    margin-right: 0.25rem;
+  }
+
+  &__name {
+    @include roboto(thin);
+    font-size: 2rem;
+    white-space: nowrap;
+    transition: font-size 0.2s ease-in-out;
+  }
+
+  @include media("<tablet") {
+    width: 5rem;
+
+    &__name {
+      font-size: 1rem;
+      white-space: initial;
+    }
+
+    &__logo {
+      font-size: 3rem;
+      margin-right: 0.25rem;
+    }
+  }
+}
