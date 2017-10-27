@@ -1,6 +1,7 @@
 @import 'main';
 
 .Room {
+  $admin-panel-offset: 20rem;
   $margin-top: 2rem;
   margin-top: $margin-top;
   display: flex;
@@ -35,6 +36,10 @@
     height: 25vh;
     width: 100%;
     transition: $transition-duration-fast ease-in-out;
+
+    @include media("<tablet") {
+      transform: scale(0.7);
+    }
   }
 
   &__HandContainer {
@@ -45,7 +50,7 @@
     position: absolute;
     bottom: 5rem;
     left: 50%;
-    transform: translateX(-50%) translateY(15rem);
+    transform: translateX(-50%) translateY($admin-panel-offset);
     transition: $transition-duration-fast ease-in-out;
   }
 
@@ -68,7 +73,7 @@
 
   &--isRevealed {
     .Room__Hand {
-      transform: translateY(15rem);
+      transform: translateY($admin-panel-offset);
     }
 
     .Room__AdminPanelWrapper {

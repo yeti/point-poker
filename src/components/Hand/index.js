@@ -68,7 +68,7 @@ Hand.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.string),
   className: PropTypes.string,
   handleVote: PropTypes.func,
-  socket: PropTypes.obj,
+  socket: PropTypes.object.isRequired,
 };
 
 Hand.defaultProps = {
