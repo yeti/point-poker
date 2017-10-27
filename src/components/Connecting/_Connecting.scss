@@ -1,0 +1,5 @@
+@import 'main';
+
+.Connecting {
+  animation: 2s fade-in $ease-out-quad both; // Only show component if connecting takes more than 2s
+}

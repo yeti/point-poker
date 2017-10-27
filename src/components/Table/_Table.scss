@@ -1,0 +1,79 @@
+@import 'main';
+
+.Table {
+  @include center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+
+  &__Shape {
+    z-index: -1;
+    width: 80%;
+    height: 80%;
+    border-radius: 50rem;
+    background-color: $color-bg;
+    box-shadow: inset 0 0 1rem 0 rgba(0,0,0,.28);
+  }
+}
+
+.Seat {
+  --translate-distance: 75px;
+  @include center;
+  @include z-index('seat');
+  position: absolute;
+  transition: 0.2s all $ease-out-quad;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+
+  @include media("<tablet") {
+    --translate-distance: 50px;
+  }
+
+  &__Content {
+    position: relative;
+    animation: $transition-duration scale-in-center $ease-out-quad both;
+    padding: 1rem;
+    border-radius: 10rem;
+    background-color: $color-bg;
+    // border: 1px solid lightgray;
+    box-shadow: inset 0 0 0.3rem 0 rgba(0,0,0,.28);
+
+    @include media("<tablet") {
+      // padding: 0.5rem;
+    }
+  }
+
+  &__Name {
+    @include roboto();
+    color: $color4;
+    font-size: 1.2rem;
+
+    @include media("<tablet") {
+      font-size: 1rem;
+    }
+  }
+
+  &__Card {
+    --size: 4rem;
+    @include media("<tablet") {
+      --size: 2rem;
+    }
+
+    .PlayingCard__Side {
+      box-shadow: 0 4px 8px rgba(0,0,0,.28);
+    }
+  }
+
+  &__CardsContainer {
+    @include z-index('seat-card');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__CardsWrapper {
+    transition: $transition-duration-fast $ease-out-quad;
+  }
+}

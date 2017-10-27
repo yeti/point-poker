@@ -1,0 +1,46 @@
+@import 'main';
+
+.MessageView {
+  $message-view-color: lightgray;
+  @include center;
+  color: $message-view-color;
+
+  &__Icon {
+    margin-bottom: 1rem;
+  }
+
+  &__Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__Text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__Title {
+    @include roboto(thin);
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__Subtitle {
+    @include roboto(light);
+    font-size: 1rem;
+  }
+
+  &__Link {
+    transition: $transition-duration-fast $ease-out-quad;
+
+    &:link, &:visited {
+      color: darken($message-view-color, 10);
+    }
+
+    &:hover, &:active {
+      color: $color-primary;
+    }
+  }
+}

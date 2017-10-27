@@ -1,0 +1,38 @@
+@import 'main';
+
+.Header {
+  width: 100vw;
+  height: $header-height;
+  background-color: $color-header-bg;
+  color: $color-header-text;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+  position: fixed;
+
+  a {
+    text-decoration: none;
+
+    &:visited, &:hover, &:active, &:-webkit-any-link {
+      color: $color-header-text;
+    }
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__link {
+    padding: 1rem;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: darken($color-header-bg, 5);
+    }
+
+    &--active, &--active:hover  {
+      background-color: darken($color-header-bg, 10);
+    }
+  }
+
+}
