@@ -36,7 +36,6 @@ export default class Room extends React.Component {
     });
 
     this.socket.on('update', (data) => {
-      // console.dir(data); // eslint-disable-line
       this.setState({
         votes: data,
       });
