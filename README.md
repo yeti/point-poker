@@ -1,4 +1,4 @@
-#point-poker
+# point-poker
 
 ## Getting Started
 

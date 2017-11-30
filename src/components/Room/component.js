@@ -18,6 +18,7 @@ const RoomContainer = (props) => {
     votes,
     isRevealed,
     handleNext,
+    handleReaction,
     socket,
   } = props;
 
@@ -29,6 +30,8 @@ const RoomContainer = (props) => {
       },
     },
   ]);
+
+  window.reaction = handleReaction;
   return (
     <View className={classNames}>
       {!connected &&

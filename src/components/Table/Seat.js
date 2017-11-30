@@ -100,6 +100,11 @@ class Seat extends Component {
         <div className="Seat__Content">
           <div className="Seat__Name">
             {user.user}
+            {user.sticker &&
+              <div className="Seat__Reaction">
+                <img src={user.sticker} className="Seat__ReactionImage" />
+              </div>
+            }
           </div>
           <div className="Seat__CardsContainer" style={{}}>
             <div className="Seat__CardsWrapper" style={cardStyles}>
@@ -119,6 +124,7 @@ Seat.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     user: PropTypes.string.isRequired,
+    sticker: PropTypes.string,
     vote: PropTypes.any,
   }),
   value: PropTypes.number,
