@@ -36,6 +36,7 @@ export default class Room extends React.Component {
     });
 
     this.socket.on('update', (data) => {
+      // console.dir(data); // eslint-disable-line
       this.setState({
         votes: data,
       });
@@ -101,6 +102,10 @@ export default class Room extends React.Component {
     this.socket.emit('vote', vote);
   }
 
+  handleReaction(reaction) {
+    this.socket.emit('reaction', reaction);
+  }
+
   getSocket() {
     return this.socket;
   }
@@ -114,8 +119,9 @@ export default class Room extends React.Component {
         handleReveal={() => this.handleReveal()}
         handleNext={() => this.handleNext()}
         handleVote={vote => this.handleVote(vote)}
+        handleReaction={reaction => this.handleReaction(reaction)}
         {...this.state}
-        />
+      />
     );
   }
 }

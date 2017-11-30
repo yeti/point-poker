@@ -8,7 +8,6 @@ import './_Table.scss';
 const isOdd = n => n % 2 === 1;
 
 class Table extends Component {
-
   getSeatOffset(seatIndex, nSeats) {
     const adjustNSeats = isOdd(nSeats) ? nSeats + 1 : nSeats;
     const offsetAngle = 360 / adjustNSeats;
@@ -23,12 +22,10 @@ class Table extends Component {
       isRevealed,
     } = this.props;
 
-    const classNames = classwrap(
-      [
-        'Table',
-        className,
-      ],
-    );
+    const classNames = classwrap([
+      'Table',
+      className,
+    ]);
 
     return (
       <div className={classNames}>
@@ -40,8 +37,8 @@ class Table extends Component {
                 key={index}
                 user={user}
                 isRevealed={isRevealed}
-              />,
-            )}
+              />)
+            }
           </div>
         </div>
       </div>
@@ -55,6 +52,7 @@ Table.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     user: PropTypes.string.isRequired,
+    sticker: PropTypes.string,
     vote: PropTypes.any,
   })),
   isRevealed: PropTypes.bool,

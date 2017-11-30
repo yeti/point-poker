@@ -56,6 +56,14 @@
     }
   }
 
+  &__Reaction {
+    position: absolute;
+  }
+
+  &__ReactionImage {
+    width: 75px;
+  }
+
   &__Card {
     --size: 4rem;
     @include media("<tablet") {
