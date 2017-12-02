@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>f-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="f-2">
+            <g id="full-everythign" transform="translate(-16.000000, -16.000000)">
+                <g id="Background" transform="translate(16.000000, 16.000000)">
+                    <g id="border/blue">
+                        <path d="M0,0 L240,0 L240,336 L0,336 L0,0 Z M12,12 L12,324 L228,324 L228,12 L12,12 Z" id="border" fill="#009AA6"></path>
+                        <g id="Group" stroke-width="1" transform="translate(-16.000000, -16.000000)">
+                            <g id="bottom-right" transform="translate(194.000000, 290.000000)">
+                                <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
+                                <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
+                            </g>
+                            <g id="top-left" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) ">
+                                <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
+                                <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="number-1" transform="translate(194.000000, 290.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
+                    <text id="?">
+                        <tspan x="27.665" y="47">2</tspan>
+                    </text>
+                </g>
+                <g id="number-1-copy" transform="translate(41.500000, 41.500000) rotate(180.000000) translate(-41.500000, -41.500000) translate(17.000000, 28.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
+                    <text id="?">
+                        <tspan x="15.665" y="24">2</tspan>
+                    </text>
+                </g>
+            </g>
+            <text id="2" font-family="Mallory-Black, Mallory" font-size="100" font-weight="700" fill="#000000">
+                <tspan x="90.15" y="203">2</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
