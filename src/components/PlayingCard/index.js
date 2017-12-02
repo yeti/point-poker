@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
+import Logo from 'components/Logo';
 // import Star from 'react-feather/dist/icons/star'; // include icon directly to save on import size
 
 import './_PlayingCard.scss';
@@ -8,7 +9,7 @@ import './_PlayingCard.scss';
 class PlayingCard extends Component {
 
   get filePath() {
-    return `/images/cards/a-${this.props.value}.svg`;
+    return `/images/cards/f-${this.props.value}.svg`;
   }
   /* eslint-disable max-len */
   get markup() {
@@ -85,7 +86,7 @@ class PlayingCard extends Component {
             }
           </div>
           <div className="PlayingCard__Side PlayingCard__Side--back">
-            {/* TODO put back image here */}
+            <Logo className="PlayingCard__Logo" />
           </div>
         </div>
       </div>

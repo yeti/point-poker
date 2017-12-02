@@ -49,6 +49,7 @@ const RoomContainer = (props) => {
               <Table
                 users={votes}
                 isRevealed={isRevealed}
+                userId={socket.id}
               />
             }
           </div>
