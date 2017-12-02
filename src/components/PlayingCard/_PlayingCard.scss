@@ -1,7 +1,7 @@
 @import 'main';
 
 .PlayingCard {
-  $border-radius: 0.5rem;
+  $border-radius: 0.2rem;
   $size: 4rem; // The width, basically
   border-radius: $border-radius;
 
@@ -34,11 +34,9 @@
     }
   }
 
-  &__Content {
-    padding: calc(var(--size, $size) / 20);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  &__Image {
+    width: 100%;
+    border-radius: $border-radius;
   }
 
   &__Value {

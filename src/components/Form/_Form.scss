@@ -23,13 +23,13 @@ $input-width: 23rem;
   &__Input {
     @include roboto(thin);
     width: $input-width;
-    color: black;
+    color: $color-white;
     border: 0px solid;
-    border-bottom: 0.1rem solid gray;
+    border-bottom: 0.1rem solid $color-primary;
     padding-bottom: 0.5rem;
     font-size: 1.9rem;
-    transition: border-bottom 0.2s ease-in-out,
-    font-size 0.2s ease-in-out;
+    transition: border-bottom $transition-duration-fast ease-in-out,
+      font-size $transition-duration-fast ease-in-out;
     background-color: transparent;
 
     @include media("<tablet") {
@@ -38,11 +38,11 @@ $input-width: 23rem;
 
     &:focus {
       outline: 0px auto -webkit-focus-ring-color;
-      border-bottom: 0.1rem solid black;
+      border-bottom: 0.1rem solid white;
     }
 
     &::placeholder {
-      color: #ccc;
+      color: $color-primary;
     }
   }
 
@@ -58,7 +58,7 @@ $input-width: 23rem;
     right: 0;
     padding: 0.25rem 0.5rem;
     text-transform: uppercase;
-    transition: $transition-duration-fast / 2 ease-in-out;
+    transition: $transition-duration / 2 ease-in-out;
   }
 
   &--isValid {

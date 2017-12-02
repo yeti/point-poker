@@ -14,7 +14,7 @@
   border-radius: 0.25rem;
   border: 0.5px solid $color-accent;
   overflow: hidden;
-  margin-right: 1rem;
+  margin-right: 2.5rem;
   background-color: $color-bg;
   color: $color-accent;
   transition: 0.1s $animation-timing;
@@ -22,6 +22,10 @@
   animation: 0.1s fade-in-fwd $animation-timing;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
+
+  @include media("<tablet") {
+    margin-right: 1rem;
+  }
 
   &:hover {
     box-shadow: 0 0 0.25em $color-accent;

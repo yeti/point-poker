@@ -2,8 +2,9 @@
 
 .Hand {
   $rotationOffset: 5deg;
-  $nCards: 14;
+  $nCards: 12;
   $angleAdjustment: ($rotationOffset * ($nCards + 1) / 2);
+  $normal-ordering: true;
 
   width: 100%;
 
@@ -25,10 +26,11 @@
         --size: 6rem;
         transform: rotate($rotation);
         transform-origin: center 40rem;
+        z-index: if($normal-ordering, 100 + $i, 100 + $nCards - $i);
 
         &:hover {
           transform: scale(1.025) rotate($rotation);
-          z-index: 101;
+          z-index: 201;
         }
 
         @include media("<tablet") {
@@ -41,7 +43,7 @@
 
         &.Hand__Card--active {
           transform: scale(1.05) rotate($rotation);
-          z-index: 100;
+          z-index: 200;
         }
       }
     }

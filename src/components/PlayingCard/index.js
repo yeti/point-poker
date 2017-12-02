@@ -7,10 +7,13 @@ import './_PlayingCard.scss';
 
 class PlayingCard extends Component {
 
+  get filePath() {
+    return `/images/cards/a-${this.props.value}.svg`;
+  }
+
   render() {
     const {
       className,
-      value,
       hidden,
       onClick,
     } = this.props;
@@ -28,26 +31,14 @@ class PlayingCard extends Component {
       ],
     );
 
-    const content = (
-      <div className="PlayingCard__Content">
-        <div className="PlayingCard__Value">
-          {value}
-        </div>
-      </div>
-    );
-
     return (
       <div className={classNames} onClick={onClick}>
         <div className="PlayingCard__Container">
           <div className="PlayingCard__Side PlayingCard__Side--front">
-            <div className="PlayingCard__Row PlayingCard__Row--top">
-              {content}
-            </div>
-            <div className="PlayingCard__Row PlayingCard__Row--bottom">
-              {content}
-            </div>
+            <img src={this.filePath} className="PlayingCard__Image"/>
           </div>
           <div className="PlayingCard__Side PlayingCard__Side--back">
+            {/* TODO put back image here */}
           </div>
         </div>
       </div>

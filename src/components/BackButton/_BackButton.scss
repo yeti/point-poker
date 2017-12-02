@@ -6,12 +6,12 @@ $input-width: 20rem;
   @include clickable;
   font-size: 1rem;
   margin-bottom: 0.75rem;
-  color: $color-default;
+  color: $color-primary;
   transition: color $transition-duration-fast ease-in-out;
   display: flex;
 
   &:hover {
-    color: $color-primary;
+    color: $color-white;
   }
 
   &__Icon {
