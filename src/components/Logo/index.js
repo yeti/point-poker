@@ -22,7 +22,7 @@ class Logo extends Component {
 
     return (
       <span className={classNames}>
-        🃏
+        <img className="Logo__Image" src="images/yeti_logo.svg" />
       </span>
     );
   }

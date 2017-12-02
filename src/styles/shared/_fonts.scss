@@ -19,3 +19,27 @@ $font-weights: (
   font-family: 'Roboto Condensed', sans-serif;
   @include font-weight($weight);
 }
+
+@font-face {
+  font-family: Mallory-Book;
+  weight: normal;
+  src: url(/styles/fonts/Mallory-Book.otf);
+}
+
+@font-face {
+  font-family: Mallory-Bold;
+  weight: normal;
+  src: url(/styles/fonts/Mallory-Bold.otf);
+}
+
+@font-face {
+  font-family: Mallory-Black;
+  weight: normal;
+  src: url(/styles/fonts/Mallory-Black.otf);
+}
+
+@font-face {
+  font-family: Mallory-Light;
+  weight: normal;
+  src: url(/styles/fonts/Mallory-Light.otf);
+}

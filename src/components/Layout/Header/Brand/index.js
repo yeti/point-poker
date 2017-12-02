@@ -20,9 +20,17 @@ class Brand extends React.Component {
     return (
       <span className={classNames}>
         <Logo className="Brand__logo" />
-        <span className="Brand__name" >
-          {'Point Poker'}
-        </span>
+        <div className="Brand__text">
+          <span className="Brand__name" >
+            points.poker
+          </span>
+          <span className="Brand__subtitle" >
+            powered by
+            <span className="Brand__subtitle-strong" >
+              yeti.co
+            </span>
+          </span>
+        </div>
       </span>
     );
   }

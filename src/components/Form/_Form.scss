@@ -29,7 +29,8 @@ $input-width: 23rem;
     padding-bottom: 0.5rem;
     font-size: 1.9rem;
     transition: border-bottom 0.2s ease-in-out,
-      font-size 0.2s ease-in-out;
+    font-size 0.2s ease-in-out;
+    background-color: transparent;
 
     @include media("<tablet") {
       // font-size: 2.5rem;
