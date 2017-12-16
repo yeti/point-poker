@@ -4,7 +4,21 @@ This app features a somewhat unusual architecture, stemming from needing to comb
 
 ## App Server
 
-## Tooling
+The app server is an [Express](https://expressjs.com/) server.
+
+### Assets
+
+It uses the [Express Static Gzip](https://github.com/tkoenig89/express-static-gzip) middleware to gzip assets before sending them down.
+
+### Webpack
+
+When in dev (ie not in production), the server uses the [Express Dev Middleware](https://github.com/webpack/webpack-dev-middleware) and [Express Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware) to watch for changes and hot-reload changes.
+
+### Socket-io
+
+[Socket.IO](https://socket.io/) is the real-time engine used to drive the gameplay. It hooks in to Express to expose websockets on the server.
+
+The socket game logic lies in `lib/socket`.
 
 ## App Client
 
