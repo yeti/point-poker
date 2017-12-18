@@ -72,7 +72,7 @@ Hand.propTypes = {
 };
 
 Hand.defaultProps = {
-  cards: ['half', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'idk', 'infinity', '☕'],
+  cards: ['half', '1', '2', '3', '5', '8', '13', '40', '100', 'idk', 'infinity', 'coffee'],
   className: null,
   handleVote: () => {},
 };

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>f-1</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="240" height="336" rx="8"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="f-1">
-            <g id="full-everythign" transform="translate(-16.000000, -16.000000)">
-                <g id="Background" transform="translate(16.000000, 16.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="full" mask="url(#mask-2)">
+                <g id="Background">
                     <g id="border/blue">
                         <path d="M0,0 L240,0 L240,336 L0,336 L0,0 Z M12,12 L12,324 L228,324 L228,12 L12,12 Z" id="border" fill="#009AA6"></path>
                         <g id="Group" stroke-width="1" transform="translate(-16.000000, -16.000000)">
@@ -22,20 +28,14 @@
                         </g>
                     </g>
                 </g>
-                <g id="number-1" transform="translate(194.000000, 290.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="29.69" y="47">1</tspan>
-                    </text>
+                <g id="number-1" transform="translate(190.000000, 297.000000)" fill="#000000">
+                    <polygon id="?" transform="translate(23.735000, 13.275000) rotate(180.000000) translate(-23.735000, -13.275000) " points="28.58 24 28.58 2.7 28.07 2.55 18.89 7.86 18.89 12.75 23.93 9.78 23.93 24"></polygon>
                 </g>
-                <g id="number-1-copy" transform="translate(41.500000, 41.500000) rotate(180.000000) translate(-41.500000, -41.500000) translate(17.000000, 28.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="17.69" y="24">1</tspan>
-                    </text>
+                <g id="number-1-copy" transform="translate(19.000000, 14.000000)" fill="#000000">
+                    <polygon id="?" points="10.58 22 10.58 0.7 10.07 0.55 0.89 5.86 0.89 10.75 5.93 7.78 5.93 22"></polygon>
                 </g>
             </g>
-            <text id="1" font-family="Mallory-Black, Mallory" font-size="100" font-weight="700" fill="#000000">
-                <tspan x="96.7" y="203">1</tspan>
-            </text>
+            <polygon id="1" fill="#000000" mask="url(#mask-2)" points="135.6 203 135.6 131.9 134.1 131.3 100.4 149.9 100.4 170.2 116.1 161.4 116.1 203"></polygon>
         </g>
     </g>
 </svg>

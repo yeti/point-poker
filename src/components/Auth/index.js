@@ -16,13 +16,16 @@ export default class Auth extends React.Component {
   get placeholderName() {
     const names = [
       'Alex',
+      'Cheque',
       'Dean',
       'Ellie',
-      'Jen',
+      'Jay',
       'Josh',
       'Lee',
       'Nico',
       'Rudy',
+      'Tom',
+      'Tony',
     ];
     return sample(names);
   }

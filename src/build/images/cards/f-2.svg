@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>f-2</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="240" height="336" rx="8"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="f-2">
-            <g id="full-everythign" transform="translate(-16.000000, -16.000000)">
-                <g id="Background" transform="translate(16.000000, 16.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="full" mask="url(#mask-2)">
+                <g id="Background">
                     <g id="border/blue">
                         <path d="M0,0 L240,0 L240,336 L0,336 L0,0 Z M12,12 L12,324 L228,324 L228,12 L12,12 Z" id="border" fill="#009AA6"></path>
                         <g id="Group" stroke-width="1" transform="translate(-16.000000, -16.000000)">
@@ -22,20 +28,14 @@
                         </g>
                     </g>
                 </g>
-                <g id="number-1" transform="translate(194.000000, 290.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="27.665" y="47">2</tspan>
-                    </text>
+                <g id="number-1" transform="translate(206.000000, 299.000000)" fill="#000000">
+                    <path d="M1.135,22 L14.815,22 L16.345,17.92 L7.795,17.98 L11.575,13.69 C14.005,10.99 15.085,9.28 15.085,6.73 C15.085,3.25 12.685,0.67 8.515,0.67 C5.275,0.67 2.965,2.08 1.195,3.97 L1.645,8.86 L1.705,8.86 C3.775,6.43 5.755,4.93 7.885,4.93 C9.535,4.93 10.465,6.07 10.465,7.39 C10.465,8.71 9.865,9.7 8.185,11.68 L0.835,19.93 L1.135,22 Z" id="?" transform="translate(8.590000, 11.335000) rotate(180.000000) translate(-8.590000, -11.335000) "></path>
                 </g>
-                <g id="number-1-copy" transform="translate(41.500000, 41.500000) rotate(180.000000) translate(-41.500000, -41.500000) translate(17.000000, 28.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="15.665" y="24">2</tspan>
-                    </text>
+                <g id="number-1-copy" transform="translate(1.000000, 12.000000)" fill="#000000">
+                    <path d="M17.135,24 L30.815,24 L32.345,19.92 L23.795,19.98 L27.575,15.69 C30.005,12.99 31.085,11.28 31.085,8.73 C31.085,5.25 28.685,2.67 24.515,2.67 C21.275,2.67 18.965,4.08 17.195,5.97 L17.645,10.86 L17.705,10.86 C19.775,8.43 21.755,6.93 23.885,6.93 C25.535,6.93 26.465,8.07 26.465,9.39 C26.465,10.71 25.865,11.7 24.185,13.68 L16.835,21.93 L17.135,24 Z" id="?"></path>
                 </g>
             </g>
-            <text id="2" font-family="Mallory-Black, Mallory" font-size="100" font-weight="700" fill="#000000">
-                <tspan x="90.15" y="203">2</tspan>
-            </text>
+            <path d="M94.45,203 L142.05,203 L147.25,186.1 L121.25,186.4 L131.45,175.5 C139.85,166.8 143.55,161.2 143.55,152.6 C143.55,141.2 135.65,131.9 120.35,131.9 C108.45,131.9 100.45,136.7 94.55,142.3 L95.85,162.2 L96.05,162.2 C104.05,153.9 110.85,149.5 117.25,149.5 C121.85,149.5 124.15,152.4 124.15,155.8 C124.15,158.9 122.65,161.5 117.95,166.6 L93.45,192.5 L94.45,203 Z" id="2" fill="#000000" mask="url(#mask-2)"></path>
         </g>
     </g>
 </svg>

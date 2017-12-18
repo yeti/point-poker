@@ -31,6 +31,16 @@
     &--back {
       background-color: $color-primary;
       transform: rotateY(180deg);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .Logo {
+        padding-top: 5%;
+        width: 40%;
+      }
     }
   }
 

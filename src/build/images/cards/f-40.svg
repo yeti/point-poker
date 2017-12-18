@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+<svg width="240px" height="336px" viewBox="0 0 240 336" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>f-40</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="240" height="336" rx="8"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="f-40">
-            <g id="full-everythign" transform="translate(-16.000000, -16.000000)">
-                <g id="Background" transform="translate(16.000000, 16.000000)">
-                    <g id="border/blue">
-                        <path d="M0,0 L240,0 L240,336 L0,336 L0,0 Z M12,12 L12,324 L228,324 L228,12 L12,12 Z" id="border" fill="#009AA6"></path>
-                        <g id="Group" stroke-width="1" transform="translate(-16.000000, -16.000000)">
-                            <g id="bottom-right" transform="translate(194.000000, 290.000000)">
-                                <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
-                                <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
-                            </g>
-                            <g id="top-left" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) ">
-                                <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
-                                <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="full" mask="url(#mask-2)">
+                <g transform="translate(-16.000000, -16.000000)">
+                    <g id="Background" transform="translate(16.000000, 16.000000)">
+                        <g id="border/blue">
+                            <path d="M0,0 L240,0 L240,336 L0,336 L0,0 Z M12,12 L12,324 L228,324 L228,12 L12,12 Z" id="border" fill="#009AA6"></path>
+                            <g id="Group" stroke-width="1" transform="translate(-16.000000, -16.000000)">
+                                <g id="bottom-right" transform="translate(194.000000, 290.000000)">
+                                    <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
+                                    <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
+                                </g>
+                                <g id="top-left" transform="translate(39.000000, 39.000000) rotate(180.000000) translate(-39.000000, -39.000000) ">
+                                    <circle id="Oval-Copy" fill="#009AA6" cx="39" cy="39" r="39"></circle>
+                                    <path d="M39,69 C44.5977234,69 54.5977234,69 69,69 C69,54.4479716 69,44.4479716 69,39 C69,22.4314575 55.5685425,9 39,9 C22.4314575,9 9,22.4314575 9,39 C9,55.5685425 22.4314575,69 39,69 Z" id="Oval-Copy-3" fill="#FFFFFF"></path>
+                                </g>
                             </g>
                         </g>
                     </g>
-                </g>
-                <g id="number-1" transform="translate(194.000000, 290.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="16.4" y="47">40</tspan>
-                    </text>
-                </g>
-                <g id="number-1-copy" transform="translate(41.500000, 41.500000) rotate(180.000000) translate(-41.500000, -41.500000) translate(17.000000, 28.000000)" font-size="30" font-family="Mallory-Bold" fill="#000000" font-weight="bold">
-                    <text id="?">
-                        <tspan x="4.4" y="24">40</tspan>
-                    </text>
+                    <g id="number-1" transform="translate(206.000000, 313.000000)">
+                        <path d="M15.41,16.23 L15.41,7.29 L10.19,16.23 L15.41,16.23 Z M22.97,19.74 L19.73,19.74 L19.73,24 L15.35,24 L15.35,19.74 L5,19.74 L4.85,18.57 L14.54,2.85 L19.73,2.85 L19.73,16.23 L22.97,16.23 L22.97,19.74 Z M34.16,24.42 C28.73,24.42 25.22,19.86 25.22,13.53 C25.22,7.23 28.88,2.58 34.22,2.58 C39.56,2.58 43.16,7.14 43.16,13.47 C43.16,19.86 39.47,24.42 34.16,24.42 Z M29.84,13.47 C29.84,17.43 31.49,20.28 34.22,20.28 C36.83,20.28 38.54,17.55 38.54,13.53 C38.54,9.54 36.83,6.72 34.16,6.72 C31.46,6.72 29.84,9.57 29.84,13.47 Z" id="?" fill="#000000" transform="translate(24.005000, 13.500000) rotate(180.000000) translate(-24.005000, -13.500000) "></path>
+                    </g>
+                    <g id="number-1-copy" transform="translate(17.000000, 28.000000)">
+                        <path d="M15.41,16.23 L15.41,7.29 L10.19,16.23 L15.41,16.23 Z M22.97,19.74 L19.73,19.74 L19.73,24 L15.35,24 L15.35,19.74 L5,19.74 L4.85,18.57 L14.54,2.85 L19.73,2.85 L19.73,16.23 L22.97,16.23 L22.97,19.74 Z M34.16,24.42 C28.73,24.42 25.22,19.86 25.22,13.53 C25.22,7.23 28.88,2.58 34.22,2.58 C39.56,2.58 43.16,7.14 43.16,13.47 C43.16,19.86 39.47,24.42 34.16,24.42 Z M29.84,13.47 C29.84,17.43 31.49,20.28 34.22,20.28 C36.83,20.28 38.54,17.55 38.54,13.53 C38.54,9.54 36.83,6.72 34.16,6.72 C31.46,6.72 29.84,9.57 29.84,13.47 Z" id="?" fill="#000000"></path>
+                    </g>
                 </g>
             </g>
-            <text id="40" font-family="Mallory-Black, Mallory" font-size="100" font-weight="700" fill="#000000">
-                <tspan x="51.6" y="203">40</tspan>
-            </text>
+            <path d="M87.2,175.8 L87.2,149.5 L73.3,175.8 L87.2,175.8 Z M115.6,190.1 L105.2,190.1 L105.2,203 L86.9,203 L86.9,190.1 L53.3,190.1 L52.6,185 L82.9,132.5 L105.2,132.5 L105.2,175.8 L115.6,175.8 L115.6,190.1 Z M153,204.4 C134.4,204.4 121.8,189.9 121.8,168.1 C121.8,146.6 135,131.6 153.2,131.6 C171.4,131.6 184.4,146.1 184.4,167.9 C184.4,189.7 171,204.4 153,204.4 Z M140.9,167.9 C140.9,179.3 145.2,187.3 153.2,187.3 C160.7,187.3 165.2,179.7 165.2,168.1 C165.2,156.6 160.7,148.7 153,148.7 C145.2,148.7 140.9,156.7 140.9,167.9 Z" id="40" fill="#000000" mask="url(#mask-2)"></path>
         </g>
     </g>
 </svg>
