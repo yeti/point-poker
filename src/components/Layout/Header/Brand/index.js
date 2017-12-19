@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 
+// import AppliedAgile from 'components/AppliedAgile';
 import Logo from 'components/Logo';
 import './_Brand.scss';
 
