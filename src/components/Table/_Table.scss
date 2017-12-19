@@ -58,11 +58,13 @@
 
   &__Reaction {
     top: 0;
+    left: 0;
     position: absolute;
+    width: 100%;
   }
 
   &__ReactionImage {
-    width: 4.75rem;
+    width: 100%;
   }
 
   &__Card {

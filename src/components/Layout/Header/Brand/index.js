@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 
-// import AppliedAgile from 'components/AppliedAgile';
+import AppliedAgile from 'components/AppliedAgile';
 import Logo from 'components/Logo';
 import './_Brand.scss';
 
@@ -20,16 +20,11 @@ class Brand extends React.Component {
 
     return (
       <span className={classNames}>
-        <Logo className="Brand__logo" />
-        <div className="Brand__text">
-          <span className="Brand__name" >
-            points.poker
-          </span>
-          <span className="Brand__subtitle" >
-            powered by
-            <span className="Brand__subtitle-strong" >
-              yeti.co
-            </span>
+        <Logo className="Brand__Logo" />
+        <div className="Brand__Text">
+          <AppliedAgile className="Brand__AppliedAgile"/>
+          <span className="Brand__Name" >
+            points poker
           </span>
         </div>
       </span>

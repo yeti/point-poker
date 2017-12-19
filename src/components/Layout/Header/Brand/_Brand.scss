@@ -1,73 +1,59 @@
 @import 'main';
 
+@mixin brand-transition {
+  transition: 0.2s $ease-out-quad;
+}
+
 .Brand {
   display: flex;
   align-items: center;
   width: auto;
   height: 100%;
 
-  &__text {
+  &__Text {
+    @include brand-transition;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: font-size 0.2s ease-in-out;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0.7rem;
+    margin-left: 1.25rem;
   }
 
-  &__logo {
-    margin-left: 2.2rem;
-    margin-right: 1rem;
-    transition: font-size 0.2s ease-in-out;
+  &__Logo {
+    @include brand-transition;
+    margin-left: 2rem;
+    width: 3.7rem;
   }
 
-  &__name {
-    font-family: Mallory-Bold;
-    font-size: 25px;
-    white-space: nowrap;
-    transition: font-size 0.2s ease-in-out;
-  }
-
-  &__subtitle {
-    margin-top: 0.2rem;
-    margin-left: 1.2rem;
+  &__Name {
+    @include brand-transition;
     font-family: Mallory-Light;
-    font-size: 1rem;
+    font-size: 2rem;
     white-space: nowrap;
-    font-weight: 100;
-    transition: font-size 0.2s ease-in-out;
   }
 
-  &__subtitle-strong {
-    margin-left: 0.2rem;
-    font-family: Mallory-Bold;
+  &__AppliedAgile {
+    @include brand-transition;
+    width: 19rem;
   }
 
   @include media("<tablet") {
-    width: 5rem;
-
-    &__text {
-      flex-direction: column;
-      align-items: flex-start;
+    &__Text {
+      margin-top: 0rem;
+      margin-left: 0.5rem;
     }
 
-    &__name {
+    &__Logo {
+      margin-left: 2rem;
+      width: 2rem;
+    }
+
+    &__Name {
       font-size: 1rem;
-      display: block;
     }
 
-    &__subtitle {
-      font-size: 0.75rem;
-      display: block;
-      margin-left: 0rem;
-    }
-
-    &__logo {
-      margin-left: 0.75rem;
-    }
-  }
-
-  .Logo {
-    &__Image {
-      width: 2.4rem;
+    &__AppliedAgile {
+      width: 10rem;
     }
   }
 }
