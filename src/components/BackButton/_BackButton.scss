@@ -4,10 +4,11 @@ $input-width: 20rem;
 
 .BackButton {
   @include clickable;
+  font-family: Mallory-Book;
   font-size: 1rem;
   margin-bottom: 0.75rem;
   color: $color-primary;
-  transition: color $transition-duration-fast ease-in-out;
+  transition: color $transition-duration-fast $ease-out-quad;
   display: flex;
 
   &:hover {

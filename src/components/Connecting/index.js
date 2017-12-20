@@ -10,7 +10,7 @@ const Connecting = ({ className }) => {
   return (
     <MessageView
       className={classwrap(['Connecting', className])}
-      icon={<Wifi size={100}/>}
+      icon={<Wifi size={100} color="white"/>}
       title="Connecting"
     />
   );

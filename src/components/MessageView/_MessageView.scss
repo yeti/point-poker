@@ -1,7 +1,7 @@
 @import 'main';
 
 .MessageView {
-  $message-view-color: lightgray;
+  $message-view-color: $color-white;
   @include center;
   color: $message-view-color;
 
@@ -33,14 +33,16 @@
   }
 
   &__Link {
+    text-decoration: none;
+    color: $color-primary;
     transition: $transition-duration-fast $ease-out-quad;
 
     &:link, &:visited {
-      color: darken($message-view-color, 10);
+      color: $color-primary;
     }
 
     &:hover, &:active {
-      color: $color-primary;
+      color: $color-white;
     }
   }
 }

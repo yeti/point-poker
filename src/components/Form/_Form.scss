@@ -56,15 +56,23 @@ $input-width: 23rem;
     position: absolute;
     bottom: 0.6rem;
     right: 0;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.5rem 0.09rem;
     text-transform: uppercase;
-    transition: $transition-duration / 2 ease-in-out;
+    transition: $transition-duration $ease-out-back;
   }
 
   &--isValid {
     .Form__SubmitButton {
       transform: scale(1);
       opacity: 1;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &:active, &:focus {
+        transform: scale(1.025);
+      }
     }
   }
 }

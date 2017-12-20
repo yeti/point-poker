@@ -24,7 +24,7 @@ class Brand extends React.Component {
         <div className="Brand__Text">
           <AppliedAgile className="Brand__AppliedAgile"/>
           <span className="Brand__Name" >
-            points poker
+            Points Poker
           </span>
         </div>
       </span>

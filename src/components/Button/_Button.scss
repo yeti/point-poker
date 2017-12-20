@@ -1,36 +1,34 @@
 @import 'main';
 
-@mixin btn($bg-color: $color-default, $color: $color-white) {
-  @include roboto-condensed(light);
+@mixin btn($color: $color-white) {
+  font-family: Mallory-Book;
   text-decoration: none;
-  background: $bg-color;
+  background: transparent;
   color: $color;
-  border: 0rem $bg-color;
-  border-radius: 0.2rem;
-  padding: 1rem 2rem;
+  border: 0.17rem solid $color;
+  border-radius: 0.3rem;
+  padding: 0.65rem 1.5rem;
   transition: all 0.1s;
   white-space: nowrap;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   @include clickable;
   @include center;
-  transition: background $transition-duration-fast ease-in-out,
-    box-shadow $transition-duration-fast ease-in-out;
+  transition: $transition-duration $ease-out-back;
   outline: none;
 
   &:hover {
-    box-shadow: 0 0 0.5em $bg-color;
+    transform: scale(1.05);
   }
 
   &:active, &:focus {
-    background: darken($bg-color, 10%);
+    transform: scale(1.025);
   }
 
   &:disabled {
-    background: lighten($bg-color, 25%);
-    color: darken($color, 10%);
+    color: $color-primary;
+    border-color: $color-primary;
   }
-
 
   [class^="icon-"] {
     margin-right: -0.6rem;
@@ -46,11 +44,11 @@
 
 
 .Button{
-  @include btn($color-default, $color-white);
+  @include btn($color-white);
 
   &--default {}
 
   &--primary {
-    @include btn($color-primary, $color-white);
+    @include btn($color-white);
   }
 }
