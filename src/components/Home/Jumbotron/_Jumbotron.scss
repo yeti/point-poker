@@ -7,33 +7,55 @@
   flex-direction: column;
   align-items: center;
 
+  &__Logo {
+    @include transition;
+    width: 11rem;
+
+    @include media("<tablet") {
+      width: 8rem;
+    }
+  }
+
   &__AppliedAgile {
+    @include transition;
     margin-top: 4rem;
     width: 15rem;
+
+    @include media("<tablet") {
+      margin-top: 2rem;
+      width: 11rem;
+    }
   }
 
   &__Headline {
+    @include transition;
     font-family: Mallory-Light;
     font-size: 5rem;
 
-    @include media("<phone") {
+    @include media("<tablet") {
       font-size: 4rem;
     }
   }
 
   &__Subtitle {
+    @include transition;
     margin-top: 0.8rem;
     font-family: Mallory-Light;
     letter-spacing: 0.11rem;
-    margin-bottom: 1rem;
     font-size: 1.1rem;
-  }
 
-  &__Logo {
-    width: 11rem;
+    @include media("<tablet") {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
   }
 
   &__CTA {
-    margin-top: 1rem;
+    @include transition;
+    margin-top: 2rem;
+
+    @include media("<tablet") {
+      margin-top: 1.5rem;
+    }
   }
 }

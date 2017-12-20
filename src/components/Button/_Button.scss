@@ -1,19 +1,19 @@
 @import 'main';
 
 @mixin btn($color: $color-white) {
+  @include clickable;
+  @include center;
   font-family: Mallory-Book;
   text-decoration: none;
   background: transparent;
   color: $color;
-  border: 0.17rem solid $color;
+  border: $border-width solid $color;
   border-radius: 0.3rem;
   padding: 0.65rem 1.5rem;
   transition: all 0.1s;
   white-space: nowrap;
   display: inline-block;
   font-size: 1.15rem;
-  @include clickable;
-  @include center;
   transition: $transition-duration $ease-out-back;
   outline: none;
 

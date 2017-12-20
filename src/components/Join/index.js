@@ -12,7 +12,11 @@ export default class Join extends React.Component {
   }
 
   get title() {
-    return 'Please choose a room code';
+    return 'Please type in a room code';
+  }
+
+  get subtitle() {
+    return '(or paste in the code of the room you want to join)';
   }
 
   navigate(room) {

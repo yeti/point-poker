@@ -15,13 +15,13 @@ $input-width: 23rem;
   }
 
   &__Label {
-    @include roboto(light);
+    font-family: Mallory-Book;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
   &__Input {
-    @include roboto(thin);
+    font-family: Mallory-Book;
     width: $input-width;
     color: $color-white;
     border: 0px solid;

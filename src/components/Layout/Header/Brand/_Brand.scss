@@ -1,9 +1,5 @@
 @import 'main';
 
-@mixin brand-transition {
-  transition: 0.2s $ease-out-quad;
-}
-
 .Brand {
   display: flex;
   align-items: center;
@@ -11,7 +7,7 @@
   height: 100%;
 
   &__Text {
-    @include brand-transition;
+    @include transition;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -20,20 +16,20 @@
   }
 
   &__Logo {
-    @include brand-transition;
+    @include transition;
     margin-left: 2rem;
     width: 3.7rem;
   }
 
   &__Name {
-    @include brand-transition;
+    @include transition;
     font-family: Mallory-Light;
     font-size: 2rem;
     white-space: nowrap;
   }
 
   &__AppliedAgile {
-    @include brand-transition;
+    @include transition;
     width: 19rem;
   }
 

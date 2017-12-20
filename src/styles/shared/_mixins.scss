@@ -25,3 +25,7 @@
 @mixin clickable() {
   cursor: pointer;
 }
+
+@mixin transition {
+  transition: 0.2s $ease-out-quad;
+}
