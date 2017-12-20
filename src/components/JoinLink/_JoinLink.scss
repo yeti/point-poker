@@ -1,18 +1,18 @@
 @import 'main';
 
 .JoinLink {
-  $animation-duration: 0.3s;
-  $animation-timing: $ease-out-quad;
+  $animation-duration: $transition-duration;
+  $animation-timing: $ease-out-back;
 
   $color-bg: $color-primary;
   $color-accent: $color-white;
 
-  @include roboto(thin);
+  font-family: Mallory-Book;
   font-size: 0.8rem;
   position: relative;
   align-self: center;
   border-radius: 0.25rem;
-  border: 0.5px solid $color-accent;
+  border: $border-width solid $color-accent;
   overflow: hidden;
   margin-right: 2.5rem;
   background-color: $color-bg;
@@ -28,16 +28,14 @@
   }
 
   &:hover {
-    box-shadow: 0 0 0.25em $color-accent;
+    transform: scale(1.05);
   }
 
-  &:active, &:focus {
-    // background-color: darken($color-bg, 5);
-  }
+  &:active, &:focus {}
 
   &__Container {
     font-size: 0.8rem;
-    height: $header-height * 0.4;
+    height: $header-height * 0.5;
 
     padding: 0rem 1rem;
     cursor: pointer;
@@ -49,8 +47,8 @@
   }
 
   &__Message {
-    @include roboto(thin);
     @include center;
+    font-family: Mallory-Book;
     font-size: 0.7rem;
     text-transform: uppercase;
     text-align: center;
@@ -64,9 +62,22 @@
     //opacity: 0;
   }
 
+  &__Text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__Copy {
+    font-family: Mallory-Book;
+    font-size: 0.8rem;
+  }
+
+
   &__Code {
-    width: 80%;
+    font-family: Mallory-Bold;
     transition: $animation-duration $animation-timing;
+    font-size: 1.2rem;
   }
 
   &__Icon {
