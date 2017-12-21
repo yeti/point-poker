@@ -12,12 +12,13 @@
     z-index: -1;
     width: 72%;
     height: 68%;
-    border-radius: 3vw;
+    border-radius: 2rem;
     background-color: #ffd07a; // This is the color of the svg - show this until image loads
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.4);
 
     @include media("<tablet") {
       width: 70%;
+      border-radius: 1rem;
     }
   }
 }
@@ -74,7 +75,7 @@
       --size: 2rem;
     }
 
-    .PlayingCard__Container {
+    .PlayingCard__Image {
       box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.28);
     }
   }

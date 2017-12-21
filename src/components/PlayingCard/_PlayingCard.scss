@@ -24,8 +24,7 @@
     border-radius: $border-radius;
 
     &--front {
-      diplay: flex;
-      background-color: #e8ded2;
+      //background-color: transparent;
     }
 
     &--back {
@@ -46,6 +45,7 @@
 
   &__Image {
     width: 100%;
+    height: 100%;
     border-radius: $border-radius;
   }
 
