@@ -39,10 +39,6 @@
   &__Content {
     position: relative;
     animation: $transition-duration scale-in-center $transition-duration $ease-out-back both;
-
-    @include media("<tablet") {
-      // padding: 0.5rem;
-    }
   }
 
   &__Name {

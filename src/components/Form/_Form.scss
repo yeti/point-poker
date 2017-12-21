@@ -29,12 +29,8 @@ $input-width: 23rem;
     padding-bottom: 0.5rem;
     font-size: 1.9rem;
     transition: border-bottom $transition-duration-fast ease-in-out,
-      font-size $transition-duration-fast ease-in-out;
+    font-size $transition-duration-fast ease-in-out;
     background-color: transparent;
-
-    @include media("<tablet") {
-      // font-size: 2.5rem;
-    }
 
     &:focus {
       outline: 0px auto -webkit-focus-ring-color;

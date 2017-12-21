@@ -5,3 +5,4 @@
 * [ ] Write front-end unit tests.
 * [ ] Write storybook stories for components.
 * [ ] Move data store to something more scalable (🤔 Redis mayhaps?). Currently it just sits in memory in an object.
+* [ ] Track pageviews to get an idea of usage metrics.

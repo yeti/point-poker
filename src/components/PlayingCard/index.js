@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 import Logo from 'components/Logo';
-// import Star from 'react-feather/dist/icons/star'; // include icon directly to save on import size
 
 import './_PlayingCard.scss';
 
