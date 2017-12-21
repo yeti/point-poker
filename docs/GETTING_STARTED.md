@@ -1,6 +1,6 @@
 ## Getting Started
 
-### Requisites
+### Prerequisites
 
 This project requires node.js and npm to run. The recommended node version is `v8.1.2`.
 

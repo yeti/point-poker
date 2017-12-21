@@ -37,6 +37,14 @@ Routing is used to keep track of login form state (see `src/Routes.js`). This al
 
 Components are grouped in their own folder along with their styling files, storybook files, and soon to come test files.
 
-## Interactions Between App Server and Client
+### PWA
 
-[Socket.IO](https://socket.io/) is the real-time engine used to drive the gameplay. This web socket framework does a lot of the heavy lifting and allows for high level
+This is a progressive web app. It has a service worker which will cache the web app - make sure to bust the cache when you make a new release by incrementing the cache version in `src/build/serviceWorker`.
+
+### State
+
+All gameplay state and logic lives on the server. The client is "dumb" and holds no state or logic - it is simply a view layer. It receives the state from the server and generates the corresponding UI.
+
+You can think of the server as being a remote "store" that a client has access to. A client can emit events, which will change the data on the server, which will be instantly reflected on the client.
+
+Multiple clients that are connected to the same room in the game will share the same "store" on the server. Whenever a client joins the room, casts a vote, or leaves the room, the room data is updated on the server. Whenever the room data is updated, every client connected to that room receives the new data.
