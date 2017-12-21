@@ -22,13 +22,11 @@
   }
 
   &__Title {
-    @include roboto(thin);
     font-size: 2rem;
     margin-bottom: 0.75rem;
   }
 
   &__Subtitle {
-    @include roboto(light);
     font-size: 1rem;
   }
 

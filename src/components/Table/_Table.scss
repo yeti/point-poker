@@ -10,10 +10,10 @@
   &__Shape {
     background-image: url(/images/wood_texture.svg);
     z-index: -1;
-    width: 85%;
-    height: 80%;
+    width: 72%;
+    height: 68%;
     border-radius: 3vw;
-    background-color: $color-bg;
+    background-color: #ffd07a; // This is the color of the svg - show this until image loads
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.4);
 
     @include media("<tablet") {
@@ -27,7 +27,7 @@
   @include center;
   @include z-index('seat');
   position: absolute;
-  transition: 0.2s all $ease-out-quad;
+  transition: $transition-duration $ease-out-quad;
   transform: translate(-50%, -50%);
   white-space: nowrap;
 
@@ -37,7 +37,7 @@
 
   &__Content {
     position: relative;
-    animation: $transition-duration scale-in-center $ease-out-quad both;
+    animation: $transition-duration scale-in-center $transition-duration $ease-out-back both;
 
     @include media("<tablet") {
       // padding: 0.5rem;
@@ -88,7 +88,7 @@
   }
 
   &__CardsWrapper {
-    transition: $transition-duration-fast $ease-out-quad;
+    transition: $transition-duration $ease-out-quad;
   }
 
   &--self {

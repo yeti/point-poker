@@ -42,7 +42,9 @@
     }
   }
 
-  &__HandContainer {}
+  &__HandContainer {
+    animation: 0.7s slide-in-blurred-bottom  0s $ease-out-quad both;
+  }
 
   &__AdminPanelWrapper {
     position: absolute;
@@ -59,6 +61,7 @@
     height: 50vh;
     max-height: 30rem;
     padding: 2rem 0rem;
+    animation: 0.4s scale-in-center 0.3s $ease-out-quad both;
 
     @include media("<tablet") {
       width: 50%;

@@ -41,7 +41,7 @@ export default class JoinLink extends React.Component {
   }
 
   get message() {
-    return 'Copied to\nClipboard!';
+    return 'Link copied to\nclipboard!';
   }
 
   showMessage() {
@@ -97,7 +97,7 @@ export default class JoinLink extends React.Component {
             </div>
             <span className={'JoinLink__Text'}>
               <span className={'JoinLink__Copy'}>
-                Invite to Room
+                Invite to room
               </span>
               <span className={'JoinLink__Code'}>
                 {code}

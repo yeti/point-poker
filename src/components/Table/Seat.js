@@ -133,7 +133,7 @@ Seat.propTypes = {
     sticker: PropTypes.string,
     vote: PropTypes.any,
   }),
-  isSelf: PropTypes.boolean,
+  isSelf: PropTypes.bool,
   value: PropTypes.number,
   isRevealed: PropTypes.bool,
 };

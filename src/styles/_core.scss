@@ -9,5 +9,5 @@ html, body, main {
 body {
   background-color: $color-bg;
   color: $color-text;
-  @include roboto(normal);
+  font-family: Mallory-Book;
 }

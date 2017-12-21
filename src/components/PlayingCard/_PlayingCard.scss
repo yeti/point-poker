@@ -8,7 +8,7 @@
   &__Container {
     width: var(--size, #{$size});
     height: calc(var(--size, #{$size}) * 3.5 / 2.5); // Playing card dimensions are 3.5in x 2.5in
-    transition: transform $transition-duration $ease-out-quad;
+    transition: transform $transition-duration-slow $ease-out-quad;
     position: relative;
     border-radius: $border-radius;
     transform-style: preserve-3d;
@@ -50,7 +50,6 @@
   }
 
   &__Value {
-    @include roboto();
     font-size: calc(var(--size, $size) / 3.2);
     color: $color3;
   }
