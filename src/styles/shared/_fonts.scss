@@ -12,23 +12,23 @@ $font-weights: (
 @font-face {
   font-family: Mallory-Book;
   weight: normal;
-  src: url(/styles/fonts/Mallory-Book.otf);
+  src: url(/styles/fonts/Mallory-Book.otf) format('opentype');
 }
 
 @font-face {
   font-family: Mallory-Bold;
   weight: normal;
-  src: url(/styles/fonts/Mallory-Bold.otf);
+  src: url(/styles/fonts/Mallory-Bold.otf) format('opentype');
 }
 
 @font-face {
   font-family: Mallory-Black;
   weight: normal;
-  src: url(/styles/fonts/Mallory-Black.otf);
+  src: url(/styles/fonts/Mallory-Black.otf) format('opentype');
 }
 
 @font-face {
   font-family: Mallory-Light;
   weight: normal;
-  src: url(/styles/fonts/Mallory-Light.otf);
+  src: url(/styles/fonts/Mallory-Light.otf) format('opentype');
 }
