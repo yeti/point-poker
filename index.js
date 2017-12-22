@@ -33,7 +33,7 @@ const port = process.env.PORT || 4200;
 app.use('/', expressStaticGzip(__dirname + '/public', {}));
 
 // Try to redirect to https
-app.use(secure);
+// app.use(secure); TODO fix "Access to Font at 'https://...' from origin 'http://...' has been blocked by CORS policy"
 
 // Reroute unmatched routes to home page
 app.use((req, res) => {
