@@ -52,7 +52,8 @@ class Form extends Component {
   render() {
     const {
       className,
-      label,
+      title,
+      subtitle,
       submitLabel,
       placeholder,
     } = this.props;
@@ -75,12 +76,12 @@ class Form extends Component {
           onKeyDown={ e => this.handleKeyDown(e) }
         >
           <BackButton className="Form__BackButton" />
-          <label
-            className="Form__Label"
-            htmlFor="code"
-          >
-            {label}
-          </label>
+          <div className="Form__Title">
+            {title}
+            <div className="Form__Subtitle">
+              {subtitle}
+            </div>
+          </div>
           <div className="Form__InputGroup">
             <input
               className="Form__Input"
@@ -110,7 +111,8 @@ class Form extends Component {
 
 Form.propTypes = {
   className: PropTypes.string,
-  label: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   onSubmit: PropTypes.func,
   submitLabel: PropTypes.string,
   placeholder: PropTypes.string,

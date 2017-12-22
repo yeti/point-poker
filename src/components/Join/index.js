@@ -13,11 +13,11 @@ export default class Join extends React.Component {
   }
 
   get title() {
-    return 'Which session are you joining?';
+    return 'Join Existing Session';
   }
 
   get subtitle() {
-    return 'Enter the code for the session you want to join';
+    return 'Please enter the session code below';
   }
 
   navigate(room = this.generateRoom()) {
@@ -46,7 +46,8 @@ export default class Join extends React.Component {
           placeholderCode
           submitLabel="Join"
           placeholder={this.placeholderCode}
-          label={this.title}
+          title={this.title}
+          subtitle={this.subtitle}
           valueTransform={value => (value && value.toUpperCase())}
         />
       </View>

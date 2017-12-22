@@ -34,6 +34,10 @@ export default class Auth extends React.Component {
     return 'What\'s your name?';
   }
 
+  get subtitle() {
+    return 'This is how you will appear in the game';
+  }
+
   getRoomId() {
     return this.props.params.room;
   }
@@ -51,9 +55,10 @@ export default class Auth extends React.Component {
           onBack={browserHistory.goBack}
           backLabel="Back"
           placeholderCode
-          submitLabel="Enter"
+          submitLabel="Start Playing"
           placeholder={this.placeholderName}
-          label={this.title}
+          title={this.title}
+          subtitle={this.subtitle}
           value={window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || ''}
         />
       </View>

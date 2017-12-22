@@ -1,6 +1,6 @@
 @import 'main';
 
-$input-width: 23rem;
+
 
 .Form {
   width: 100%;
@@ -10,53 +10,85 @@ $input-width: 23rem;
   &__Form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     font-size: 2rem;
+    height: $content-height;
+    width: $content-width;
+
+    @include media("<tablet") {
+      width: auto;
+      height: auto;
+    }
   }
 
-  &__Label {
+  &__BackButton {
+    align-self: flex-start;
+  }
+  
+  &__Title {
     font-family: Mallory-Light;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    text-align: center;
+    white-space: nowrap;
+
+    @include media("<tablet") {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__Subtitle {
+    font-family: Mallory-Light;
+    font-size: 1.3rem;
+    opacity: 0.9;
+
+    @include media("<tablet") {
+      font-size: 1rem;
+    }
   }
 
   &__Input {
-    font-family: Mallory-Book;
-    width: $input-width;
+    @include transition;
+    margin-top: 4rem;
+    font-family: Mallory-Light;
+    width: 29rem;
     color: $color-white;
     border: 0px solid;
-    border-bottom: 0.1rem solid $color-primary;
+    border-bottom: 0.1rem solid $color-white;
     padding-bottom: 0.5rem;
-    font-size: 1.9rem;
-    transition: border-bottom $transition-duration-fast ease-in-out,
-    font-size $transition-duration-fast ease-in-out;
+    font-size: 1.3rem;
     background-color: transparent;
     outline: none;
+    opacity: 0.8;
+    text-align: center;
 
     &:focus {
       outline: 0px auto -webkit-focus-ring-color;
-      border-bottom: 0.1rem solid white;
       outline-color: transparent;
       outline-style: none;
+      opacity: 1;
+
+      &::placeholder {
+        @include transition;
+        // color: transparent;
+      }
     }
 
     &::placeholder {
-      color: $color-primary;
+      color: $color-white;
+      opacity: 0.7;
     }
   }
 
   &__InputGroup {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__SubmitButton {
+    margin-top: 2rem;
     transform: scale(0);
     opacity: 0;
-    position: absolute;
-    bottom: 0.6rem;
-    right: 0;
-    padding: 0.25rem 0.5rem 0.09rem;
-    text-transform: uppercase;
     transition: $transition-duration $ease-out-back;
   }
 

@@ -31,7 +31,7 @@ export default class GetStarted extends React.Component {
           <div className="GetStarted__Title">
             Get Started
             <div className="GetStarted__Subtitle">
-              Please choose an option
+              Choose an option below
             </div>
           </div>
           <div className="GetStarted__Options">

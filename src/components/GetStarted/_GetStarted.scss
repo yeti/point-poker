@@ -15,9 +15,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: $content-height;
+    width: $content-width;
 
     @include media("<tablet") {
       width: 16.6rem;
+      height: auto;
     }
   }
 
@@ -30,7 +33,7 @@
 
   &__Subtitle {
     font-family: Mallory-Light;
-    font-size: 1rem;
+    font-size: 1.3rem;
     opacity: 0.9;
   }
 
