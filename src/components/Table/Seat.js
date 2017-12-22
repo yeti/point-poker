@@ -68,12 +68,18 @@ class Seat extends Component {
     const {
       className,
       isRevealed,
+      isSelf,
       user,
     } = this.props;
 
     const classNames = classwrap(
       [
         'Seat',
+        {
+          Seat: {
+            '--self': isSelf,
+          },
+        },
         className,
       ],
     );
@@ -127,6 +133,7 @@ Seat.propTypes = {
     sticker: PropTypes.string,
     vote: PropTypes.any,
   }),
+  isSelf: PropTypes.bool,
   value: PropTypes.number,
   isRevealed: PropTypes.bool,
 };

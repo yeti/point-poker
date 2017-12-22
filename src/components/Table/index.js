@@ -16,10 +16,26 @@ class Table extends Component {
     return initialOffset + (seatIndex * offsetAngle);
   }
 
+  get orderedUsers() {
+    const {
+      userId,
+      users,
+    } = this.props;
+
+    const orderedUsers = [...users];
+
+    while (orderedUsers[0].id !== userId) {
+      orderedUsers.push(orderedUsers.shift());
+    }
+
+    return orderedUsers;
+  }
+
   render() {
     const {
       className,
       isRevealed,
+      userId,
     } = this.props;
 
     const classNames = classwrap([
@@ -31,12 +47,13 @@ class Table extends Component {
       <div className={classNames}>
         <div className="Table__Shape">
           <div className="Table__Seats">
-            {this.props.users.map((user, index) =>
+            {this.orderedUsers.map((user, index) =>
               <Seat
                 offset={this.getSeatOffset(index, this.props.users.length)}
                 key={index}
                 user={user}
                 isRevealed={isRevealed}
+                isSelf={user.id === userId}
               />)
             }
           </div>
@@ -56,6 +73,7 @@ Table.propTypes = {
     vote: PropTypes.any,
   })),
   isRevealed: PropTypes.bool,
+  userId: PropTypes.string,
 };
 
 Table.defaultProps = {

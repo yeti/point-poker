@@ -6,30 +6,51 @@
   width: auto;
   height: 100%;
 
-  &__logo {
-    font-size: 3rem;
-    margin: 0rem 0.75rem;
-    margin-right: 0.25rem;
+  &__Text {
+    @include transition;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0.7rem;
+    margin-left: 1.25rem;
   }
 
-  &__name {
-    @include roboto(thin);
+  &__Logo {
+    @include transition;
+    margin-left: 2rem;
+    width: 3.7rem;
+  }
+
+  &__Name {
+    @include transition;
+    font-family: Mallory-Light;
     font-size: 2rem;
     white-space: nowrap;
-    transition: font-size 0.2s ease-in-out;
+    color: $color-white;
+  }
+
+  &__AppliedAgile {
+    @include transition;
+    width: 19rem;
   }
 
   @include media("<tablet") {
-    width: 5rem;
-
-    &__name {
-      font-size: 1rem;
-      white-space: initial;
+    &__Text {
+      margin-top: 0rem;
+      margin-left: 0.5rem;
     }
 
-    &__logo {
-      font-size: 3rem;
-      margin-right: 0.25rem;
+    &__Logo {
+      margin-left: 2rem;
+      width: 2rem;
+    }
+
+    &__Name {
+      font-size: 1rem;
+    }
+
+    &__AppliedAgile {
+      width: 10rem;
     }
   }
 }

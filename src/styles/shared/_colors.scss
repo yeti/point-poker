@@ -16,7 +16,8 @@ $color5: rgba(255, 255, 255, 1);
 
 $color-white: white;
 $color-default: #95a5a6;
-$color-primary: $color1; // #2c3e50;
+$color-primary: $color1;
+$color-secondary: $color2;
 $color-success: #18bc9c;
 $color-info: #3498db;
 $color-warning: #f39c12;
@@ -24,8 +25,8 @@ $color-danger: #e74c3c;
 $color-yeti: $color1;
 $color-poker-mat: #1aa353;
 
-$color-bg: $color-white;
-$color-text: $color-primary;
+$color-bg: $color-secondary;
+$color-text: $color-white;
 
-$color-header-bg: $color-text;
-$color-header-text: $color-bg;
+$color-header-bg: $color-primary;
+$color-header-text: $color-text;

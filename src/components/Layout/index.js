@@ -5,6 +5,7 @@ import Header from './Header';
 import './_Layout.scss';
 
 class Layout extends React.Component {
+
   render() {
     return (
       <div className="Layout">

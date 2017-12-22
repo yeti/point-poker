@@ -31,7 +31,7 @@ class AdminPanel extends Component {
             className="AdminPanel__Button AdminPanel__Button--next"
             onClick={handleNext}
           >
-            <span>Next <ArrowRight size={12}/></span>
+            <span>Next <ArrowRight size={10}/></span>
           </Button>
         </div>
       </div>
