@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const secure = require('express-force-https');
+// const secure = require('express-force-https');
 const expressStaticGzip = require("express-static-gzip");
 
 const webpack = require('webpack');
