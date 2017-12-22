@@ -100,7 +100,7 @@ export default class JoinLink extends React.Component {
             </div>
             <span className={'JoinLink__Text'}>
               <span className={'JoinLink__Copy'}>
-                Invite to session
+                Invite to room
               </span>
               <span className={'JoinLink__Code'}>
                 {code}

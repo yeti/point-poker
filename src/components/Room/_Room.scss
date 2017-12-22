@@ -68,9 +68,10 @@
   }
 
   &__Message {
+    font-family: Mallory-Light;
     font-size: 1.6rem;
     white-space: nowrap;
-    animation: 0.5s fade-in 1.3s $ease-out-quad backwards;
+    animation: 0.3s fade-in 0.7s $ease-out-quad backwards;
 
     @include media("<tablet") {
       font-size: 1.5rem;

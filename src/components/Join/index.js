@@ -2,7 +2,6 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 import { sample } from 'utils';
-import Button from 'components/Button';
 import Form from 'components/Form';
 import View from 'components/View';
 import './_Join.scss';
@@ -14,7 +13,7 @@ export default class Join extends React.Component {
   }
 
   get title() {
-    return 'Join Existing Session';
+    return 'Please create a room name';
   }
 
   get subtitle() {
@@ -39,22 +38,17 @@ export default class Join extends React.Component {
   render() {
     return (
       <View className="Join">
-        <div className="Join__Layout">
-          <Button onClick={() => this.navigate()}>
-            Start New Session
-          </Button>
-          <Form
-            className="Join__Form"
-            onSubmit={room => this.navigate(room)}
-            onBack={browserHistory.goBack}
-            backLabel="Back"
-            placeholderCode
-            submitLabel="Join"
-            placeholder={this.placeholderCode}
-            label={this.title}
-            valueTransform={value => (value && value.toUpperCase())}
-          />
-        </div>
+        <Form
+          className="Join__Form"
+          onSubmit={room => this.navigate(room)}
+          onBack={browserHistory.goBack}
+          backLabel="Back"
+          placeholderCode
+          submitLabel="Join"
+          placeholder={this.placeholderCode}
+          label={this.title}
+          valueTransform={value => (value && value.toUpperCase())}
+        />
       </View>
     );
   }

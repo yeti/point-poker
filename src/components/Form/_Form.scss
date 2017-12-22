@@ -15,7 +15,7 @@ $input-width: 23rem;
   }
 
   &__Label {
-    font-family: Mallory-Book;
+    font-family: Mallory-Light;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
@@ -31,10 +31,13 @@ $input-width: 23rem;
     transition: border-bottom $transition-duration-fast ease-in-out,
     font-size $transition-duration-fast ease-in-out;
     background-color: transparent;
+    outline: none;
 
     &:focus {
       outline: 0px auto -webkit-focus-ring-color;
       border-bottom: 0.1rem solid white;
+      outline-color: transparent;
+      outline-style: none;
     }
 
     &::placeholder {
