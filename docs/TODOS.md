@@ -1,5 +1,6 @@
 # Todos
 
+* [ ] Add "Learn More" page
 * [ ] Make a docker image to make it easy to drop onto AWS.
 * [ ] Add reaction GIFs to the UI. This currently exists on the back-end but does not have a proper entry-point on the front-end (hint: run `window.reaction('party parrot')` in your browser console while playing).
 * [ ] Write front-end unit tests.
