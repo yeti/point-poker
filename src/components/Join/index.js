@@ -13,11 +13,11 @@ export default class Join extends React.Component {
   }
 
   get title() {
-    return 'Please create a room name';
+    return 'Which session are you joining?';
   }
 
   get subtitle() {
-    return '(or paste in the code of the room you want to join)';
+    return 'Enter the code for the session you want to join';
   }
 
   navigate(room = this.generateRoom()) {

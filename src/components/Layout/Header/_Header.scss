@@ -34,7 +34,8 @@
     }
   }
 
-  &__JoinLink {
+  &__JoinLinkWrapper {
+    @include center;
     animation: $transition-duration scale-in-center $ease-out-back both;
   }
 }

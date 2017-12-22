@@ -26,7 +26,9 @@ export default class Header extends React.Component {
         </IndexLink>
         <div className="Header__links"></div>
         {code &&
-          <JoinLink code={code} className="Header__JoinLink"/>
+          <div className="Header__JoinLinkWrapper">
+            <JoinLink code={code} className="Header__JoinLink"/>
+          </div>
         }
       </div>
     );
