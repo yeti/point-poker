@@ -37,7 +37,7 @@ export default class GetStarted extends React.Component {
           <div className="GetStarted__Options">
             <Button
               className="GetStarted__Option GetStarted__Option--New"
-              onClick={() => this.navigate(this.navigateToRoom())}
+              onClick={() => this.navigateToRoom(this.generateRoom())}
             >
               Create New Session
             </Button>
@@ -46,7 +46,7 @@ export default class GetStarted extends React.Component {
             </div>
             <Button
               className="GetStarted__Option GetStarted__Option--Existing"
-              onClick={() => this.navigate(this.navigateToRoom(''))}
+              onClick={() => this.navigateToRoom('')}
             >
               Join Existing Session
             </Button>
