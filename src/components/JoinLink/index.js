@@ -10,6 +10,7 @@ export default class JoinLink extends React.Component {
 
   static get propTypes() {
     return {
+      className: PropTypes.string,
       alternateAnimation: PropTypes.bool,
       code: PropTypes.string,
     };
@@ -65,6 +66,7 @@ export default class JoinLink extends React.Component {
 
   render() {
     const {
+      className,
       code,
     } = this.props;
 
@@ -82,6 +84,7 @@ export default class JoinLink extends React.Component {
           '--hideMessage': !showMessage,
         },
       },
+      className,
     ]);
 
     return (
@@ -97,7 +100,7 @@ export default class JoinLink extends React.Component {
             </div>
             <span className={'JoinLink__Text'}>
               <span className={'JoinLink__Copy'}>
-                Invite to room
+                Invite to session
               </span>
               <span className={'JoinLink__Code'}>
                 {code}

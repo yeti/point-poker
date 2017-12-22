@@ -33,4 +33,8 @@
       background-color: darken($color-header-bg, 10);
     }
   }
+
+  &__JoinLink {
+    animation: $transition-duration scale-in-center $ease-out-back both;
+  }
 }

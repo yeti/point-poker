@@ -42,7 +42,7 @@
   }
 
   &__HandContainer {
-    animation: 0.7s slide-in-blurred-bottom  0s $ease-out-quad both;
+    animation: 0.7s slide-in-blurred-bottom  0.3s $ease-out-quad both;
   }
 
   &__AdminPanelWrapper {
@@ -68,9 +68,9 @@
   }
 
   &__Message {
-    font-size: 2rem;
+    font-size: 1.6rem;
     white-space: nowrap;
-    animation: 0.3s scale-in-center 0.7s $ease-out-quad backwards;
+    animation: 0.5s fade-in 1.3s $ease-out-quad backwards;
 
     @include media("<tablet") {
       font-size: 1.5rem;
