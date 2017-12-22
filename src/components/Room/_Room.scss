@@ -67,6 +67,23 @@
     }
   }
 
+  &__Message {
+    font-size: 2rem;
+    white-space: nowrap;
+    animation: 0.3s scale-in-center 0.7s $ease-out-quad backwards;
+
+    @include media("<tablet") {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__MessageWrapper {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   &__MessageView {
     height: 90%;
   }

@@ -31,6 +31,8 @@ const RoomContainer = (props) => {
     },
   ]);
 
+  const isLonely = votes && votes.length < 2;
+
   window.reaction = handleReaction;
   return (
     <View className={classNames}>
@@ -44,6 +46,13 @@ const RoomContainer = (props) => {
       {connected &&
         <div className="Room__Content">
           <BackButton className="Room__BackButton" />
+          {isLonely &&
+            <div className="Room__MessageWrapper">
+              <div className="Room__Message">
+                Waiting for other players to join...
+              </div>
+            </div>
+          }
           <div className="Room__Table">
             {votes &&
               <Table
