@@ -10,6 +10,7 @@ export default class JoinLink extends React.Component {
 
   static get propTypes() {
     return {
+      className: PropTypes.string,
       alternateAnimation: PropTypes.bool,
       code: PropTypes.string,
     };
@@ -41,7 +42,7 @@ export default class JoinLink extends React.Component {
   }
 
   get message() {
-    return 'Copied to\nClipboard!';
+    return 'Link copied to\nclipboard!';
   }
 
   showMessage() {
@@ -65,6 +66,7 @@ export default class JoinLink extends React.Component {
 
   render() {
     const {
+      className,
       code,
     } = this.props;
 
@@ -82,6 +84,7 @@ export default class JoinLink extends React.Component {
           '--hideMessage': !showMessage,
         },
       },
+      className,
     ]);
 
     return (
@@ -93,10 +96,15 @@ export default class JoinLink extends React.Component {
         <div>
           <div className="JoinLink__Container">
             <div className="JoinLink__Icon">
-              <Share2 size={15}/>
+              <Share2 size={20}/>
             </div>
-            <span className={'JoinLink__Code'}>
-              {code}
+            <span className={'JoinLink__Text'}>
+              <span className={'JoinLink__Copy'}>
+                Invite to session
+              </span>
+              <span className={'JoinLink__Code'}>
+                {code}
+              </span>
             </span>
           </div>
           <div className="JoinLink__Message">

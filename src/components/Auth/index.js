@@ -16,19 +16,26 @@ export default class Auth extends React.Component {
   get placeholderName() {
     const names = [
       'Alex',
+      'Cheque',
       'Dean',
       'Ellie',
-      'Jen',
+      'Jay',
       'Josh',
       'Lee',
       'Nico',
       'Rudy',
+      'Tom',
+      'Tony',
     ];
     return sample(names);
   }
 
   get title() {
     return 'What\'s your name?';
+  }
+
+  get subtitle() {
+    return 'This is how you will appear in the game';
   }
 
   getRoomId() {
@@ -48,9 +55,10 @@ export default class Auth extends React.Component {
           onBack={browserHistory.goBack}
           backLabel="Back"
           placeholderCode
-          submitLabel="Enter"
+          submitLabel="Start Playing"
           placeholder={this.placeholderName}
-          label={this.title}
+          title={this.title}
+          subtitle={this.subtitle}
           value={window.localStorage.getItem(LOCAL_STORAGE_KEYS.USERNAME) || ''}
         />
       </View>

@@ -1,17 +1,17 @@
 {
-  "short_name": "PointPoker",
-  "name": "Point Poker",
+  "short_name": "PointsPoker",
+  "name": "Points Poker",
   "display": "standalone",
   "theme_color": "#00707e",
   "background_color": "#00707e",
   "icons": [
     {
-      "src": "logo-144px.png",
+      "src": "images/logo-144px.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "logo-512.png",
+      "src": "images/logo-512px.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -8,12 +8,18 @@
 
 
   &__Shape {
+    background-image: url(/images/wood_texture.svg);
     z-index: -1;
-    width: 80%;
-    height: 80%;
-    border-radius: 50rem;
-    background-color: $color-bg;
-    box-shadow: inset 0 0 1rem 0 rgba(0,0,0,.28);
+    width: 72%;
+    height: 68%;
+    border-radius: 2rem;
+    background-color: #ffd07a; // This is the color of the svg - show this until image loads
+    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.4);
+
+    @include media("<tablet") {
+      width: 70%;
+      border-radius: 1rem;
+    }
   }
 }
 
@@ -22,7 +28,7 @@
   @include center;
   @include z-index('seat');
   position: absolute;
-  transition: 0.2s all $ease-out-quad;
+  transition: $transition-duration $ease-out-quad;
   transform: translate(-50%, -50%);
   white-space: nowrap;
 
@@ -32,23 +38,13 @@
 
   &__Content {
     position: relative;
-    animation: $transition-duration scale-in-center $ease-out-quad both;
-    padding: 1rem;
-    border-radius: 10rem;
-    background-color: $color-bg;
-    // border: 1px solid lightgray;
-    box-shadow: inset 0 0 0.3rem 0 rgba(0,0,0,.28);
-    min-width: 3.5rem;
-
-    @include media("<tablet") {
-      // padding: 0.5rem;
-    }
+    animation: $transition-duration scale-in-center $transition-duration $ease-out-back both;
   }
 
   &__Name {
-    @include roboto();
-    color: $color4;
-    font-size: 1.2rem;
+    font-family: Mallory-Bold;
+    color: white;
+    font-size: 1.5rem;
     text-align: center;
 
     @include media("<tablet") {
@@ -56,13 +52,17 @@
     }
   }
 
+
   &__Reaction {
-    top: 0;
+    top: 50%;
+    left: 50%;
     position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
   }
 
   &__ReactionImage {
-    width: 4.75rem;
+    width: 100%;
   }
 
   &__Card {
@@ -71,8 +71,8 @@
       --size: 2rem;
     }
 
-    .PlayingCard__Side {
-      box-shadow: 0 4px 8px rgba(0,0,0,.28);
+    .PlayingCard__Image {
+      box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.28);
     }
   }
 
@@ -85,6 +85,12 @@
   }
 
   &__CardsWrapper {
-    transition: $transition-duration-fast $ease-out-quad;
+    transition: $transition-duration $ease-out-quad;
+  }
+
+  &--self {
+    .Seat__Name {
+      font-size: 2rem;
+    }
   }
 }

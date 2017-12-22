@@ -1,7 +1,7 @@
 @import 'main';
 
 .MessageView {
-  $message-view-color: lightgray;
+  $message-view-color: $color-white;
   @include center;
   color: $message-view-color;
 
@@ -22,25 +22,25 @@
   }
 
   &__Title {
-    @include roboto(thin);
     font-size: 2rem;
     margin-bottom: 0.75rem;
   }
 
   &__Subtitle {
-    @include roboto(light);
     font-size: 1rem;
   }
 
   &__Link {
+    text-decoration: none;
+    color: $color-primary;
     transition: $transition-duration-fast $ease-out-quad;
 
     &:link, &:visited {
-      color: darken($message-view-color, 10);
+      color: $color-primary;
     }
 
     &:hover, &:active {
-      color: $color-primary;
+      color: $color-white;
     }
   }
 }

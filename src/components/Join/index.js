@@ -1,6 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 
+import { sample } from 'utils';
 import Form from 'components/Form';
 import View from 'components/View';
 import './_Join.scss';
@@ -8,15 +9,30 @@ import './_Join.scss';
 export default class Join extends React.Component {
 
   get placeholderCode() {
-    return 'ABCD';
+    return 'Session Code';
   }
 
   get title() {
-    return 'Please choose a room code';
+    return 'Join Existing Session';
   }
 
-  navigate(room) {
+  get subtitle() {
+    return 'Please enter the session code below';
+  }
+
+  navigate(room = this.generateRoom()) {
     browserHistory.push(`/join/${room}/?`);
+  }
+
+  generateRoom(length = 4) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let room = '';
+
+    for (let i = 0; i < length; i += 1) {
+      room += sample(alphabet);
+    }
+
+    return room;
   }
 
   render() {
@@ -30,7 +46,8 @@ export default class Join extends React.Component {
           placeholderCode
           submitLabel="Join"
           placeholder={this.placeholderCode}
-          label={this.title}
+          title={this.title}
+          subtitle={this.subtitle}
           valueTransform={value => (value && value.toUpperCase())}
         />
       </View>

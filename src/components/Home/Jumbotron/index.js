@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classwrap from 'classwrap';
 
+import AppliedAgile from 'components/AppliedAgile';
 import Logo from 'components/Logo';
 import Button from 'components/Button';
 import './_Jumbotron.scss';
@@ -21,17 +22,18 @@ class Jumbotron extends React.Component {
 
     return (
       <div className={classNames}>
-        <Logo className="Jumbotron__logo" size="large"/>
-        <div className="Jumbotron__headline">
-          Point Poker
+        <Logo className="Jumbotron__Logo" />
+        <AppliedAgile className="Jumbotron__AppliedAgile" />
+        <div className="Jumbotron__Headline">
+          Points Poker
         </div>
-        <div className="Jumbotron__subtitle">
+        <div className="Jumbotron__Subtitle">
           Estimate story points for your next sprint
         </div>
-        <div className="Jumbotron__cta">
+        <div className="Jumbotron__CTA">
           <Button
             buttonType="primary"
-            className="Jumbotron__button"
+            className="Jumbotron__Button"
             onClick={onClick}
           >
             Get Started
